@@ -1,2 +1,2 @@
 ## fp-interpreter
-[Installer & Source](https://www.heise.de/download/product/fp-trivia)
+--> Get It ... [(Installer Download)](https://www.heise.de/download/product/fp-trivia)
