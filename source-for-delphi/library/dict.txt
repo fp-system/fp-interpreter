@@ -1,0 +1,29 @@
+'("dict.txt" loaded)
+
+get == [get] op iget    // for test
+put == [put] op dictput // for test
+
+_v == arg get top°term // top
+:= == arg put (top°term) ee (pop°term) app arg // top,pop // substitute
+
+dict == .. { object
+             [get] == (pop°[0]) iget [1]
+             [put] == (top°[0]) obj (pop°[0]) put [1] // noch nicht getestet
+             [remove] ==}
+
+// ------- legacy -------
+dictget == (isnull->'_undef|head)°[0]°(((isnull°[0])->'false|not°[1]=infix°[0])->*(tail°[0]),[1],)°ee //((tail°[0]),[1],)°ee
+
+// ------- legacy -------
+dictput == (([1]°[2])++prop°([1]°[1]),([0]°[1]),((isnull->()|tail)°[0]°[2]),)
+	°([0],[1],(([0],(reverse°[2]),)
+		°(((isnull°[0])->'false|not°[1]=infix°[0])->*(tail°[0]),[1],(prop°(head°[0]),(infix°[0]),[2],),)
+		°[0],([0]°[1]),(),),)°ee
+
+// ------- legacy -------
+// <- == (head°term) app prop°(),'~,(reverse°[2]
+//	°(((isnull°[0])->'false|not°isnull°[1])->*(tail°[0]),(tail°[1]),(prop°([0]°[1]),([0]°[0]),[2],),)
+//	°(tail°term),arg,(),),
+
+
+// (cc-by-sa-3.0) 2020 Fpstefan
