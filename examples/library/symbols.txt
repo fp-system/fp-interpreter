@@ -1,0 +1,17 @@
+﻿'("symbols.txt" loaded)
+
+// ≡
+
+∘ ≡ .. o // compose
+× ≡ .. *
+÷ ≡ .. /
+→* ≡ .. ->*
+→ ≡ .. ->
+← ≡ .. <-
+≠ ≡ .. <>
+¬ ≡ .. not
+α ≡ .. aa
+ι ≡ .. iota
+
+
+// (cc-by-sa-3.0) 2020 Fpstefan

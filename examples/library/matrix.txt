@@ -1,0 +1,28 @@
+'("matrix.txt" loaded)
+
+IP==(+ \)°(* aa)°trans°ee				// Inner Product
+
+MM==(((IP aa) aa)°(distl aa)°distr°[0],(trans°[1]),)°ee	// Matrix Multiply
+
+droppos==((isnull°[0])->()|([1]='0)->((tail°[0]) droppos [1]-'1)|(head°[0]),(tail°[0]) droppos [1]-'1)°ee // row, i,
+
+droprow==(droppos aa)°distr
+
+// Laplacescher Entwicklungssatz
+det == ((isnull°[1])->(head°[0])|
+	[3]°(not°isnull°[0])->*(tail°[0]),[1],([2]+'1),([3]+[4]*(head°[0])*det°[1] droprow [2]),(neg°[4]),)
+	°head,tail,'0,'0,'1,
+//      erste Zeile,ohne erste Zeile,Position,Summe,+/- Faktor
+
+Aij==(([0] droppos [1]°[1]) droprow [0]°[1])°ee // mat Aij i,j,
+
+// inverse == (([1]='0)->(prop°'einv,'_exc,'("Division by Zero.";),)|
+//	([3]>='0)->*[0],[1],[2],([3]-'1),(
+//		()°[0],[1],[2],[3],(),),)°id,det,(length°head),length,(),
+
+inv==(([1]='0)->('[inv] error "Division by Zero";)| //(prop°'einv,'_exc,("Division by Zero";),)|                                                     //trans    
+                (((([1]°[1])*('_1 ^ +°[0])*det°([0]°[1])Aij[0]) aa)aa)°(distr aa)°((distl aa)°[2]distr[2])distr[0]ee'1/[1]
+     )°id,det,('0,iota°pred°length),
+
+
+// (cc-by-sa-3.0) 2020 Fpstefan

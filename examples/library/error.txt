@@ -1,0 +1,11 @@
+'("error.txt" loaded)
+
+// für pick, iget verwenden
+
+_error == .. { [interpreter] == .. "einterpreter"
+               [applic] == .. "eapplic"
+               [add] == .. "eadd"
+               [abs] == .. "eabs"}
+
+
+// (cc-by-sa-3.0) 2020 Fpstefan

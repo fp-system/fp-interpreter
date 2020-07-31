@@ -1,0 +1,42 @@
+'("complex.txt" loaded)
+
+i == .. '(complex :: 0 re 1 im)
+//c      == ([0] cvalue [1])°term // complex ???
+cval == (prop°'complex,'::,(prop°[0],'re,(prop°[1],'im,(),),),)°ee // complex
+
+iscomplex == id is 'complex // vollständig?
+
+re == .. [1] // #re
+im == .. [2] // #im
+
+// ------- class for complex numbers -------
+
+complex  == .. { dict
+   [add] == (([0] is 'complex) and [1] is 'complex)->
+              (((re°[0])+re°[1]) cval (im°[0])+im°[1])
+            | '[add] error '"complex objects expected.",id,
+   [sub] == (([0] is 'complex) and [1] is 'complex)->
+              (((re°[0])-re°[1]) cval (im°[0])-im°[1])
+            | '[sub] error '"complex objects expected.",id,
+   [mul] == (([0] is 'complex) and [1] is 'complex)->
+              ((((re°[0])*re°[1])-(im°[0])*im°[1])
+              cval ((re°[0])*im°[1])+(im°[0])*re°[1])
+            | '[mul] error '"complex objects expected.",id,
+   [div] == (([0] is 'complex) and [1] is 'complex)->
+              (((iszero°[2])->('[div] error '"division by zero",([0],[1],),)
+              | ((((re°[0])*re°[1])+(im°[0])*im°[1])/[2])
+                cval (((im°[0])*re°[1])-(im°[1])*re°[0])/[2] )
+              °[0],[1],((sq°re°[1])+sq°im°[1]),)
+            | '[div] error '"complex objects expected.",id,
+   [neg] == (neg°re) cval neg°im                   // iscomplex nötig?
+   [exp] == (([0]*cos°[1]) cval [0]*sin°[1])°(exp°re) ee im
+         // ((exp°re)*cos°im) cval (exp°re)*sin°im // correkt? ,exp doppelt
+   }
+
+// komplex expp mit Reihe probiert
+poti == [2]°((ispos°[1])->*[0],(pred°[1]),([0]*[2]),)°([0],(float°round°[1]),(1 cval 0),)°ee
+fact == (* \) ° '1,iota
+expp == [2]°((ispos°[0])->*(pred°[0]),[1],([2]+([1]poti[0])/(fact°[0]) cval 0),)°30,id,(1 cval 0),
+
+
+// (cc-by-sa-3.0) 2020 Fpstefan
