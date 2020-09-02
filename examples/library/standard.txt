@@ -116,6 +116,7 @@ drop == [0]°(((not°isnull°[0]) and (ispos°[1]))->*(tail°[0]),(pred°[1]),)°ee
 trans == transpose // Backus FP
 transpose == (isatom°head)->()|(id map 'head),transpose°id map 'tail	// cap ,isatom?
 
+pick == ((round°[0]) app [1])°ee // at?
 sel == ((round°[0]) app [1])°ee // pick
 last == (round°pred°length) app id // und bei leer?
 r == (([1]<'0)->()|(round°[1]) app [0])°arg ee (pred°length°arg)-float°top°term  // ...pick
@@ -152,5 +153,10 @@ to == (([0]<=[1])->upto|downto)°ee
 upto   == reverse°[0]°(([1]<=[2])->*([1],[0]),(succ°[1]),[2],)°(),ee
 downto == reverse°[0]°(([1]>=[2])->*([1],[0]),(pred°[1]),[2],)°(),ee
 
+swap == [1],[0],pop°pop
 
-// (cc-by-sa-3.0) 2020 Fpstefan
+// ((f0 eea f1 _s) _combine .. xx) ,eea?name
+eea == (tag='_combine)->(((top°term) app arg),((pop°term) app arg),arg,)|id // tag?
+
+
+// (CC BY 3.0 DE) Fpstefan

@@ -13,4 +13,4 @@ coreimport == "library\standard.txt";
            // "library\informatics.txt";
 
 
-// (cc-by-sa-3.0) 2020 Fpstefan
+// (CC BY 3.0 DE) Fpstefan

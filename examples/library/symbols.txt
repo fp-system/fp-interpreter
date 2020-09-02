@@ -14,4 +14,4 @@
 ι ≡ .. iota
 
 
-// (cc-by-sa-3.0) 2020 Fpstefan
+// (CC BY 3.0 DE) Fpstefan

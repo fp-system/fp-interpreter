@@ -8,7 +8,7 @@ colors == '(() _super 255 red 0 black 16711680 blue 16777215 white 32768 green 1
 initturtle == '(turtle :: () stack 0 x 0 y 0 angle true pen 0 color 1 size 16777215 brush)
 // use: 'turtle new
 
-draw       == [draw] fn fail     // (draw eff io)°...turtle
+draw       == [draw] cb fail     // ((...turtle) draw) eff 'io
 moveto     == [moveto] swop fail
 moverel    == [moverel] swop fail
 move       == [move] swop fail
@@ -24,7 +24,7 @@ rectangle  == [rectangle] fn fail
 
 turtle == .. { dict
    [new]        == initturtle as top°self
-   [draw]       == showgraph°reverse°#stack
+   [draw]       == (prop°(quote°reverse°#stack°[0]),'showgraph,(),) app [2]
    [moveto]     == ((self put 'stack ee prop°([0]°para),([1]°para),(self get 'stack),)
 	           put 'x ee [0]°para) put 'y ee [1]°para
    [moverel]    == ((([0]°para)+self get 'x) ee (([1]°para)+self get 'y)) moveto self
@@ -45,9 +45,9 @@ turtle == .. { dict
 }
 
 // ((f aa)°iota°x) (plot0 eff io) 0-y
-plot0 == draw°((reverse°(pendown°[0] moveto penup°'turtle new),tail) insr '([0] moveto [1]))
-         °transpose°((iota0°length°[0]) ee (+ aa0))°ee
+plot0 == ((prop°(quote°((reverse°(pendown°[0] moveto penup°'turtle new),tail) insr '([0] moveto [1]))
+         °transpose°((iota0°length°[0]) ee (+ aa0))),'draw,(),) app [2])°eea // eea?
 //plotn
 
 
-// (cc-by-sa-3.0) 2020 Fpstefan
+// (CC BY 3.0 DE) Fpstefan

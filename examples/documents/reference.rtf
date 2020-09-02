@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset0 Microsoft Sans Serif;}{\f3\fnil\fcharset161 Calibri;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Sprachreferenz\cf0\b0\fs22\line\fs24 2020-07-31\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Sprachreferenz\cf0\b0\fs22\line\fs24 2020-09-01\par
 \par
 \cf1\b\fs28 Namenskonventionen\cf0\b0\fs24\par
 \b name\b0\tab\tab der Name selbst\line\i name\i0\tab\tab der Typus / die Klasse\line (?)\tab\tab Unsicherheiten\line *\tab\tab Fu\'dfnote / Hinweis\par
@@ -38,7 +38,7 @@ userpath?\par
 \b prop\b0  \'b0 \i first\i0 ,\i infixwert\i0 ,\i rest\i0 ,\tab --\tab dict\par
 \b top\b0  \'b0 \i dict\i0\tab --\tab first\line\b top\b0  \'b0 \i list\i0\tab --\tab first\par
 \b pop\b0  \'b0 \i dict\i0\tab --\tab rest\line\b pop\b0  \'b0 \i list\i0\tab --\tab rest\par
-\b tag\b0  \'b0 \i data\i0\tab --\tab typus\line\b tag\b0  \'b0 \i dict\i0\tab --\tab infixwert\par
+\b tag\b0  \'b0 \i data\i0\tab --\tab typus\line\b tag\b0  \'b0 \i dict\i0\tab --\tab infixwert\line\b typeof\b0  ...\par
 \b term\b0  \'b0 \i combi\i0\tab --\tab termwert\par
 \b arg\b0  \'b0 \i combi\i0\tab --\tab argwert\par
 termoarg\tab --\tab term o arg\par
@@ -51,7 +51,7 @@ termoarg\tab --\tab term o arg\par
 \i dict\i0  \b take\b0  \i num\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b take\b0  \i num\i0\tab\tab --\tab\i list\i0\line Holt die ersten \i num\i0  Elemente aus der Liste.\par
 \i dict\i0  \b drop\b0  \i num\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b drop\b0  \i num\i0\tab\tab --\tab\i list\i0\line L\'e4sst die ersten \i num\i0  Elemente der Liste fallen.\par
 \b trans\b0  \'b0 \i matrix\i0\tab\tab --\tab matrix\line\b transpose\b0  \'b0 \i matrix\i0\tab --\tab matrix\par
-\i num\i0  \b sel\b0  \i list\i0\tab --\tab element\par
+\i num\i0  \b pick\b0  \i list\i0\tab --\tab element\line\i num\i0  \b sel\b0  \i list\i0\tab --\tab element\par
 \b last\b0  \'b0 \i list\i0\tab --\par
 (\i num\i0  \b r\b0 ) \'b0 \i list\i0\tab --\par
 \b tailr\b0  \'b0 \i list\i0\tab --\tab list\line\b tailr\b0  \'b0 \i dict\i0\tab --\tab dict\par
@@ -61,7 +61,8 @@ termoarg\tab --\tab term o arg\par
 \b iota0\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line Generiert eine Liste von Zahlen von 0 bis \i num\i0 -1.\par
 \i int\i0    \b to\b0   \i int\i0\tab --\tab list\line\i real\i0  \b to\b0  \i real\i0\tab --\tab list\par
 \i int\i0    \b upto\b0   \i int\i0\tab\tab --\tab list\line\i real\i0  \b upto\b0  \i real\i0\tab\tab --\tab list\par
-\i int\i0    \b downto\b0   \i int\i0\tab --\tab list\line\i real\i0  \b downto\b0  \i real\i0\tab --\tab list\lang7\par
+\i int\i0    \b downto\b0   \i int\i0\tab --\tab list\line\i real\i0  \b downto\b0  \i real\i0\tab --\tab list\par
+\b swap\b0  \'b0 \i x\i0 ,\i y\i0 ,\i list\i0\tab\tab --\tab\i y\i0 ,\i x\i0 ,list\lang7\par
 \par
 \cf1\b\fs28 Mathematische Funktionen und Operatoren\cf0\b0\fs24\par
 \i int\i0    \b + \b0  \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b +\b0  \i real\i0\tab --\tab\i real\i0\line Addition von Zahlen.\par
@@ -170,6 +171,7 @@ ispreg (?)\par
 (\i func\i0  \b aa0\b0 ) \'b0 \i list\i0 ,\i arg1\i0 ,\i arg2\i0 ,...,\line Kombination aus \b aa\b0  und \b distr\b0 , erweitert.\par
 \i func1\i0  \b ee\b0  \i func2\i0\line\b ee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Eval-Eval-Kombinator f\'fcr Infixnotation.\par
 \i func1\i0  \b swee\b0  \i func2\i0\line\b swee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Swap-Eval-Eval-Kombinator\par
+(\i func1\i0  \b eea\b0  \i func2\i0 ) \'b0 \i argum\i0\tab --\tab (x ; y ; argum ;)\par
 (\i func\i0  \b dip\b0 ) \'b0 \i list\i0\line (\i func\i0  \b dip\b0 ) \'b0 \i object\i0\line Dipp-Kombinator  (von Joy geklaut)\par
 ifnull\par
 ifprop\par
@@ -221,7 +223,8 @@ _undef\par
 \b para\b0  \'b0 \i pair\i0\par
 \i index\i0  \b op\b0  \i func\i0\par
 \i index\i0  \b swop\b0  \i func\i0\par
-\i index\i0  \b fn\b0  \i func\i0\par
+\i index\i0  \b fn\b0  \i func\par
+\i0 (\i object\i0  (\i index\i0  \b cb\b0  \i func\i0 ) \i parameter\i0 ) \'b0 argum\tab --\tab\i method \i0\'b0 [0],[1],argum,\par
 \b cap\b0  \'b0 \i list\i0\tab --\tab ( )\line\b cap\b0  \'b0 \i object\i0\tab --\tab (\i cap\i0  \b\fs28 ::\b0\fs24 )\par
 \i ident\i0  \b obj\b0  \i list\i0\tab --\tab (\i ident\i0  \b\fs28 ::\b0\fs24  \i list\i0 )\line\i ident\i0  \b obj\b0  \i dict\i0\tab --\tab (\i ident\i0  \b\fs28 ::\b0\fs24  \i dict\i0 )\par
 \i ident\i0  \b new\b0  \i parameter\i0\par
@@ -234,17 +237,18 @@ _undef\par
 \par
 \cf1\b\fs28 Monaden und Effekte\cf0\b0\fs24\par
 \i monad\i0  = (\i int\i0  \b _act \b0\i dict\i0 )\tab\tab // absolute\line\i monad\i0  = (\i index\i0  \b _act \b0\i dict\i0 )\tab\tab // relative\par
-#it (?)\par
-#self\par
-#para\par
+\b it\b0  \'b0 \i dict\tab\i0\tab --\tab #_it \'b0 dict\line Resultat einer Monadenaktion.\par
+#_it\par
+#_self\par
+#_para\par
 _bind\line Continuation\par
-_effects\line Effekte\par
-\i monad\i0  \b >>\b0  \i term\i0\tab --\tab monad\par
+_eff\line Effekte\par
+\i monad\i0  \b >>\b0  \i term\i0\tab --\tab monad\tab\tab // _bind := \i term\i0\par
 \i int\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line\i index\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line monad(?) \b act\b0  \i dict\i0\tab --\tab monad\par
-\i monad\i0  \b eff\b0  \i array\i0\tab --\tab monad\par
+\i monad\i0  \b eff\b0  \i array\i0\tab --\tab monad\line\i monad\i0  \b eff\b0  \i ident\i0\tab --\tab monad\par
 \i monad\i0  \b var\b0  \i data\i0\tab --\tab monad\line\i monad\i0  \b var\b0  \i dict\i0\tab --\tab monad\par
 (\i ident\i0  \b define\b0  \i dict\i0 ) \'b0 \i dict\i0\tab\tab --\tab monad\line //(prefix define dict) \'b0 dict\par
-\b showgraph\b0  \'b0 \i dict\i0\tab --\tab monad\par
+(\i data\i0  \b showgraph\b0 ) \'b0 \i dict\i0\tab\tab --\tab monad\tab\tab // *+ (\i x\i0  eff 'io)\par
 (\i data\i0  \b showinfo\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i data\i0  \b print\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i string\i0  \b input\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
@@ -300,12 +304,12 @@ etc\par
 \i num\i0  \b brushcolor\b0  \i turtle\i0\par
 \i real\i0  \b circle\b0  \i turtle\i0\par
 \b rectangle\b0  \'b0 \i turtle\i0\tab\tab // rect\par
-(\b draw\b0  eff io) \'b0 \i turtle\i0\tab --\tab monad\line F\'fcr die Zeichnung der Turtlespur.\par
+\i turtle\i0  (\b draw\b0  eff 'io)\tab --\tab monad\line F\'fcr die Zeichnung der Turtlespur.\par
 \b #x\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line\b #y\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line\b #angle\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line etc\line Attribute des Turtleobjektes.\par
 \b colors\b0  == '(... ...)\line #red \'b0 colors   f\'fcr den Farbwert Rot.\par
 \b turtle\b0  == .. \{ dict ... ... ... \}\line Turtle-Klasse,\line durch Vererbung k\'f6nnen auch eigene Turtle-Klassen erschaffen werden.\par
-xlist (\b plot0\b0  eff io) 0-y\tab --\tab monad\par
+xlist (\b plot0\b0  eff 'io) 0-y\tab\tab --\tab monad\par
 \par
-(cc-by-sa-3.0) 2020 Fpstefan\fs22\par
+(CC BY 3.0 DE) Fpstefan\fs22\par
 }
  

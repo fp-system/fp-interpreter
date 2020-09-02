@@ -8,4 +8,4 @@ _error == .. { [interpreter] == .. "einterpreter"
                [abs] == .. "eabs"}
 
 
-// (cc-by-sa-3.0) 2020 Fpstefan
+// (CC BY 3.0 DE) Fpstefan
