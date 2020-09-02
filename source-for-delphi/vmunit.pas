@@ -221,8 +221,10 @@ var it: ustring;
           with cell[cstack] do begin p:=first; q:=rest end;
           if (infix[q]<>xcons) then precomraise(ecomnosafestack);//?
           if (cell[q].first=xddot) then exit;
-          if (p=xstring) then precomraise(ecomnosafestring);
-          if (p=xarray)  then precomraise(ecomnosafearray);
+          //if (p=xerror) then exit;
+          if (p<xlimit) then if (p<>xerror) then precomraise(ecomnosafetype);// ^ xerror?
+        //if (p=xstring) then precomraise(ecomnosafestring);//enamen löschen?
+        //if (p=xarray)  then precomraise(ecomnosafearray); //enamen löschen?
           //wie bei ddot? ,etc ?
     end;
 

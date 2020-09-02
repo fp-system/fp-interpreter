@@ -16,6 +16,11 @@ swop == ( (isobj°[0]°[0])->(((isundef->quote|id)°(top°[0]°[0]) iget top°[1]) app
 fn == (isobj°arg) -> (((isundef->quote|id) ° ((top°arg) iget top°term)) app arg)
                    | (pop°term) app arg
 
+// ((sel cb fcb _s) _combine (f0 (sel cb fcb _s) f1 _s) _combine .. xx)
+cb == ( (isobj°[0]°[0])->(((isundef->quote|id)°(top°[0]°[0]) iget top°[1]) app [0])
+      | (pop°[1]) app [0] )
+      °((((top°term) app arg),((pop°term) app arg),arg,)°arg) ee term
+
 new == (([0] obj) ([new] op '[new] error '"fail in new",id,) [1])°ee // komma hinter id ? ,fail°'[new],id
 
 as == [as] op '[as] error '"object-type for operand[0] expected.",id, // space [0] ?
@@ -52,4 +57,4 @@ list == .. { object
 //dict == .. { }
 
 
-// (cc-by-sa-3.0) 2020 Fpstefan
+// (CC BY 3.0 DE) Fpstefan

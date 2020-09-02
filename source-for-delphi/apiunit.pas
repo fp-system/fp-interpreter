@@ -37,6 +37,7 @@ const //
       ecomnosafestack: es      = 'precom: no stack value for safeinfix.';//???
       ecomnosafestring: es     = 'precom: no safe _string in infix.';//???
       ecomnosafearray: es      = 'precom: no safe _array in infix.';//???
+      ecomnosafetype: es       = 'precom: no safe primtype in infix.';//???
       //
       ecomnoint: es            = 'precom: no integer value in brackets.';
       ecomnoprebracket: es     = 'precom: opening bracket missing.';
@@ -149,6 +150,10 @@ const //
       //
       efnnostring: es    = 'for function string expected.';
       //
+      // ------- react -------
+      //
+      ereactnobind: es = '_bind not found.';//???
+      //
       //
       // ------- api-constants & types -------
       xnull    = 0;
@@ -191,7 +196,7 @@ const //
       xpara    = 30;
       xvar     = 31;   // _var?
       xbind    = 32;   // _bind
-      xeffects = 33;   // _eff...
+      xeff     = 33;   // _eff...
       //
       xpen     = 34;
       xcolor   = 35;
@@ -615,12 +620,12 @@ begin identlist:=xnil;
       setxident(xtrue,   'true');
       setxident(xfalse,  'false');
       //
-      setxident(xit,     'it');       //item?  oder  _it ?
-      setxident(xself,   'self');
-      setxident(xpara,   'para');     //param?
+      setxident(xit,     '_it');       //item?  oder  _it ?
+      setxident(xself,   '_self');
+      setxident(xpara,   '_para');     //param?
       setxident(xvar,    'var');      //_var?
       setxident(xbind,   '_bind');    // _bind
-      setxident(xeffects,'_effects');  // _eff...
+      setxident(xeff,    '_eff');     // _eff...
       //
       setxident(xpen,    'pen');
       setxident(xcolor,  'color');

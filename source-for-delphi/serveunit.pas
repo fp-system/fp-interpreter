@@ -320,8 +320,12 @@ begin //servidledone...
              //iferror...
              mdict:=etop;
              apiget(idxreact,mdict,xbind);
-             //ifxundef?
-             //ifxerror?
+             if (etop=xundef) then begin//if nötig? (kompakter?, bessere Lösung?, im stackgefüge?)
+                etop:=newerror(idxreact,ereactnobind);//name?
+                serveidledone:=false;//?
+                exit
+             end;//ifxundef?
+             //ifetop=xerror?
              efun:=etop;
              //servprint(tovalue(efun)+' //iget ''bind');
           // etop:=estack[eptr];  dec(eptr);

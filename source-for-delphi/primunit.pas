@@ -253,6 +253,9 @@ procedure fid;
 begin //etop:=etop
 end;
 
+// bei head, tail, top, pop wenn etop<xlimit dann xnil (außer xerror)
+
+// keine typklassen, zu langsam
 procedure fhead;
 begin einf:=infix[etop];
       if (einf<xlimit) then begin if (einf<>xerror) then etop:=xnil end
@@ -294,7 +297,8 @@ begin if (infix[etop]<>xcons) then begin
          etop:=newerror(idxprop,efnconsexpect); exit
       end;
       etop:=cell[etop].first;
-      if ((einf=xstring) or (einf=xarray)) then begin
+      if (einf<xlimit) then if (einf<>xerror) then begin// <-xerror?
+    //if ((einf=xstring) or (einf=xarray)) then begin
          etop:=newerror(idxprop,efnnosafeinfix); exit
       end;
       //ifxobject?
@@ -363,7 +367,7 @@ begin ee(idxee);
       end
 end;
 
-procedure fswee;
+procedure fswee;// ,swap?
 begin ee(idxswee);
       if (infix[etop]<>xerror) then begin
          //ifxobject?
@@ -575,7 +579,8 @@ begin for i:=0 downto minproc do proc[i]:=fundef;// to -1 (?)
       newidentproc('prop',fprop);
       newidentproc('top',ftop);
       newidentproc('pop',fpop);
-      newidentproc('tag',ftag);
+      newidentproc('tag',ftag);//tag?
+      newidentproc('typeof',ftag);//ftypeof?
       idterm:=newidentproc('term',fterm);
       //cell[xcons].value:=cell[idterm].value;// der klasse vorrang gelassen.
       cell[xalter].value:=cell[idterm].value;//alternal?

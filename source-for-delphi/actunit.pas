@@ -220,7 +220,7 @@ begin if (infix[etop]=xact) then begin
          else if (einf=xindex)   then begin
             mstack:=prop(mdict,xcons,mstack);//(prop(,xact,))?
             epush(etop);//besser anders...
-            apiget(idxreact,mdict,xeffects);//iferror? //ifxundef? ,idxreact?
+            apiget(idxreact,mdict,xeff);//iferror? //ifxundef? ,idxreact?
             if (etop=xundef) then provisorium('keine effektgruppe gefunden in _act');//find effect
             //ifxerror...
             efun:=estack[eptr];  dec(eptr);
