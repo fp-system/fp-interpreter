@@ -7,4 +7,4 @@ spirale == ((#seite<'500)->
 	°(id<-t;seite;winkel;zunahme;)°([1],[0])°ee
 
 
-// (CC BY 3.0 DE) Fpstefan
+// (CC-BY-3.0-DE) Fpstefan

@@ -9,4 +9,4 @@ kringel==(((reverse°(pendown°[0] moveto penup°'turtle new),tail) insr '([0] move
                         ('_300+('200-[0]*'200)*sin°2pi*[1]*[0]),)°([0]/'3000),[1],)) (draw eff 'io)
 
 
-// (CC BY 3.0 DE) Fpstefan
+// (CC-BY-3.0-DE) Fpstefan

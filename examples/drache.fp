@@ -13,4 +13,4 @@ drache == ((#level=0)->(#len move #t)|
 	°(id<-t isobj level isnum len isreal)°([1],[0])°ee
 
 
-// (CC BY 3.0 DE) Fpstefan
+// (CC-BY-3.0-DE) Fpstefan

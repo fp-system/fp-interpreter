@@ -15,7 +15,7 @@ dict == .. { object
 dictget == (isnull->'_undef|head)°[0]°(((isnull°[0])->'false|not°[1]=infix°[0])->*(tail°[0]),[1],)°ee //((tail°[0]),[1],)°ee
 
 // in apiput-implementierung auf (... ... .. c) not°isprop°c achten!
-dictput == (([1]°[2])++prop°([1]°[1]),([0]°[1]),((isatom->id|tail)°[0]°[2]),)
+dictput == (([1]°[2])++prop°([1]°[1]),([0]°[1]),((isatom->()|tail)°[0]°[2]),) // id durch () ersetzt
 	°([0],[1],(([0],(reverse°[2]),)
 		°(((isatom°[0])->'false|not°[1]=infix°[0])->*(tail°[0]),[1],(prop°(head°[0]),(infix°[0]),[2],),)
 		°[0],([0]°[1]),(),),)°ee
@@ -31,4 +31,4 @@ dictput == (([1]°[2])++prop°([1]°[1]),([0]°[1]),((isatom->id|tail)°[0]°[2]),)
 //	°(tail°term),arg,(),),
 
 
-// (CC BY 3.0 DE) Fpstefan
+// (CC-BY-3.0-DE) Fpstefan

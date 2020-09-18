@@ -14,4 +14,4 @@ purposes;.;These;need;not;be;complex;,;since;many;programs;can;do;without;them;c
 importantly;,;they;treat;names;as;functions;that;can;be;combined;with;other;functions;without;special;treatment;.;
 
 
-// (CC BY 3.0 DE) Fpstefan
+// (CC-BY-3.0-DE) Fpstefan

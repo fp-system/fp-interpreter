@@ -136,7 +136,7 @@ mid   == (substring°[0],([0]°[1]),([1]°[1]),)°ee
 left  == (substring°[0],'1,[1],)°ee
 right == (substring°[0],((succ°length°[0])-float°[1]),[1],)°ee
 // trim  == triml°trimr
-upper1lower == (upper°id left 1)&(lower°id right length-1) // name?
+capitalize == (upper°id left 1)&(lower°id right length-1) // name?
 
 unpack == [2]°(([1]>'0)->*[0],(pred°[1]),((substring°[0],[1],'1,),[2]),)°id,length,(), // ispos?
 pack == isatom->' ""|(concat \)
@@ -159,4 +159,4 @@ swap == [1],[0],pop°pop
 eea == (tag='_combine)->(((top°term) app arg),((pop°term) app arg),arg,)|id // tag?
 
 
-// (CC BY 3.0 DE) Fpstefan
+// (CC-BY-3.0-DE) Fpstefan
