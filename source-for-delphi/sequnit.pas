@@ -70,4 +70,4 @@ end;
 end.
 
 
-// (c) 2020 Fpstefan
+// (CC-BY-3.0-DE) Fpstefan
