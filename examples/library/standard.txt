@@ -138,8 +138,22 @@ right == (substring°[0],((succ°length°[0])-float°[1]),[1],)°ee
 // trim  == triml°trimr
 capitalize == (upper°id left 1)&(lower°id right length-1) // name?
 
+join == ( (isatom°[0])->'_undef|(isatom°tail°[0])->(head°[0])|
+          ((([0]°[0])&[1]&[1]°[0]),tail°tail°[0]) join [1])°ee
+
+split == reverse°[0]
+         °( (ispos°length°[1])->*( (iszero°[0])->(([2],[1]),"",[3],)|
+            ((substring°[2],1,(pred°[0]),),[1]),(substring°[2],([0]+length°[3]),((length°[2])-[0]),),[3],)
+                                 °([1] indexof [2]),id)°(),ee // Bug? in length0
+
+repeat == [0]°((ispos°[2])->*([0]&[1]),[1],(pred°[2]),) ° "",ee // round?
+
+delete == (substring°[0],1,(pred°[1]),)&(substring°[0],([1]+[2]),((length°[0])-pred°[1]+[2]),) // str,i,len, // name?
+
 unpack == [2]°(([1]>'0)->*[0],(pred°[1]),((substring°[0],[1],'1,),[2]),)°id,length,(), // ispos?
 pack == isatom->' ""|(concat \)
+
+csvtomatrix == (((value aa)°id split ",") aa)°id split (char°13)&(char°10)
 
 // ifcases ... (?)
 ifnull == (prop°(('isnull comp top),'->,pop,)°term) app arg

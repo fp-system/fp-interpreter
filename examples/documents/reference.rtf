@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset0 Microsoft Sans Serif;}{\f3\fnil\fcharset161 Calibri;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Sprachreferenz\cf0\b0\fs22\line\fs24 2020-09-17\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Sprachreferenz\cf0\b0\fs22\line\fs24 2020-09-23\par
 \par
 \cf1\b\fs28 Namenskonventionen\cf0\b0\fs24\par
 \b name\b0\tab\tab der Name selbst\line\i name\i0\tab\tab der Typus / die Klasse\line (?)\tab\tab Unsicherheiten\line *\tab\tab Fu\'dfnote / Hinweis\par
@@ -109,7 +109,8 @@ integral\par
 dd\par
 \par
 \cf1\b\fs28 Dictionary Operatoren und Kombinatoren\cf0\b0\fs24\par
-\i dict\i0  = (\i value0\i0  \i key0\i0  \i value1\i0  \i key1\i0  \i value2\i0  \i key2\i0  ... ...)\par
+\i dict ist ein Table f\'fcr pattern matching Behandlung\par
+dict\i0  = (\i value0\i0  \i key0\i0  \i value1\i0  \i key1\i0  \i value2\i0  \i key2\i0  ... ...)\par
 _super\par
 \i dict\i0  \b get\b0  \i key\i0\tab\tab --\tab value\par
 \i dict\i0  \b put\b0  \i key\i0 ,\i value\i0 ,\tab --\tab dict\par
@@ -198,6 +199,11 @@ _undef\par
 \cf1\b\fs28 String Funktionen und Operatoren\cf0\b0\fs24\par
 \b substring\b0  \'b0 \i string\i0 ,\i num\i0 ,\i num\i0 ,\tab --\tab string\par
 \i string\i0  \b concat\b0  \i string\i0\tab --\tab string\line\i string\i0  \b &\b0  \i string\i0\tab\tab --\tab string\par
+\i string\i0  \b indexof\b0  \i substr\i0\tab --\tab real\par
+\i list\i0  \b join\b0  \i sepstr\i0\tab\tab --\tab string\par
+\i string\i0  \b split\b0  \i sepstr\i0\tab --\tab list\par
+\i string\i0  \b repeat\b0  \i num\i0\tab --\tab string\par
+\b delete\b0  \'b0 \i string\i0 ,\i num\i0 ,\i num\i0 ,\tab --\tab string\par
 \b length\b0  \'b0 \i string\i0\tab\tab --\tab real\par
 \i string\i0  \b mid\b0  \i num\i0 ,\i num\i0 ,\tab --\tab string\par
 \i string\i0  \b left\b0  \i num\i0\tab --\tab string\par
@@ -217,7 +223,7 @@ _undef\par
 \b pack\b0  \'b0 \i list\i0\tab\tab --\tab string\par
 \par
 \cf1\b\fs28 OOP\cf0\b0\fs24\par
-\i object\i0  = (\i cap\i0  \b\fs28 ::\b0\fs24  \i inst\i0 )\par
+\i object\i0  = (\i cap\i0  \b\fs28 ::\b0\fs24  \i inst\i0 )\tab\tab // Objekt-Klassen\par
 \i pair\i0   =\tab\i objekt\i0  , \i parameter\i0  ,\par
 \b self\b0  \'b0 \i pair\i0\par
 \b para\b0  \'b0 \i pair\i0\par
