@@ -15,6 +15,7 @@ primunit,vmunit;//noch mal neu!
 var //
     idxsubstring: cardinal = xnil;
     idxconcat: cardinal = xnil;
+    idxindexof: cardinal = xnil;
     idxchar: cardinal = xnil;
     idxunicode: cardinal = xnil;
     idxtrim: cardinal = xnil;
@@ -77,6 +78,24 @@ begin ee(idxconcat);
          else if (einf=xobject) then op(idxconcat)
        //else if (einf=xerror)  then //exit
          else etop:=newerror(idxconcat,eopnostring1);
+         einf:=xnil
+      end//else exit
+end;
+
+procedure findexof;
+begin ee(idxindexof);
+      if (infix[etop]<>xerror) then begin
+         einf:=infix[efun];
+         if      (einf=xstring) then begin
+            if (infix[etop]=xstring) then begin // was bei nils?
+             //try?
+               etop:=newreal(pos(cell[etop].pstr^,cell[efun].pstr^))
+            end
+            else etop:=newerror(idxindexof,eopnostring2)
+         end
+         else if (einf=xobject) then op(idxindexof)
+       //else if (einf=xerror)  then //exit
+         else etop:=newerror(idxindexof,eopnostring1);
          einf:=xnil
       end//else exit
 end;
@@ -267,6 +286,7 @@ procedure initstringidents;
 begin //
       idxsubstring:=newindex('substring');
       idxconcat:=newindex('concat');
+      idxindexof:=newindex('indexof');//pos
       idxchar:=newindex('char');
       idxunicode:=newindex('unicode');
       idxtrim:=newindex('trim');
@@ -286,6 +306,7 @@ begin //
       newidentproc('substring',fsubstring);
       newidentproc('concat',fconcat);// conc?
       newidentproc('&',fconcat);//cc = & (?)
+      newidentproc('indexof',findexof);//pos ,(index)of?
       newidentproc('char',fchar);
       newidentproc('unicode',funicode);
       newidentproc('trim',ftrim);

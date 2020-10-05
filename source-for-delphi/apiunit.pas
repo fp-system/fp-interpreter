@@ -676,7 +676,7 @@ const // ----- errors apiunit ----- //auf apiget ändern!!!!!!!!!!!!!!!!!!
 //aus apiunit: //ifprefix?...
 
 //
-// ------- pattern matching function (apiget) -------
+// ------- table pattern matching function (apiget) ,imatch? -------
 //
 
 //iget: noch nicht ganz fertig!

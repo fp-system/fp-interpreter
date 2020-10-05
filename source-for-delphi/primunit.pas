@@ -472,6 +472,18 @@ begin repeat einf:=infix[etop];
       until false//
 end;
 
+procedure fswop;
+begin;end;
+
+procedure ffn;
+begin;end;
+
+procedure fcb;//combinator
+begin;end;
+
+procedure fdg;//delegate
+begin;end;
+
 //swop
 //fn
 
