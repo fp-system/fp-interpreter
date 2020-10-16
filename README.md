@@ -18,4 +18,3 @@ Programmiersprachen werden immer problemorientiert bleiben.
 Aber neben diesen ehrlicherweise gesagten Nachteilen bietet es eben auch Vorteile, wie die "[Algebra of Programming](https://de.wikipedia.org/wiki/Punktfreie_Programmiersprache)",
 die durch die referentielle Transparenz dieser Implementierung ermöglicht wird.
 
-(Werbung ist eben das Weglassen von Nachteilen und nur Hervorhebung der Vorteile, Sorry.)
