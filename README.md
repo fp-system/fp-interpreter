@@ -19,5 +19,5 @@ Aber neben diesen ehrlicherweise gesagten Nachteilen bietet es eben auch Vorteil
 die durch die referentielle Transparenz dieser Implementierung ermöglicht wird.
 
 
-[infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf)
+siehe --> [infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf)
 
