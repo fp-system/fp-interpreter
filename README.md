@@ -18,3 +18,6 @@ Programmiersprachen werden immer problemorientiert bleiben.
 Aber neben diesen ehrlicherweise gesagten Nachteilen bietet es eben auch Vorteile, wie die "[Algebra of Programming](https://de.wikipedia.org/wiki/Punktfreie_Programmiersprache)",
 die durch die referentielle Transparenz dieser Implementierung ermöglicht wird.
 
+
+[infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf)
+
