@@ -5,7 +5,7 @@
 ![triviamap](http://fpstefan.github.io/fpstefande/triviastrictmap.png)
 
 
-## FP - Funktionale Programmierung
+## FP - Functional Programming
 
 The separation of functions into pure functions and into side effects works, 
 but only a script language has emerged from it. 
