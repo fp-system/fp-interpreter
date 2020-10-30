@@ -7,7 +7,7 @@ true  == .. 'true  // ?
 false == .. 'false // ?
 
 iput==dictput // for test !!!
-: == raise ° ' "provisorium für fapplic (deprecation)"
+// : == raise ° ' "provisorium für fapplic (deprecation)"
 
 mod == ([0]-[1]*int°[0]/[1])°ee
 

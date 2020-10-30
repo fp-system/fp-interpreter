@@ -1,55 +1,55 @@
-{\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset0 Microsoft Sans Serif;}{\f3\fnil\fcharset161 Calibri;}}
+{\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset161 Calibri;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Sprachreferenz\cf0\b0\fs22\line\fs24 2020-09-23\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2020-10-27\par
 \par
-\cf1\b\fs28 Namenskonventionen\cf0\b0\fs24\par
-\b name\b0\tab\tab der Name selbst\line\i name\i0\tab\tab der Typus / die Klasse\line (?)\tab\tab Unsicherheiten\line *\tab\tab Fu\'dfnote / Hinweis\par
+\cf1\b\fs28 Naming Conventions\cf0\b0\fs24\par
+\b name\b0\tab\tab the name itself\line\i name\i0\tab\tab the type / the class\line (?)\tab\tab Uncertainties\line *\tab\tab Footnote / Note\par
 \par
-\cf1\b\fs28 Datentypen\cf0\b0\fs22\par
-\ul\fs24 Datentyp\ulnone\tab\ul Syntax\ulnone\tab\tab\tab\tab\ul Typbezeichner\ulnone\par
-\i data\i0\tab\tab\tab\tab\tab\tab // Allgemein\line\i null\i0\tab\tab ( )\tab\tab\tab\tab _null\line\i int*\i0\tab\tab [_123]\tab\tab\tab\tab _integer\line\i real\i0\tab\tab _31.415e_123\tab\tab\tab _real\line\i string\i0\tab\tab "abc"\tab\tab\tab\tab _string\line\i ident\i0\tab\tab abc  \ul oder\ulnone   +-*/\tab\tab\tab _ident\line\i prefix\i0\tab\tab @...\tab\tab\tab\tab _prefix\line\i index\i0\tab\tab [abc]\tab\tab\tab\tab _index\line\i array\i0\tab\tab\{a b c\}\tab\tab\tab\tab _array\line\i error\i0\tab\tab (\i index\i0  _error ... ...)\tab\tab _error\line\i table*/dict*\i0\tab (a x b y c z)\tab\tab\tab // Paarweise\line\i list\i0\tab\tab (a ; b ; c ;)\tab\tab\tab ;\line\i object\i0\tab\tab (\i ident\i0  :: a x b y c z)\tab\tab ::\line\i turtle\i0\tab\tab (turtle :: ... ...)\tab\tab\tab // Objekt\line\i combi\i0\tab\tab (\i term\i0  _combine .. \i arg\i0 )\tab _combine\line\i monad\i0\tab\tab (\i int\i0  _act ... ...)\tab\tab\tab _act\line\i bool\i0\tab\tab true  \ul oder\ulnone   false\tab\tab // Idents\line etc...\par
+\cf1\b\fs28 Data Types\cf0\b0\fs22\par
+\ul\fs24 Data type\ulnone\tab\ul Syntax\ulnone\tab\tab\tab\tab\ul Type identifier\ulnone\par
+\i data\i0\tab\tab\tab\tab\tab\tab // General\line\i null\i0\tab\tab ( )\tab\tab\tab\tab _null\line\i int*\i0\tab\tab [_123]\tab\tab\tab\tab _integer\line\i real\i0\tab\tab _31.415e_123\tab\tab\tab _real\line\i string\i0\tab\tab "abc"\tab\tab\tab\tab _string\line\i ident\i0\tab\tab abc  \ul or\ulnone   +-*/\tab\tab\tab _ident\line\i prefix\i0\tab\tab @...\tab\tab\tab\tab _prefix\line\i index\i0\tab\tab [abc]\tab\tab\tab\tab _index\line\i array\i0\tab\tab\{a b c\}\tab\tab\tab\tab _array\line\i error\i0\tab\tab (\i index\i0  _error ... ...)\tab\tab _error\line\i table*/dict*\i0\tab (a x b y c z)\tab\tab\tab // In pairs\line\i list\i0\tab\tab (a ; b ; c ;)\tab\tab\tab ;\line\i object\i0\tab\tab (\i ident\i0  :: a x b y c z)\tab\tab ::\line\i turtle\i0\tab\tab (turtle :: ... ...)\tab\tab\tab // Object\line\i combi\i0\tab\tab (\i term\i0  _combine .. \i arg\i0 )\tab _combine\line\i monad\i0\tab\tab (\i int\i0  _act ... ...)\tab\tab\tab _act\line\i bool\i0\tab\tab true  \ul or\ulnone   false\tab\tab\tab // Idents\line etc...\par
 \par
-\i *\i0 man beachte, da\'df \i int\i0 - und \i dict\i0 -Literale des Konstanten-Kombinators bed\'fcrfen!\par
+\i *\i0 note that \i int-\i0  and \i dict\i0 -literals require the constant combinator!\par
 \par
-\cf1\b\fs28 Kommentare\cf0\b0\fs24\par
+\cf1\b\fs28 Comments\cf0\b0\fs24\par
 \i codetext\i0  \b //\b0  \i comment\i0\par
 \par
-\cf1\b\fs28 Definition von Bezeichnern\cf0\b0\fs24\par
+\cf1\b\fs28 Definition of Identifiers\cf0\b0\fs24\par
 \i ident\i0  \b ==\b0  \i term\i0\line\i ident\i0   \b\u8801?\b0   \i term\i0\par
 \par
-\cf1\b\fs28 Skriptaufbau\cf0\b0\fs24\par
+\cf1\b\fs28 Script Structure\cf0\b0\fs24\par
 \i term\i0  \i definition1\i0  \i definition2\i0  \i definition3\i0  ...\par
 \par
 \cf1\b\fs28 Ddot\cf0\b0\fs24\par
 \i prop\i0    =   \i head\i0  \i infix\i0  \b\fs28 ..\b0\fs24  \i tail\i0\par
 \par
-\cf1\b\fs28 Include-Dateien\cf0\b0\fs24\par
+\cf1\b\fs28 Include Files\cf0\b0\fs24\par
 \b coreimport\b0  == "\i Script1.txt\i0 " ; "\i Script2.txt\i0 " ; "\i Script3.txt\i0 " ; ... ;\par
 \b userimport\b0  == "\i Script1.txt\i0 " ; "\i Script2.txt\i0 " ; "\i Script3.txt\i0 " ; ... ;\par
 corepath?\par
 userpath?\par
 \par
-\cf1\b\fs28 Listen/Dict Funktionen und Operatoren\cf0\b0\fs24\par
-\i dict\i0  = (first1 infix1 first2 infix2 ... ... firstm infixm)\line\i list\i0   = (element0 ; element1 ; element2 ; ... ; )\par
-\b [ \b0\i i\i0  \b ]\b0  \'b0 \i list\i0\tab --\tab\i elementi\i0\par
-\b head\b0  \'b0 \i dict\i0\tab --\tab first\line\b head\b0  \'b0 \i list\i0\tab --\tab first\line\b head\b0  \'b0 \i object\i0\tab --\par
-\b tail\b0  \'b0 \i dict\i0\tab --\tab rest\line\b tail\b0  \'b0 \i list\i0\tab --\tab rest\line\b tail\b0  \'b0 \i object\i0\tab --\par
-\b infix\b0  \'b0 \i dict\i0\tab --\tab infixwert\line\b infix\b0  \'b0 \i object\i0\tab --\par
-\b prop\b0  \'b0 \i first\i0 ,\i infixwert\i0 ,\i rest\i0 ,\tab --\tab dict\par
+\cf1\b\fs28 List/Dict Functions and Operators\cf0\b0\fs24\par
+\i dict\i0  = (first\sub 1\nosupersub  infix\sub 1\nosupersub  first\sub 2\nosupersub  infix\sub 2\nosupersub  ... ... first\sub m\nosupersub  infix\sub m\nosupersub )\line\i list\i0   = (element\sub 0\nosupersub  ; element\sub 1\nosupersub  ; element\sub 2\nosupersub  ; ... ; )\par
+\b [ \b0\i i\i0  \b ]\b0  \'b0 \i list\i0\tab --\tab\i element\sub\i0 i\nosupersub\par
+\b head\b0  \'b0 \i dict\i0\tab --\tab first\line\b head\b0  \'b0 \i list\i0\tab --\tab\i first\i0\line First element of the list.\line\b head\b0  \'b0 \i object\i0\tab --\par
+\b tail\b0  \'b0 \i dict\i0\tab --\tab rest\line\b tail\b0  \'b0 \i list\i0\tab --\tab\i rest\i0\line List without the first element and first infix.\line\b tail\b0  \'b0 \i object\i0\tab --\par
+\b infix\b0  \'b0 \i dict\i0\tab --\tab infix value\line\b infix\b0  \'b0 \i object\i0\tab --\par
+\b prop\b0  \'b0 \i first\i0 ,\i infix\i0 ,\i rest\i0 ,\tab\tab --\tab dict\par
 \b top\b0  \'b0 \i dict\i0\tab --\tab first\line\b top\b0  \'b0 \i list\i0\tab --\tab first\par
 \b pop\b0  \'b0 \i dict\i0\tab --\tab rest\line\b pop\b0  \'b0 \i list\i0\tab --\tab rest\par
-\b tag\b0  \'b0 \i data\i0\tab --\tab typus\line\b tag\b0  \'b0 \i dict\i0\tab --\tab infixwert\line\b typeof\b0  ...\par
-\b term\b0  \'b0 \i combi\i0\tab --\tab termwert\par
-\b arg\b0  \'b0 \i combi\i0\tab --\tab argwert\par
+\b tag\b0  \'b0 \i data\i0\tab --\tab typus\tab\tab // als typeof\line\b tag\b0  \'b0 \i dict\i0\tab --\tab infix value\par
+\b term\b0  \'b0 \i combi\i0\tab --\tab term value\par
+\b arg\b0  \'b0 \i combi\i0\tab --\tab arg value\par
 termoarg\tab --\tab term o arg\par
 \i first\i0  \b\fs28 ,\b0\fs24  \i rest\i0\tab --\tab list\line Appendleft\par
-\b length\b0  \'b0 \i dict\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 \i list\i0\tab\tab --\tab\i real\i0\line Anzahl der Listenelemente.\par
-\b reverse\b0  \'b0 \i dict\i0\tab\tab --\tab\i dict\i0\line\b reverse\b0  \'b0 \i list\i0\tab\tab --\tab\i list\i0\line\b reverse\b0  \'b0 \i object\i0\tab --\line Dreht die Listenelemente um.\par
+\b length\b0  \'b0 \i dict\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 \i list\i0\tab\tab --\tab\i real\i0\line Number of list items.\par
+\b reverse\b0  \'b0 \i dict\i0\tab\tab --\tab\i dict\i0\line\b reverse\b0  \'b0 \i list\i0\tab\tab --\tab\i list\i0\line\b reverse\b0  \'b0 \i object\i0\tab --\line Reverses the list items.\par
 \i data\i0  \b distl\b0  \i list\i0\tab\tab --\tab matrix\par
 \i list\i0  \b distr\b0  \i data\i0\tab\tab --\tab matrix\par
-\i dict\i0  \b ++\b0  \i dict\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b ++\b0  \i list\i0\tab\tab --\tab\i list\i0\line Verkettet die Listen.\par
-\i dict\i0  \b take\b0  \i num\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b take\b0  \i num\i0\tab\tab --\tab\i list\i0\line Holt die ersten \i num\i0  Elemente aus der Liste.\par
-\i dict\i0  \b drop\b0  \i num\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b drop\b0  \i num\i0\tab\tab --\tab\i list\i0\line L\'e4sst die ersten \i num\i0  Elemente der Liste fallen.\par
+\i dict\i0  \b ++\b0  \i dict\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b ++\b0  \i list\i0\tab\tab --\tab\i list\i0\line Concatenate the lists.\par
+\i dict\i0  \b take\b0  \i num\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b take\b0  \i num\i0\tab\tab --\tab\i list\i0\line Takes the first \i num\i0  elements from the list.\par
+\i dict\i0  \b drop\b0  \i num\i0\tab\tab --\tab\i dict\i0\line\i list\i0   \b drop\b0  \i num\i0\tab\tab --\tab\i list\i0\line Drops the first \i num\i0  elements in the list.\par
 \b trans\b0  \'b0 \i matrix\i0\tab\tab --\tab matrix\line\b transpose\b0  \'b0 \i matrix\i0\tab --\tab matrix\par
 \i num\i0  \b pick\b0  \i list\i0\tab --\tab element\line\i num\i0  \b sel\b0  \i list\i0\tab --\tab element\par
 \b last\b0  \'b0 \i list\i0\tab --\par
@@ -57,174 +57,175 @@ termoarg\tab --\tab term o arg\par
 \b tailr\b0  \'b0 \i list\i0\tab --\tab list\line\b tailr\b0  \'b0 \i dict\i0\tab --\tab dict\par
 \b rotl\b0  \'b0 \i list\i0\tab --\tab list\par
 \b rotr\b0  \'b0 \i list\i0\tab --\tab list\par
-\b iota\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line\b\f1\fs28\u953?\lang1031\b0\f0\fs24      \'b0 \i num\i0\tab --\tab\i list\i0\line Generiert eine Liste von Zahlen von 1 bis \i num\i0 .\par
-\b iota0\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line Generiert eine Liste von Zahlen von 0 bis \i num\i0 -1.\par
+\b iota\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line\b\f1\fs28\u953?\lang1031\b0\f0\fs24      \'b0 \i num\i0\tab --\tab\i list\i0\line Generates a list of numbers from 1 to \i num\i0 .\par
+\b iota0\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line Generates a list of numbers from 0 to \i num\i0 -1.\par
 \i int\i0    \b to\b0   \i int\i0\tab --\tab list\line\i real\i0  \b to\b0  \i real\i0\tab --\tab list\par
 \i int\i0    \b upto\b0   \i int\i0\tab\tab --\tab list\line\i real\i0  \b upto\b0  \i real\i0\tab\tab --\tab list\par
 \i int\i0    \b downto\b0   \i int\i0\tab --\tab list\line\i real\i0  \b downto\b0  \i real\i0\tab --\tab list\par
 \b swap\b0  \'b0 \i x\i0 ,\i y\i0 ,\i list\i0\tab\tab --\tab\i y\i0 ,\i x\i0 ,list\lang7\par
 \par
-\cf1\b\fs28 Mathematische Funktionen und Operatoren\cf0\b0\fs24\par
-\i int\i0    \b + \b0  \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b +\b0  \i real\i0\tab --\tab\i real\i0\line Addition von Zahlen.\par
-\i int\i0    \b - \b0  \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b -\b0  \i real\i0\tab --\tab\i real\i0\line Subtraktion von Zahlen.\par
-\i int\i0    \b *\b0   \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b *\b0  \i real\i0\tab --\tab\i real\i0\line\i int\i0    \b\'d7\b0   \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b\'d7\b0  \i real\i0\tab --\tab\i real\i0\line Multiplikation von Zahlen.\par
-\i num\i0  \b /\b0  \i num\i0\tab --\tab\i real\i0\line\i num\i0  \b\'f7\b0  \i num\i0\tab --\tab\i real\i0\line Division von Zahlen.\par
-\i int\i0    \b ^ \b0  \i int\i0\tab --\tab int\line\i real\i0  \b ^\b0  \i real\i0\tab --\tab real\par
-\i int\i0  \b idiv\b0  \i int\i0\tab --\tab\i int\i0\line Integerdivision\par
-\i int\i0  \b imod\b0  \i int\i0\tab --\tab\i int\i0\line Integermodulo\par
-\b pred\b0  \'b0 \i int\i0\tab --\tab int\line\b pred\b0  \'b0 \i real\i0\tab --\tab real\par
-\b succ\b0  \'b0 \i int\i0\tab --\tab int\line\b succ\b0  \'b0 \i real\i0\tab --\tab real\par
-\b sign\b0  \'b0 \i int\i0\tab --\tab int\line\b sign\b0  \'b0 \i real\i0\tab --\tab real\par
-\b abs\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b abs\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Betrag einer Zahl.\par
-\b neg\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b neg\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line\b _\b0  \'b0 \i int\i0\tab\tab --\tab\i int\i0\line\b _\b0  \'b0 \i real\i0\tab\tab --\tab\i real\i0\line Negation einer Zahl.\par
-\b round\b0  \'b0 \i num\i0\tab --\tab\i int\i0\line Rundung zur Integerzahl.\par
-\b trunc\b0  \'b0 \i num\i0\tab --\tab int\par
-\b int\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Integeranteil der Zahl als Realzahl.\par
-\b frac\b0  \'b0 \i num\i0\tab --\tab real\par
-\b float\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Umwandlung zur Realzahl.\par
-\b exp\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Exponentialfunktion\par
-\b ln\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Nat\'fcrlicher Logarithmus.\par
-\b lg\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Zehnerlogarithmus\par
-\b ld\b0  \'b0 \i real\i0\tab --\tab real\par
-\b sq\b0  \'b0 \i int\i0\tab\tab --\tab\i int\i0\line\b sq \b0\'b0 \i real\i0\tab --\tab\i real\i0\line Quadrat einer Zahl.\par
-\b sqrt\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Quadratwurzel einer Zahl.\par
-\b pi\b0\tab\tab --\tab 3.141592653589793\line Ludolfsche Zahl.(?)\par
-\b 2pi\b0\tab\tab --\tab 6.283185307179586\line Umfang des Einheitskreises.\par
-\b sin\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Sinusfunktion\par
-\b cos\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Cosinusfunktion\par
-\b tan\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Tangensfunktion\par
-\b arcsin\b0  \'b0 \i real\i0\tab --\tab real\par
-\b arccos\b0  \'b0 \i real\i0\tab --\tab real\par
-\b arctan\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arcustangensfunktion\par
-\b sinh\b0  \'b0 \i real\i0\tab --\tab real\par
-\b cosh\b0  \'b0 \i real\i0\tab --\tab real\par
-\b tanh\b0  \'b0 \i real\i0\tab --\tab real\par
-\b deg\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Radiant-To-Degree-Funktion\par
-\b rad\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Degree-To-Radiant-Funktion\par
-\i real\i0  \b mod\b0  \i real\i0\tab --\tab real\par
-\b sum\b0  \'b0 \i list\i0\tab --\tab\i num\i0\line Summe der Listenelemente.\par
-\b prod\b0  \'b0 \i list\i0\tab --\tab\i num\i0\line Produkt der Listenelemente.\par
-\b avg\b0  \'b0 \i list\i0\tab --\tab\i real\i0\line Durchschnittswert der Listenelemente.\par
+\cf1\b\fs28 Math Functions and Operators\cf0\b0\fs24\par
+\i int\i0    \b + \b0  \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b +\b0  \i real\i0\tab --\tab\i real\i0\line Addition of numbers.\par
+\i int\i0    \b - \b0  \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b -\b0  \i real\i0\tab --\tab\i real\i0\line Subtraction of numbers.\par
+\i int\i0    \b *\b0   \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b *\b0  \i real\i0\tab --\tab\i real\i0\line\i int\i0    \b\'d7\b0   \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b\'d7\b0  \i real\i0\tab --\tab\i real\i0\line Multiplication of numbers.\par
+\i num\i0  \b /\b0  \i num\i0\tab --\tab\i real\i0\line\i num\i0  \b\'f7\b0  \i num\i0\tab --\tab\i real\i0\line Division of numbers.\par
+\i int\i0    \b ^ \b0  \i int\i0\tab --\tab\i int\i0\line\i real\i0  \b ^\b0  \i real\i0\tab --\tab\i real\i0\line Power of numbers.\par
+\i int\i0  \b idiv\b0  \i int\i0\tab --\tab\i int\i0\line Integer division\par
+\i int\i0  \b imod\b0  \i int\i0\tab --\tab\i int\i0\line Integer modulo\par
+\b pred\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b pred\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Predecessor function\par
+\b succ\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b succ\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Successor function\par
+\b sign\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b sign\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Sign function\par
+\b abs\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b abs\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Absolute value function\par
+\b neg\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line\b neg\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line\b _\b0  \'b0 \i int\i0\tab\tab --\tab\i int\i0\line\b _\b0  \'b0 \i real\i0\tab\tab --\tab\i real\i0\line Negation of a number.\par
+\b round\b0  \'b0 \i num\i0\tab --\tab\i int\i0\line Rounding to an integer.\par
+\b trunc\b0  \'b0 \i num\i0\tab --\tab\i int\i0\line Truncate to an integer.\par
+\b int\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Integer part of the number as a real number.\par
+\b frac\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Fraction part of a real number.\par
+\b float\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Conversion to the real number.\par
+\b exp\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Exponential function\par
+\b ln\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Natural logarithm.\par
+\b lg\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Decadic logarithm.\par
+\b ld\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Binary logarithm.\par
+\b sq\b0  \'b0 \i int\i0\tab\tab --\tab\i int\i0\line\b sq \b0\'b0 \i real\i0\tab --\tab\i real\i0\line Square of a number.\par
+\b sqrt\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Square root of a number.\par
+\b pi\b0\tab\tab --\tab 3.141592653589793\line Ludolph's number: \f2\'f0 = 3.14159265358979323846264338327950288...\f0\par
+\b 2pi\b0\tab\tab --\tab 6.283185307179586\line Scope of the unit circle.\par
+\b sin\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Sine function\par
+\b cos\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Cosine function\par
+\b tan\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Tangent function\par
+\b arcsin\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arcsine function\par
+\b arccos\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arccosine function\par
+\b arctan\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arctangent function\par
+\b sinh\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Hyperbolic sine function\par
+\b cosh\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Hyperbolic cosine function\par
+\b tanh\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Hyperbolic tangent function\par
+//area hyperbolic sine\line //area hyperbolic cosine\line //area hyperbolic tangent\par
+\b deg\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Radiant-to-Degree function\par
+\b rad\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Degree-to-Radiant function\par
+\i real\i0  \b mod\b0  \i real\i0\tab --\tab\i real\i0\line Modulo of real numbers.\par
+\b sum\b0  \'b0 \i list\i0\tab --\tab\i num\i0\line Sum of the list items.\par
+\b prod\b0  \'b0 \i list\i0\tab --\tab\i num\i0\line Product of the list items.\par
+\b avg\b0  \'b0 \i list\i0\tab --\tab\i real\i0\line Average value of the list items.\par
 integral\par
 dd\par
 \par
-\cf1\b\fs28 Dictionary Operatoren und Kombinatoren\cf0\b0\fs24\par
-\i dict ist ein Table f\'fcr pattern matching Behandlung\par
+\cf1\b\fs28 Dictionary Operators and Combinators\cf0\b0\fs24\par
+\i dict is a table for pattern matching treatment\par
 dict\i0  = (\i value0\i0  \i key0\i0  \i value1\i0  \i key1\i0  \i value2\i0  \i key2\i0  ... ...)\par
-_super\par
-\i dict\i0  \b get\b0  \i key\i0\tab\tab --\tab value\par
-\i dict\i0  \b put\b0  \i key\i0 ,\i value\i0 ,\tab --\tab dict\par
-\i dict\i0  \b iget\b0  \i ident\i0\tab\tab --\tab value\line\i dict\i0  \b iget\b0  \i index\i0\tab\tab --\tab value\line API-Get f\'fcr identische Keys.\par
-\i dict\i0  \b iput\b0  \i ident\i0 ,\i value\i0 ,\tab --\tab dict\line\i dict\i0  \b iget\b0  \i index\i0 ,\i value\i0 ,\tab --\tab dict\line API-Put f\'fcr identische Keys.\par
-\b\fs28 #\b0\i\fs24 ident\i0  \'b0 \i dict\i0\tab\tab --\tab value\line (\i ident\i0  \b _v\b0 ) \'b0 \i dict\i0\tab --\tab value\line Wert der Instanzenvariable.\par
-(\i ident\i0  \b\fs28 :=\b0\fs24  \i value\i0 ) \'b0 \i dict\i0\tab --\tab dict\line Substitution (?)\par
-\i func\i0  \b <-\b0  \i key1\i0  ; \i key2\i0  ; ... ;\line\i func\i0  \b\u8592?\b0  \i key1\i0  ; \i key2\i0  ; ... ;\line Assign-Kombinator, allgemein.\par
-\i func\i0  \b <-\b0  \i key1\i0  \i isfunc1\i0  \i key2\i0  \i isfunc2\i0  ... ...\line\i func\i0  \b\u8592?\b0  \i key1\i0  \i isfunc1\i0  \i key2\i0  \i isfunc2\i0  ... ...\line Assign-Kombinator, typisiert.\par
+\b _super\b0\line Key for the super dictionary.\par
+\i dict\i0  \b get\b0  \i key\i0\tab\tab --\tab\i value\i0\line Get the \i value\i0  for the \i key\i0  from a \i dict\i0 .\par
+\i dict\i0  \b put\b0  \i key\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line Replaces the \i value\i0  to a \i key\i0  in the \i dict\i0 .\par
+\i dict\i0  \b iget\b0  \i ident\i0\tab\tab --\tab\i value\i0\line\i dict\i0  \b iget\b0  \i index\i0\tab\tab --\tab\i value\i0\line API-Get for identical keys.\par
+\i dict\i0  \b iput\b0  \i ident\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line\i dict\i0  \b iget\b0  \i index\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line API-Put for identical keys.\par
+\b\fs28 #\b0\i\fs24 ident\i0  \'b0 \i dict\i0\tab\tab --\tab\i value\i0\line (\i ident\i0  \b _v\b0 ) \'b0 \i dict\i0\tab --\tab\i value\i0\line Instance variable value.\par
+(\i ident\i0  \b\fs28 :=\b0\fs24  \i value\i0 ) \'b0 \i dict\i0\tab --\tab\i dict\i0\line Substitution of an instance variable with a \i value\i0 .\par
+\i func\i0  \b <-\b0  \i key1\i0  ; \i key2\i0  ; ... ;\line\i func\i0  \b\u8592?\b0  \i key1\i0  ; \i key2\i0  ; ... ;\line Assign combinator, general.\par
+\i func\i0  \b <-\b0  \i key1\i0  \i isfunc1\i0  \i key2\i0  \i isfunc2\i0  ... ...\line\i func\i0  \b\u8592?\b0  \i key1\i0  \i isfunc1\i0  \i key2\i0  \i isfunc2\i0  ... ...\line Assign combinator, typed.\par
 \par
-\cf1\b\fs28 Boole'sche Funtionen und Operatoren\cf0\b0\fs24\par
-\i bool\i0     =    \b true\b0    \ul oder\ulnone    \b false\b0\par
-'\b true\b0\tab\tab --\tab\i bool\i0\line Wert f\'fcr Wahr.\par
-'\b false\b0\tab\tab --\tab\i bool\i0\line Wert f\'fcr Unwahr.\par
-\i data\i0  \b =\b0  \i data\i0\tab --\tab\i bool\i0\line Pr\'fcfung auf Gleichheit.\par
-\i data\i0  \b <>\b0  \i data\i0\tab --\tab\i bool\i0\line\i data\i0  \b !=\b0  \i data\i0\tab --\tab\i bool\i0\line\i data\i0  \b\u8800?\b0  \i data\i0\tab --\tab\i bool\i0\line Pr\'fcfung auf Ungleichheit.\par
-\i data\i0  \b <\b0  \i data\i0\tab --\tab bool\par
-\i data\i0  \b >\b0  \i data\i0\tab --\tab bool\par
-\i data\i0  \b <=\b0  \i data\i0\tab --\tab bool\par
-\i data\i0  \b >=\b0  \i data\i0\tab --\tab bool\par
-\b\'ac\b0      \'b0 \i bool\i0\tab --\tab\i bool\line\b\i0 not\b0  \'b0 \i bool\i0\tab --\tab\i bool\i0\line\b not\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line Nicht-Funktion\par
-\i bool\i0  \b and\b0  \i bool\i0\tab --\tab\i bool\line int\i0    \b and\b0    \i int\i0\tab --\tab\i int\i0\line Und-Operator\par
-\i bool\i0  \b or\b0  \i bool\i0\tab --\tab\i bool\line int\i0    \b or\b0   \i int\i0\tab --\tab\i int\i0\line Oder-Operator\par
-\i bool\i0  \b xor\b0  \i bool\i0\tab --\tab\i bool\line int\i0    \b xor\b0   \i int\i0\tab --\tab\i int\i0\line Exklusiv-Oder-Operator\par
-\b isatom\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b isprop\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b islist\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b isbool\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b isnum\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b iszero\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b ispos\b0  \'b0 \i data\i0\tab --\tab bool\par
-\b isneg\b0  \'b0 \i data\i0\tab --\tab bool\par
+\cf1\b\fs28 Boolean Functions and Operators\cf0\b0\fs24\par
+\i bool\i0     =    \b true\b0    \ul or\ulnone    \b false\b0\par
+'\b true\b0\tab\tab --\tab\i bool\i0\line Value for true.\par
+'\b false\b0\tab\tab --\tab\i bool\i0\line Value for false.\par
+\i data\i0  \b =\b0  \i data\i0\tab --\tab\i bool\i0\line Check for equality.\par
+\i data\i0  \b <>\b0  \i data\i0\tab --\tab\i bool\i0\line\i data\i0  \b !=\b0  \i data\i0\tab --\tab\i bool\i0\line\i data\i0  \b\u8800?\b0  \i data\i0\tab --\tab\i bool\i0\line Check for inequality.\par
+\i data\i0  \b <\b0  \i data\i0\tab --\tab\i bool\i0\line Checks whether smaller.\par
+\i data\i0  \b >\b0  \i data\i0\tab --\tab\i bool\i0\line Checks whether larger.\par
+\i data\i0  \b <=\b0  \i data\i0\tab --\tab\i bool\i0\line Checks whether less than or equal.\par
+\i data\i0  \b >=\b0  \i data\i0\tab --\tab\i bool\i0\line Checks whether greater than or equal to.\par
+\b\'ac\b0      \'b0 \i bool\i0\tab --\tab\i bool\line\b\i0 not\b0  \'b0 \i bool\i0\tab --\tab\i bool\i0\line\b not\b0  \'b0 \i int\i0\tab --\tab\i int\i0\line NOT function\par
+\i bool\i0  \b and\b0  \i bool\i0\tab --\tab\i bool\line int\i0    \b and\b0    \i int\i0\tab --\tab\i int\i0\line AND operator\par
+\i bool\i0  \b or\b0  \i bool\i0\tab --\tab\i bool\line int\i0    \b or\b0   \i int\i0\tab --\tab\i int\i0\line OR operator\par
+\i bool\i0  \b xor\b0  \i bool\i0\tab --\tab\i bool\line int\i0    \b xor\b0   \i int\i0\tab --\tab\i int\i0\line Exclusive-OR operator\par
+\b isatom\b0  \'b0 \i data\i0\tab --\tab bool\line Checks whether the \i data\i0  is a basic data type. (?)\par
+\b isprop\b0  \'b0 \i data\i0\tab --\tab\i bool\i0\line Checks whether the \i data\i0  is a triple value. (?)\par
+\b islist\b0  \'b0 \i data\i0\tab --\tab\i bool\i0\line Checks whether the \i data\i0  is a list.\par
+\b isbool\b0  \'b0 \i data\i0\tab --\tab\i bool\i0\line Checks whether the \i data\i0  is a Boolean identifier.\par
+\b isnum\b0  \'b0 \i data\i0\tab --\tab\i bool\i0\line Checks whether the \i data\i0  is a number. Generic function.\par
+\b iszero\b0  \'b0 \i data\i0\tab --\tab bool\line Checks whether the data is zero. Generic function.\par
+\b ispos\b0  \'b0 \i data\i0\tab --\tab\i bool\i0\line Checks whether the \i data\i0  is greater than zero. Generic function.\par
+\b isneg\b0  \'b0 \i data\i0\tab --\tab\i bool\i0\line Checks whether the \i data\i0  is less than zero. Generic function.\par
 isnil (?)\par
 ispreg (?)\par
-\b isnull\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isint\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isreal\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isstring\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isident\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isprefix\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isindex\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isarray\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b iscons\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b iscombi\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isalt\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isobj\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isquote\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isivar\b0  \'b0 \i data\i0\tab\tab --\tab bool\line\b isact\b0  \'b0 \i data\i0\tab\tab --\tab bool\line Pr\'e4dikate um den entsprechenden Datentyp zu \'fcberpr\'fcfen.\par
-\b isbound\b0  \'b0 \i ident\i0\tab --\tab bool\line\b isbound\b0  \'b0 \i prefix\i0\tab --\tab bool\par
-\b isundef\b0  \'b0 \i data\i0\tab\tab --\tab bool\line Pr\'fcfung auf _undef\par
-\b iscomplex\b0  \'b0 \i complex\i0\tab --\tab bool (?)\par
-\i object\i0  \b is\b0  \i ident\i0\tab\tab --\tab bool (?)\par
+\b isnull\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isint\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isreal\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isstring\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isident\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isprefix\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isindex\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isarray\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b iscons\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b iscombi\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isalt\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isobj\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isquote\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isivar\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line\b isact\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line Predicates to check the appropriate data type.\par
+\b isbound\b0  \'b0 \i ident\i0\tab --\tab\i bool\i0\line\b isbound\b0  \'b0 \i prefix\i0\tab --\tab\i bool\i0\line Checks whether an identifier is bound.\par
+\b isundef\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line Testing for _undef\par
+\b iscomplex\b0  \'b0 \i complex\i0\tab --\tab\i bool\i0\line Checks whether it is a complex number. (?)\par
+\i object\i0  \b is\b0  \i ident\i0\tab\tab --\tab\i bool\i0\line Checks whether the \i ident\i0  is the same as the class identifier of the \i object\i0 . (?)\par
 \par
-\cf1\b\fs28 Kombinatoren f\'fcr den Programmablauf (?)\cf0\b0\fs24\par
-\i combi\i0   =  (\i term\i0  \b _combine \b0\i arg\i0 )\par
-\i func\i0  \b _s\b0\line Single-Funktions-Auswertung\par
-\b\fs28 '\b0\fs24  \i literal\i0\line\i literal\i0  \b k\b0\line\i literal\i0  \b _q\b0\line Konstanten-Kombinator\par
-\i f\i0  \b\fs28 :\b0\fs24  \i x\i0\tab\tab\tab\tab\tab // Urspr\'fcnglich\line Applikation,  deprecated\tab\tab // keine Application mehr\par
-\i func1\i0  \b\fs28\'b0\b0\fs24  \i func2\i0\line\i func1\i0  \b o\b0  \i func2\i0\line\i func1\i0  \b\f2\fs28\u8728?\b0\f0\fs24  \i func2\i0\line Komposition von Funktionen.\par
-\i funktional\i0  \b app\b0  \i argument\i0\line Apply-Operator\par
-\i func1\i0  \b\fs28 ,\b0\fs24  \i func2\i0  \b\fs28 ,\b0\fs24  \i func3\i0  \b\fs28 ,\b0\fs24  ... \b\fs28 ,\b0\fs24\line Konstruktion von Listen.\par
-\i test\i0  \b ->\b0  \i then\i0  \b |\b0  \i else\i0\line\i test\i0  \b\u8594?\b0  \i then\i0  \b |\b0  \i else\i0\line\i test\i0  \b ->\b0  \i then\i0  \b\fs28 ;\b0\fs24  \i else\i0\line Kondition mit Alternal.\par
-\i test\i0  \b ->*\b0  \i func\line test \b\i0\u8594?*\b0  \i func\i0\line while-Schleife\par
-\i func\i0  \b loopif\b0  \i test\i0\line do-while-Schleife\par
-\i list\i0  \b map\b0  \i funktional\i0\line Map-Operator\par
-(\i func\i0  \b aa\b0 ) \'b0 \i list\i0\line\lang1031 (\i func\i0  \lang7\b\f3\'e1\lang1031\b0\f0 ) \'b0 \i list\i0\line Apply-to-All-Kombinator\lang7\par
-\i list\i0  \b insl\b0  \i funktional\i0\line Insertl-Operator\par
-\i list\i0  \b insr\b0  \i funktional\i0\line Insertr-Operator\par
-(\i func\i0  \b\\\b0 ) \'b0 \i list\i0\line Insertr-Kombinator\par
-\i list\i0  \b filter\b0  \i funktional\i0\line Filter-Operator\par
-(\i list\i0 ,\i arg1\i0 ,\i arg2\i0 ,...,) \b map0\b0  \i funktional\i0\par
-(\i func\i0  \b aa0\b0 ) \'b0 \i list\i0 ,\i arg1\i0 ,\i arg2\i0 ,...,\line Kombination aus \b aa\b0  und \b distr\b0 , erweitert.\par
-\i func1\i0  \b ee\b0  \i func2\i0\line\b ee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Eval-Eval-Kombinator f\'fcr Infixnotation.\par
-\i func1\i0  \b swee\b0  \i func2\i0\line\b swee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Swap-Eval-Eval-Kombinator\par
+\cf1\b\fs28 Combinators for Program Execution (?)\cf0\b0\fs24\par
+\i combi\i0   =  (\i term\i0  \b _combine\b0  .. \i arg\i0 )\par
+\i func\i0  \b _s\b0\line Single function evaluation\par
+\b\fs28 '\b0\fs24  \i literal\i0\line\i literal\i0  \b k\b0\line\i literal\i0  \b _q\b0\line Constant combinator\par
+\i f\i0  \b\fs28 :\b0\fs24  \i x\i0\line Application\tab\tab // to be used for closed and lift\par
+\i func1\i0  \b\fs28\'b0\b0\fs24  \i func2\i0\line\i func1\i0  \b o\b0  \i func2\i0\line\i func1\i0  \b\f3\fs28\u8728?\b0\f0\fs24  \i func2\i0\line Composition of functions.\par
+\i functional\i0  \b app\b0  \i argument\i0\line Apply operator\par
+\i func1\i0  \b\fs28 ,\b0\fs24  \i func2\i0  \b\fs28 ,\b0\fs24  \i func3\i0  \b\fs28 ,\b0\fs24  ... \b\fs28 ,\b0\fs24\line Construction of lists.\par
+\i test\i0  \b ->\b0  \i then\i0  \b |\b0  \i else\i0\line\i test\i0  \b\u8594?\b0  \i then\i0  \b |\b0  \i else\i0\line\i test\i0  \b ->\b0  \i then\i0  \b\fs28 ;\b0\fs24  \i else\i0\line Condition with Alternal/Cons\par
+\i test\i0  \b ->*\b0  \i func\line test \b\i0\u8594?*\b0  \i func\i0\line while Loop\par
+\i func\i0  \b loopif\b0  \i test\i0\line do-while Loop\par
+\i list\i0  \b map\b0  \i functional\i0\line Map operator\par
+(\i func\i0  \b aa\b0 ) \'b0 \i list\i0\line\lang1031 (\i func\i0  \lang7\b\f2\'e1\lang1031\b0\f0 ) \'b0 \i list\i0\line Apply-to-all combinator\lang7\par
+\i list\i0  \b insl\b0  \i functional\i0\line Insertl operator\par
+\i list\i0  \b insr\b0  \i functional\i0\line Insertr operator\par
+(\i func\i0  \b\\\b0 ) \'b0 \i list\i0\line Insertr combinator\par
+\i list\i0  \b filter\b0  \i functional\i0\line Filter operator\par
+(\i list\i0 ,\i arg1\i0 ,\i arg2\i0 ,...,) \b map0\b0  \i functional\i0\par
+(\i func\i0  \b aa0\b0 ) \'b0 \i list\i0 ,\i arg1\i0 ,\i arg2\i0 ,...,\line Combination of \b aa\b0  and \b distr\b0 , extended.\par
+\i func1\i0  \b ee\b0  \i func2\i0\line\b ee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Eval-Eval combinator for infix notation.\par
+\i func1\i0  \b swee\b0  \i func2\i0\line\b swee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Swap-Eval-Eval combinator\par
 (\i func1\i0  \b eea\b0  \i func2\i0 ) \'b0 \i argum\i0\tab --\tab (x ; y ; argum ;)\par
-(\i func\i0  \b dip\b0 ) \'b0 \i list\i0\line (\i func\i0  \b dip\b0 ) \'b0 \i object\i0\line Dipp-Kombinator  (von Joy geklaut)\par
+(\i func\i0  \b dip\b0 ) \'b0 \i list\i0\line (\i func\i0  \b dip\b0 ) \'b0 \i object\i0\line Dip combinator (stolen from Joy)\par
 ifnull\par
 ifprop\par
 \i data1\i0  \b ??\b0  \i data2\i0\tab --\tab data\par
-(func Y)\par
-\b quote\b0  \'b0 \i data\i0\tab\tab --\tab func\line Quote-Funktional\par
-\i func1\i0  \b comp\b0  \i func2\i0\tab --\tab func\line Kompose-Funktional\par
+(func Y)\line Y-Combinator...\par
+\b quote\b0  \'b0 \i data\i0\tab\tab --\tab func\line Quote functional\par
+\i func1\i0  \b comp\b0  \i func2\i0\tab --\tab func\line Compose functional\par
 \par
-\cf1\b\fs28 Misc Funktionen und Operatoren\cf0\b0\fs24\par
-\b undef\b0\tab\tab\tab --\tab\i error\i0\line Funktion ist definiert als Undefiniert.\par
-\b id\b0  \'b0 \i argument\i0\tab\tab --\tab\i argument\i0\line Identit\'e4tsfunktion.\par
-\b out\b0  \'b0 \i argument\i0\tab --\tab\i argument\i0\tab\tab\tab // *Seiteneffekt\line Output f\'fcr Debugging.\par
-\i data\i0  \b min\b0  \i data\i0\tab\tab --\tab\i data\line\b\i0 min\b0  \'b0 \i data\i0 ,\i data\i0 ,\tab --\tab\i data\i0\line Minimum zweier Werte.\par
-\i data\i0  \b max\b0  \i data\tab\i0\tab --\tab\i data\line\b\i0 max\b0  \'b0 \i data\i0 ,\i data\i0 ,\tab --\tab\i data\i0\line Maximum zweier Werte.\par
-\b name\b0  \'b0 \i ident\i0\tab\tab --\tab string\par
-\b body\b0  \'b0 \i ident\i0\tab\tab --\tab value\par
-\b address\b0  \'b0 \i data\i0\tab\tab --\tab real\par
-\b identlist\b0\tab\tab --\tab\i list\i0\line Liste aller verwendeten Bezeichner.(?)\par
-\b indexdict\b0\tab\tab --\tab dict\par
-_reserve\par
-_undef\par
-\b gc\b0  \'b0 \i argument\i0\tab\tab --\tab argument\par
+\cf1\b\fs28 Misc Functions and Operators\cf0\b0\fs24\par
+\b undef\b0\tab\tab\tab --\tab\i error\i0\line Function is defined as undefined.\par
+\b id\b0  \'b0 \i argument\i0\tab\tab --\tab\i argument\i0\line Identity function.\par
+\b out\b0  \'b0 \i argument\i0\tab --\tab\i argument\i0\tab\tab\tab // *Side effect\line Output for debugging.\par
+\i data\i0  \b min\b0  \i data\i0\tab\tab --\tab\i data\line\b\i0 min\b0  \'b0 \i data\i0 ,\i data\i0 ,\tab --\tab\i data\i0\line Minimum of two values.\par
+\i data\i0  \b max\b0  \i data\tab\i0\tab --\tab\i data\line\b\i0 max\b0  \'b0 \i data\i0 ,\i data\i0 ,\tab --\tab\i data\i0\line Maximum of two values.\par
+\b name\b0  \'b0 \i ident\i0\tab\tab --\tab\i string\i0\line Print name of an identifier.\par
+\b body\b0  \'b0 \i ident\i0\tab\tab --\tab\i value\i0\line The assigned \i value\i0  of an identifier.\par
+\b address\b0  \'b0 \i data\i0\tab\tab --\tab\i real\i0\line Address value of the triple cell.\par
+\b identlist\b0\tab\tab --\tab\i list\i0\line List of all used identifiers. (?)\par
+\b indexdict\b0\tab\tab --\tab\i dict\i0\line\i Dict\i0  of all index types with integers.\par
+\b _reserve\b0\line Value for an unbound identifier.\par
+\b _undef\b0\line Value for undefined.\par
+\b gc\b0  \'b0 \i argument\i0\tab\tab --\tab\i argument\i0\line Turns on the garbage collector.\par
 \par
-\cf1\b\fs28 String Funktionen und Operatoren\cf0\b0\fs24\par
+\cf1\b\fs28 String Functions and Operators\cf0\b0\fs24\par
 \b substring\b0  \'b0 \i string\i0 ,\i num\i0 ,\i num\i0 ,\tab --\tab string\par
-\i string\i0  \b concat\b0  \i string\i0\tab --\tab string\line\i string\i0  \b &\b0  \i string\i0\tab\tab --\tab string\par
+\i string\i0  \b concat\b0  \i string\i0\tab --\tab\i string\i0\line\i string\i0  \b &\b0  \i string\i0\tab\tab --\tab\i string\i0\line Concatenates the strings.\par
 \i string\i0  \b indexof\b0  \i substr\i0\tab --\tab real\par
 \i list\i0  \b join\b0  \i sepstr\i0\tab\tab --\tab string\par
 \i string\i0  \b split\b0  \i sepstr\i0\tab --\tab list\par
 \i string\i0  \b repeat\b0  \i num\i0\tab --\tab string\par
 \b delete\b0  \'b0 \i string\i0 ,\i num\i0 ,\i num\i0 ,\tab --\tab string\par
-\b length\b0  \'b0 \i string\i0\tab\tab --\tab real\par
+\b length\b0  \'b0 \i string\i0\tab\tab --\tab\i real\i0\line Length of the string.\par
 \i string\i0  \b mid\b0  \i num\i0 ,\i num\i0 ,\tab --\tab string\par
 \i string\i0  \b left\b0  \i num\i0\tab --\tab string\par
 \i string\i0  \b right\b0  \i num\i0\tab --\tab string\par
 \b char\b0  \'b0 \i num\i0\tab\tab --\tab string\par
 \b unicode\b0  \'b0 \i string\i0\tab --\tab real\par
-\b trim\b0  \'b0 \i string\i0\tab\tab --\tab string\par
-\b triml\b0  \'b0 \i string\i0\tab\tab --\tab string\par
-\b trimr\b0  \'b0 \i string\i0\tab\tab --\tab string\par
-\b upper\b0  \'b0 \i string\i0\tab\tab --\tab string\par
-\b lower\b0  \'b0 \i string\i0\tab\tab --\tab string\par
+\b trim\b0  \'b0 \i string\i0\tab\tab --\tab\i string\i0\line Trims the \i string\i0  on the left and right side.\par
+\b triml\b0  \'b0 \i string\i0\tab\tab --\tab\i string\i0\line Trims the \i string\i0  on the left.\par
+\b trimr\b0  \'b0 \i string\i0\tab\tab --\tab\i string\i0\line Trims the \i string\i0  on the right.\par
+\b upper\b0  \'b0 \i string\i0\tab\tab --\tab\i string\i0\line AnsiUpperCase of the string.\par
+\b lower\b0  \'b0 \i string\i0\tab\tab --\tab\i string\i0\line AnsiLowerCase of the string.\par
 \b capitalize\b0  \'b0 \i string\i0\tab --\tab string\par
-\b parse\b0  \'b0 \i string\i0\tab\tab --\tab list\par
-\b value\b0  \'b0 \i string\i0\tab\tab --\tab data\par
-\b string\b0  \'b0 \i data\i0\tab\tab --\tab string\par
-\b unpack\b0  \'b0 \i string\i0\tab --\tab list\par
-\b pack\b0  \'b0 \i list\i0\tab\tab --\tab string\par
+\b parse\b0  \'b0 \i string\i0\tab\tab --\tab\i list\i0\line Precompiles the \i string\i0  into a \i list\i0 .\par
+\b value\b0  \'b0 \i string\i0\tab\tab --\tab\i data\i0\line Converts the \i string\i0  to a \i data\i0  type.\par
+\b string\b0  \'b0 \i data\i0\tab\tab --\tab\i string\i0\line Converts the \i data\i0  to its text representation.\par
+\b unpack\b0  \'b0 \i string\i0\tab --\tab\i list\i0\line Splits the \i string\i0  into a list of individual string characters.\par
+\b pack\b0  \'b0 \i list\i0\tab\tab --\tab\i string\i0\line Concatenates the strings in the \i list\i0 .\par
 \par
 \cf1\b\fs28 OOP\cf0\b0\fs24\par
-\i object\i0  = (\i cap\i0  \b\fs28 ::\b0\fs24  \i inst\i0 )\tab\tab // Objekt-Klassen\par
-\i pair\i0   =\tab\i objekt\i0  , \i parameter\i0  ,\par
+\i object\i0  = (\i cap\i0  \b\fs28 ::\b0\fs24  \i inst\i0 )\tab\tab // Object classes\par
+\i pair\i0   =\tab\i object\i0  , \i parameter\i0  ,\par
 \b self\b0  \'b0 \i pair\i0\par
 \b para\b0  \'b0 \i pair\i0\par
 \i index\i0  \b op\b0  \i func\i0\par
@@ -237,18 +238,18 @@ _undef\par
 \i object\i0  \b as\b0  ident (?)\tab --\tab object\par
 \b box\b0  \'b0 \i primdata\i0\tab --\tab object\par
 \b unbox\b0  \'b0 \i object\tab\i0\tab --\tab primdata\par
-\b object\b0  == .. \{ ( ) ... ... ... \}\line Objekt-Klasse\par
-\b list\b0  == .. \{ object ... ... ... \}\line List-Klasse\par
-\b dict\b0  == .. \{ object ... ... ... \}\line Dict-Klasse\par
+\b object\b0  == .. \{ ( ) ... ... ... \}\line Object class\par
+\b list\b0  == .. \{ object ... ... ... \}\line List class\par
+\b dict\b0  == .. \{ object ... ... ... \}\line Dict class\par
 \par
-\cf1\b\fs28 Monaden und Effekte\cf0\b0\fs24\par
+\cf1\b\fs28 Monads and Effects\cf0\b0\fs24\par
 \i monad\i0  = (\i int\i0  \b _act \b0\i dict\i0 )\tab\tab // absolute\line\i monad\i0  = (\i index\i0  \b _act \b0\i dict\i0 )\tab\tab // relative\par
-\b it\b0  \'b0 \i dict\tab\i0\tab --\tab #_it \'b0 dict\line Resultat einer Monadenaktion.\par
+\b it\b0  \'b0 \i dict\tab\i0\tab --\tab #_it \'b0 dict\line Result of a monad action.\par
 #_it\par
 #_self\par
 #_para\par
 _bind\line Continuation\par
-_eff\line Effekte\par
+_eff\line Effects\par
 \i monad\i0  \b >>\b0  \i term\i0\tab --\tab monad\tab\tab // _bind := \i term\i0\par
 \i int\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line\i index\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line monad(?) \b act\b0  \i dict\i0\tab --\tab monad\par
 \i monad\i0  \b eff\b0  \i array\i0\tab --\tab monad\line\i monad\i0  \b eff\b0  \i ident\i0\tab --\tab monad\par
@@ -262,30 +263,30 @@ _eff\line Effekte\par
 (\i fname\i0  \b savetext\b0  \i string\i0 ) \'b0 \i dict\tab\i0\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i string\i0  \b run\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 \b quit\b0\tab\tab\tab --\tab monad\par
-\b io\b0  == .. \{ ... ... ... \}\line System-Effekte-Klasse\par
+\b io\b0  == .. \{ ... ... ... \}\line System effects class\par
 \par
-\cf1\b\fs28 Laufzeitfehler(?)\cf0\b0\fs24\par
+\cf1\b\fs28 Runtime Errors(?)\cf0\b0\fs24\par
 \i error\i0  = (\i index\i0  \b _error\b0  \i string\i0  ; ... ...)\par
 \i index\i0  \b error\b0  \i string\i0 ,\tab --\tab error\par
-\b fail\b0  \'b0 \i argument\i0\tab --\tab error\line Gebrauch f\'fcr Selektor-Signaturen(?)\par
-\b stop\b0  \'b0 \i argument\i0\tab --\tab error\line Allgemein, z.B. Programmabbruch, etc\par
-\b raise\b0  \'b0 \i string\i0\tab\tab --\tab exception\line Eine Exception wird geworfen.\par
-\b _error\b0  == .. \{ ... ... ... \}\line Klasse f\'fcr Weiterleitungen...\par
+\b fail\b0  \'b0 \i argument\i0\tab --\tab error\line Use for selector signatures(?)\par
+\b stop\b0  \'b0 \i argument\i0\tab --\tab error\line Generally, e.g. Program termination, etc\par
+\b raise\b0  \'b0 \i string\i0\tab\tab --\tab exception\line An exception is thrown.\par
+\b _error\b0  == .. \{ ... ... ... \}\line Class for redirects...\par
 \par
-\cf1\b\fs28 Komplexe Zahlen\cf0\b0\fs24\par
+\cf1\b\fs28 Complex Numbers\cf0\b0\fs24\par
 \i complex\i0  = (\b complex\b0  \b ::\b0  \i real\i0  \b re\b0  \i real\i0  \b im\b0 )\par
-\b i\b0\tab --\tab (complex :: 0 re 1 im)\line Quadratwurzel aus _1\par
-\i real\i0  \b cval\b0  \i real\i0\tab\tab --\tab\i complex\i0\line Zur Bildung einer komplexen Zahl aus Realzahlen.\par
-\b re \b0\'b0 \i complex\i0\tab\tab --\tab\i real\i0\line Realteil der komplexen Zahl.\par
-\b im\b0  \'b0 \i complex\i0\tab\tab --\tab\i real\i0\line Imagin\'e4rteil der komplexen Zahl.\par
-\i complex\i0  \b +\b0  \i complex\i0\tab --\tab\i complex\i0\line Addition von komplexen Zahlen.\par
-\i complex\i0  \b -\b0  \i complex\i0\tab --\tab\i complex\i0\line Subtraktion von komplexen Zahlen.\par
-\i complex\i0  \b *\b0  \i complex\i0\tab --\tab\i complex\i0\line\i complex\i0  \b\'d7\b0  \i complex\i0\tab --\tab\i complex\i0\line Multiplikation von komplexen Zahlen.\par
-\i complex\i0  \b /\b0  \i complex\i0\tab --\tab\i complex\i0\line\i complex\i0  \b\'f7\b0  \i complex\i0\tab --\tab\i complex\i0\line Division von komplexen Zahlen.\par
+\b i\b0\tab --\tab (complex :: 0 re 1 im)\line Square root of _1\par
+\i real\i0  \b cval\b0  \i real\i0\tab\tab --\tab\i complex\i0\line To form a complex number from real numbers.\par
+\b re \b0\'b0 \i complex\i0\tab\tab --\tab\i real\i0\line Real part of the complex number.\par
+\b im\b0  \'b0 \i complex\i0\tab\tab --\tab\i real\i0\line Imaginary part of the complex number.\par
+\i complex\i0  \b +\b0  \i complex\i0\tab --\tab\i complex\i0\line Addition of complex numbers.\par
+\i complex\i0  \b -\b0  \i complex\i0\tab --\tab\i complex\i0\line Subtraction of complex numbers.\par
+\i complex\i0  \b *\b0  \i complex\i0\tab --\tab\i complex\i0\line\i complex\i0  \b\'d7\b0  \i complex\i0\tab --\tab\i complex\i0\line Multiplication of complex numbers.\par
+\i complex\i0  \b /\b0  \i complex\i0\tab --\tab\i complex\i0\line\i complex\i0  \b\'f7\b0  \i complex\i0\tab --\tab\i complex\i0\line Division of complex numbers.\par
 etc\par
-\b complex\b0  == .. \{ dict ... ... ... \}\line Komplex-Klasse mit den komplexen Methoden.\par
+\b complex\b0  == .. \{ dict ... ... ... \}\line Complex-class with the complex methods.\par
 \par
-\cf1\b\fs28 Matrizen Funktionen und Operatoren\cf0\b0\fs24\par
+\cf1\b\fs28 Matrices Functions and Operators\cf0\b0\fs24\par
 \i matrix\i0   =  (\i list\i0  ; \i list\i0  ; ... ;)\par
 \b IP\b0  \'b0 \i list\i0 ,\i list\i0 ,\tab\tab\tab // Backus Turing Lecture\line\i list\i0  \b IP\b0  \i list\i0\par
 \b MM\b0  \'b0 \i matrix\i0 ,\i matrix\i0 ,\tab\tab // Backus Turing Lecture\line\i matrix\i0  \b MM\b0  \i matrix\i0\par
@@ -293,11 +294,11 @@ etc\par
 \b inv\b0  \'b0 \i matrix\i0\tab\tab --\tab matrix\par
 \b transpose\b0  \'b0 \i matrix\i0\tab --\tab matrix\par
 \par
-\cf1\b\fs28 Turtlegraphics\cf0\b0\fs24\par
+\cf1\b\fs28 Turtle Graphics\cf0\b0\fs24\par
 \i turtle\i0  = ( \b turtle\b0  \b ::\b0  \i list\i0  \b stack\b0  \i real\i0  \b x\b0  \i real\i0  \b y\b0  \i real\i0  \b angle\b0  \line\tab    \i bool\i0  \b pen\b0  \i num\i0  \b color\b0  \i num\i0  \b size\b0  \i num\i0  \b brush \b0 )\par
 \i pair  \i0  = (\i x\i0  , \i y\i0  ,)\par
 // 2pi\par
-\b initturtle\b0\line\b '\b0\i turtle\i0  \b new\b0\tab\tab // empfohlen\par
+\b initturtle\b0\line\b '\b0\i turtle\i0  \b new\b0\tab\tab // recommended\par
 \i pair\i0  \b moveto\b0  \i turtle\i0\par
 \i pair\i0  \b moverel\b0  \i turtle\i0\par
 \i real\i0  \b move\b0  \i turtle\i0\par
@@ -310,10 +311,10 @@ etc\par
 \i num\i0  \b brushcolor\b0  \i turtle\i0\par
 \i real\i0  \b circle\b0  \i turtle\i0\par
 \b rectangle\b0  \'b0 \i turtle\i0\tab\tab // rect\par
-\i turtle\i0  (\b draw\b0  eff 'io)\tab --\tab monad\line F\'fcr die Zeichnung der Turtlespur.\par
-\b #x\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line\b #y\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line\b #angle\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line etc\line Attribute des Turtleobjektes.\par
-\b colors\b0  == '(... ...)\line #red \'b0 colors   f\'fcr den Farbwert Rot.\par
-\b turtle\b0  == .. \{ dict ... ... ... \}\line Turtle-Klasse,\line durch Vererbung k\'f6nnen auch eigene Turtle-Klassen erschaffen werden.\par
+\i turtle\i0  (\b draw\b0  eff 'io)\tab --\tab monad\line For drawing the turtle trail.\par
+\b #x\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line\b #y\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line\b #angle\b0  \'b0 \i turtle\i0\tab\tab --\tab real\line etc\line Attributes of the turtle object.\par
+\b colors\b0  == '(... ...)\line #red \'b0 colors\tab for the color value red.\par
+\b turtle\b0  == .. \{ dict ... ... ... \}\line Turtle class,\line own turtle classes can also be created through inheritance.\par
 xlist (\b plot0\b0  eff 'io) 0-y\tab\tab --\tab monad\par
 \par
  (CC-BY-3.0-DE) Fpstefan\fs22\par
