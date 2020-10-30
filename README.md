@@ -7,16 +7,16 @@
 
 ## FP - Funktionale Programmierung
 
-**[DE]** Die Auftrennung von Funktionen in pure Funktionen und in Seiteneffekte funktioniert,
-allerdings ist nur eine Skriptsprache daraus entstanden.
-FP ist eine strenge Form, punktfrei und mit Kombinatoren wie sie John Backus vorgeschlagen hat.
-Dieses FP wurde mit Infixnotation und OOP ausgestattet, aber nur mit immutablen Datenstrukturen,
-was im Ganzen etwas ineffizient ist. Auch die Seiteneffekte funktionieren nur mit einer Bestellung
-über die "Monade" und teilweise mit algebraischen Effekten innerhalb der "Monade". \
-Funktionale Programmierung ist nicht das Ultra, das man sich wünscht.
-Programmiersprachen werden immer problemorientiert bleiben.
-Aber neben diesen ehrlicherweise gesagten Nachteilen bietet es eben auch Vorteile, wie die "[Algebra of Programming](https://de.wikipedia.org/wiki/Punktfreie_Programmiersprache)",
-die durch die referentielle Transparenz dieser Implementierung ermöglicht wird.
+The separation of functions into pure functions and into side effects works, 
+but only a script language has emerged from it. 
+FP is a strict form, point-free and with combinators as suggested by John Backus. 
+This FP was equipped with infix notation and OOP, but only with immutable data structures, 
+which is a bit inefficient on the whole. The side effects also only work with an order 
+via the "monad" and sometimes with algebraic effects within the "monad".
+Functional programming is not the ultra one would want. Programming languages will always 
+remain problem-oriented. But in addition to these honestly stated disadvantages, 
+it also offers advantages, such as the "[Algebra of Programming](https://de.wikipedia.org/wiki/Punktfreie_Programmiersprache)", 
+which is made possible by the referential transparency of this implementation.
 
 
 Look at --> [infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf)
