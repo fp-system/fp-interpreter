@@ -139,7 +139,7 @@ end;
 // ------------------
 // ----- legacy -----
 // ------------------
-procedure fdiv;//
+procedure fdiv;  // 0/0=undefined
 var num1,num2: extended;//in double speichern? oder extended?
 begin ee(idxdiv);  if (infix[etop]=xerror) then exit;
       einf:=infix[efun];
@@ -188,7 +188,7 @@ begin ee(idxpow);
       end//else exit
 end;
 
-procedure fidiv;//ifprefix?
+procedure fidiv;//ifprefix?  // '[0]idiv'[0]=undefined
 begin ee(idxidiv);
       //einf2...
       if (infix[etop]<>xerror) then begin

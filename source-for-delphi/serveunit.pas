@@ -371,7 +371,7 @@ begin //servidledone...
              servestopact;//?
              etop:=xnil;cstack:=xnil;inqueue.clear;
              raise
-      end//
+      end//gibt es noch den import(txt)fehler?
 end;
 
 // ------- service initialization -------

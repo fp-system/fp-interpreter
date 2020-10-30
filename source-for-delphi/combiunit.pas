@@ -77,14 +77,16 @@ begin repeat einf:=infix[etop];
       until false
 end;
 
-procedure fapplic;//application --> ptype(?)
+procedure fapplicdepr;//application --> ptype(?)
 begin provisorium('provisorium für fapplic (deprecation)')
 end;
+
+// applic für closed-Fall doch zu gebrauchen und für lift
 
 // ----------------------
 // ------- legacy -------
 // ----------------------
-procedure fapplicpre;//application   // ifprefix?
+procedure fapplic;//application   // ifprefix?
 begin repeat einf:=infix[etop];
              if (einf=xcombine)    then begin
                 efun:=cell[etop].arg;
@@ -534,7 +536,7 @@ begin //
       //
       idk:=newidentproc('k',fquote);
       cell[xquote].value:=cell[idk].value;
-      //newidentproc(':',fapplic);
+      newidentproc(':',fapplic);
       ido:=newidentproc('o',fcompose);
       cell[xcompose].value:=cell[ido].value;
       newidentproc('<-',fassign);

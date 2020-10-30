@@ -592,7 +592,7 @@ begin for i:=0 downto minproc do proc[i]:=fundef;// to -1 (?)
       newidentproc('top',ftop);
       newidentproc('pop',fpop);
       newidentproc('tag',ftag);//tag?
-      newidentproc('typeof',ftag);//ftypeof?
+      //newidentproc('typeof',ftag);//ftypeof?
       idterm:=newidentproc('term',fterm);
       //cell[xcons].value:=cell[idterm].value;// der klasse vorrang gelassen.
       cell[xalter].value:=cell[idterm].value;//alternal?
