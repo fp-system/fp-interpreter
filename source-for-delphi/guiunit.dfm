@@ -1,7 +1,7 @@
 object guiForm: TguiForm
   Left = 0
   Top = 0
-  Caption = 'FP trivia strict'
+  Caption = 'FP trivia mostly right-associative'
   ClientHeight = 675
   ClientWidth = 671
   Color = clWhite
@@ -1379,8 +1379,8 @@ object guiForm: TguiForm
         BorderStyle = bsNone
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
-        Font.Height = -13
-        Font.Name = 'Consolas'
+        Font.Height = -16
+        Font.Name = 'Tahoma'
         Font.Style = []
         Lines.Strings = (
           'iomemo')
@@ -1583,7 +1583,7 @@ object guiForm: TguiForm
     Left = 481
     Top = 600
     Bitmap = {
-      494C01012E000005E00210001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01012E000005E40210001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0000000010020000000000000C0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
