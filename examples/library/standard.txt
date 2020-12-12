@@ -69,7 +69,7 @@ reverse == [reverse] fn [1]°((isprop°[0])->*(tail°[0]),(prop°(head°[0]),(infix°[
 // length  == sizeof
 
 sizeof == isatom->'0|(+ \)°('1 aa) // provi
-avg    == (+ \) / sizeof           // J example with length // mean?
+avg    == (+ \) / length // mean?
 
 aa  == arg map top°term
 //  map == ((isatom°[0])->( ) | ([1] app head°[0]),(tail°[0]) map [1])°ee // cap?
@@ -123,7 +123,15 @@ r == (([1]<'0)->()|(round°[1]) app [0])°arg ee (pred°length°arg)-float°top°term 
 tailr == id take pred°length // init in haskell
 //rotate
 rotl == isatom->()|tail++prop°head,infix,(),
-rotr == (([0] drop [1])++[0] take [1])°id ee pred°length // isatom?
+rotr == (drop ++ take)°id ee pred°length
+// rotr == (([0] drop [1])++[0] take [1])°id ee pred°length // isatom?
+
+count == ((isnull°[0])->0|(+ \)°((= ->1|0) aa0))°ee
+// count == ((isnull°[0])->0|(+ \)°((= ->1|0) aa)°distr)°ee
+
+make == [0]°((ispos°[2])->*([1],[0]),[1],(pred°[2]),)°(),ee
+
+find == ([0]->[1]|_1)°(((not°[0]) and isprop°[2])->*([3]=head°[2]),(succ°[1]),(tail°[2]),[3],)°'false,_1,ee
 
 sum  == id insr '+  // insl? ,weil kommutativ ,und lazy
 prod == id insr '*  // insl? ,weil kommutativ ,und lazy
