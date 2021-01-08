@@ -89,7 +89,8 @@ const //
       eselnotfound: es      = 'selector in (super-)class not found: ';//??? ,class?
       //neu anpassen!
       einfnoprop: es         = 'infix is no prop-syntax.';//???;
-      efnnocons: es = 'list of cons expected.';//???
+      efnnocons: es = 'list of cons expected in function.';//???
+      eopnocons: es = 'list of cons expected in operator.';//???
       efnnosafeinfix: es = 'infix is not safe.';//???
       //ändern?
       efnconsexpect: es      = 'cons-list expected.';//oder einfnoprop nehmen?
@@ -210,9 +211,9 @@ const //
       xcoreimport = 42;
       xuserimport = 43;//userimport?
       //
-      xiput=44;// for test
+      //xtestiput=44;// for test
       //xeinterp = 45;
-      xmaxtype = xiput;//xeinterp;
+      xmaxtype = xuserimport;//xtestiput;//xeinterp;
       //
       prefix   = '@';
       compose  = unicodechar(176);// ='°';
@@ -269,6 +270,10 @@ var cell:   cellmem;
     etop: cardinal = xnil;
     efun: cardinal = xnil;
     einf: cardinal = xnil;
+    eref: cardinal = xnil;
+    x: cardinal = xnil;
+    y: cardinal = xnil;
+    z: cardinal = xnil;
     mstack: cardinal = xnil;
     mdict: cardinal = xnil;
     trail: cardinal = xnil;
@@ -360,7 +365,7 @@ end;
 
 //ifprefix für traverse...
 
-//gc: etop,efun,einf,estack(eptr),freeid,cstack,cref,mstack,mdict,impref,
+//gc: etop,efun,einf,eref,x,y,z,estack(eptr),freeid,cstack,cref,mstack,mdict,impref,
 //identlist,prefixlist,indexdict,trail
 
 // ------------------
@@ -384,6 +389,10 @@ begin //raise exception.create('gc:keine cellen mehr...');// provi
       traverse(etop);
       traverse(efun);
       traverse(einf);
+      traverse(eref);
+      traverse(x);
+      traverse(y);
+      traverse(z);
       traverse(cstack);
       traverse(cref);
       traverse(mstack);
@@ -639,7 +648,7 @@ begin identlist:=xnil;
       setxident(xcoreimport,'coreimport');
       setxident(xuserimport,'userimport');//userimport?
       //
-      setxident(xiput,   'iput');     // for test !!!
+      //setxident(xtestiput,   'testiput');     // for test !!!
       //setxident(xeinterp,'einterpreter');//?
       //
 end;
@@ -786,15 +795,47 @@ end;
 // ----------------------
 // ------- legacy -------
 // ----------------------
-procedure apiput({ide}aggr,key,val: cardinal);// result: etop //... provi !!! for test
+procedure apiputA({ide}aggr,key,val: cardinal);// result: etop //... provi !!! for test
 begin etop:=aggr;
       einf:=key;
       efun:=val;
       etop:=prop(aggr,xcons,prop(prop(key,xcons,prop(val,xcons,xnil)),xcons,xnil));
       //servprint(tovalue(etop));//for test
-      efun:=xiput;
+  //  efun:=xtestiput;// für den call
       repeat eval;  if (ecall<>0) then proc[ecall]
       until equit;//loop?
+end;
+
+//verändert die register! //nur pointer-vergleich!
+procedure apiput({ide,}aggr,key,val: cardinal); // result: etop
+label re;
+begin etop:=aggr;
+      x:=key;// auf ident prüfen? ,nur pointer werden verglichen!
+      y:=val;
+      //z:=ide;
+      eref:=xnil;//stack für unmatching props
+  re: einf:=infix[etop];
+      if (einf>=xlimit) then begin
+         if (einf<>key) then
+            with cell[etop] do begin eref:=prop(first,einf,eref);
+                                     etop:=rest;
+                                     goto re //continue
+                               end
+         else etop:=cell[etop].rest//
+      end
+      else begin etop:=xnil end;//auf etop auf xnil setzen????????????????????
+      etop:=prop(val,key,etop);
+      while (eref<>xnil) do begin
+            efun:=eref;
+            eref:=cell[eref].rest;
+            cell[efun].rest:=etop;
+            etop:=efun//
+      end;
+      efun:=xnil;
+      eref:=xnil;
+      x:=xnil;
+      y:=xnil;
+      //z:=xnil
 end;
 
 procedure apigetpre;
@@ -838,6 +879,10 @@ begin maxcell:=mc;
       etop:=xnil;
       efun:=xnil;
       einf:=xnil;
+      eref:=xnil;
+      x:=xnil;
+      y:=xnil;
+      z:=xnil;
       mstack:=xnil;//position?
       mdict:=xnil;
       trail:=xnil;
@@ -892,6 +937,10 @@ begin freeallcells;
       etop:=xnil;
       efun:=xnil;
       einf:=xnil;
+      eref:=xnil;
+      x:=xnil;
+      y:=xnil;
+      z:=xnil;
       mstack:=xnil;//position?
       mdict:=xnil;
       trail:=xnil;

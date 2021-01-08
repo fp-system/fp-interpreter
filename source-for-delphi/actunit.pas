@@ -88,6 +88,8 @@ begin apiget(idxprint,mdict,xit);
       //xbind?
 end;
 
+// auf errors von apiget und apiput achten/reagieren !!!
+
 procedure minput;
 var s: ustring;
 begin apiget(idxinput,mdict,xit);

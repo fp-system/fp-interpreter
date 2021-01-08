@@ -1,7 +1,7 @@
 object guiForm: TguiForm
   Left = 0
   Top = 0
-  Caption = 'FP trivia mostly right-associative'
+  Caption = 'FP trivia strict mostly right-associative'
   ClientHeight = 675
   ClientWidth = 671
   Color = clWhite

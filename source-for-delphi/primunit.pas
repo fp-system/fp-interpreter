@@ -31,6 +31,7 @@ var idxundef: cardinal = xnil;
     idxswee: cardinal = xnil;
     idxcomma: cardinal = xnil;
     idxiget: cardinal = xnil;
+    idxiput: cardinal = xnil;
     idxop: cardinal = xnil;
     idxname: cardinal = xnil;
     idxbody: cardinal = xnil;
@@ -395,6 +396,25 @@ begin ee(idxiget);// efun & etop(xerror)
       end//else exit
 end;
 
+// test: '(10 aa 20 bb 30 cc 40 dd) iput 'x,'y,
+procedure fiput;//ifprefix
+begin ee(idxiput);
+      if (infix[etop]=xerror) then exit;// ?...
+      if (infix[efun]=xobject) then op(idxiput)
+      else begin
+         if (infix[etop]<>xcons) then begin
+            if (infix[etop]<>xerror) then etop:=newerror(idxiput,eopnocons);
+            exit
+         end;
+         with cell[etop] do begin einf:=first; etop:=rest end;
+         if (infix[etop]<>xcons) then begin//ifxerror?
+            etop:=newerror(idxiput,eopnocons); exit
+         end;
+         etop:=cell[etop].first;
+         apiput(efun,einf,etop)//? noch mal untersuchen
+      end//
+end;
+
 // ----------------------
 // ------- legacy -------
 // ----------------------
@@ -568,6 +588,7 @@ begin //
       idxswee:=newindex('swee');
       idxcomma:=newindex('comma');
       idxiget:=newindex('iget');
+      idxiput:=newindex('iput');
       idxop:=newindex('op');
       idxname:=newindex('name');
       idxbody:=newindex('body');
@@ -614,6 +635,7 @@ begin for i:=0 downto minproc do proc[i]:=fundef;// to -1 (?)
       //fis
       //
       newidentproc('iget',figet);
+      newidentproc('iput',fiput);
       newidentproc('op',fop);
       newidentproc('name',fname);
       newidentproc('body',fbody);
