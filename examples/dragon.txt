@@ -1,7 +1,6 @@
 ((('4,'13,) ldragon pendown°('400,'_190,) moveto penup ° 'turtle new) (draw eff 'io))>>()
 
-// promises schauen...
-
+//('4,'13,)
 coreimport == "library\turtlegraphics.txt";
 
 ldragon == (([2]='0)->([1] move [0])|

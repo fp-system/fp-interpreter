@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset161 Calibri;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2020-10-27\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-01-08\par
 \par
 \cf1\b\fs28 Naming Conventions\cf0\b0\fs24\par
 \b name\b0\tab\tab the name itself\line\i name\i0\tab\tab the type / the class\line (?)\tab\tab Uncertainties\line *\tab\tab Footnote / Note\par
@@ -43,7 +43,7 @@ userpath?\par
 \b arg\b0  \'b0 \i combi\i0\tab --\tab arg value\par
 termoarg\tab --\tab term o arg\par
 \i first\i0  \b\fs28 ,\b0\fs24  \i rest\i0\tab --\tab list\line Appendleft\par
-\b length\b0  \'b0 \i dict\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 \i list\i0\tab\tab --\tab\i real\i0\line Number of list items.\par
+\b length\b0  \'b0 \i dict\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 \i list\i0\tab\tab --\tab\i real\i0\line Number of list items.\line length \'b0 object\par
 \b reverse\b0  \'b0 \i dict\i0\tab\tab --\tab\i dict\i0\line\b reverse\b0  \'b0 \i list\i0\tab\tab --\tab\i list\i0\line\b reverse\b0  \'b0 \i object\i0\tab --\line Reverses the list items.\par
 \i data\i0  \b distl\b0  \i list\i0\tab\tab --\tab matrix\par
 \i list\i0  \b distr\b0  \i data\i0\tab\tab --\tab matrix\par
@@ -57,6 +57,9 @@ termoarg\tab --\tab term o arg\par
 \b tailr\b0  \'b0 \i list\i0\tab --\tab list\line\b tailr\b0  \'b0 \i dict\i0\tab --\tab dict\par
 \b rotl\b0  \'b0 \i list\i0\tab --\tab list\par
 \b rotr\b0  \'b0 \i list\i0\tab --\tab list\par
+\i list\i0  \b count\b0  \i data\tab\i0\tab --\tab real\par
+\i data\i0  \b make\b0  \i num\i0\tab --\tab list\par
+\i list\i0  \b find\b0  \i data\i0\tab --\tab real\par
 \b iota\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line\b\f1\fs28\u953?\lang1031\b0\f0\fs24      \'b0 \i num\i0\tab --\tab\i list\i0\line Generates a list of numbers from 1 to \i num\i0 .\par
 \b iota0\b0  \'b0 \i num\i0\tab --\tab\i list\i0\line Generates a list of numbers from 0 to \i num\i0 -1.\par
 \i int\i0    \b to\b0   \i int\i0\tab --\tab list\line\i real\i0  \b to\b0  \i real\i0\tab --\tab list\par
@@ -116,7 +119,7 @@ dict\i0  = (\i value0\i0  \i key0\i0  \i value1\i0  \i key1\i0  \i value2\i0  \i
 \i dict\i0  \b get\b0  \i key\i0\tab\tab --\tab\i value\i0\line Get the \i value\i0  for the \i key\i0  from a \i dict\i0 .\par
 \i dict\i0  \b put\b0  \i key\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line Replaces the \i value\i0  to a \i key\i0  in the \i dict\i0 .\par
 \i dict\i0  \b iget\b0  \i ident\i0\tab\tab --\tab\i value\i0\line\i dict\i0  \b iget\b0  \i index\i0\tab\tab --\tab\i value\i0\line API-Get for identical keys.\par
-\i dict\i0  \b iput\b0  \i ident\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line\i dict\i0  \b iget\b0  \i index\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line API-Put for identical keys.\par
+\i dict\i0  \b iput\b0  \i ident\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line\i dict\i0  \b iput\b0  \i index\i0 ,\i value\i0 ,\tab --\tab\i dict\i0\line API-Put for identical keys.\par
 \b\fs28 #\b0\i\fs24 ident\i0  \'b0 \i dict\i0\tab\tab --\tab\i value\i0\line (\i ident\i0  \b _v\b0 ) \'b0 \i dict\i0\tab --\tab\i value\i0\line Instance variable value.\par
 (\i ident\i0  \b\fs28 :=\b0\fs24  \i value\i0 ) \'b0 \i dict\i0\tab --\tab\i dict\i0\line Substitution of an instance variable with a \i value\i0 .\par
 \i func\i0  \b <-\b0  \i key1\i0  ; \i key2\i0  ; ... ;\line\i func\i0  \b\u8592?\b0  \i key1\i0  ; \i key2\i0  ; ... ;\line Assign combinator, general.\par
@@ -163,6 +166,8 @@ ispreg (?)\par
 \i test\i0  \b ->\b0  \i then\i0  \b |\b0  \i else\i0\line\i test\i0  \b\u8594?\b0  \i then\i0  \b |\b0  \i else\i0\line\i test\i0  \b ->\b0  \i then\i0  \b\fs28 ;\b0\fs24  \i else\i0\line Condition with Alternal/Cons\par
 \i test\i0  \b ->*\b0  \i func\line test \b\i0\u8594?*\b0  \i func\i0\line while Loop\par
 \i func\i0  \b loopif\b0  \i test\i0\line do-while Loop\par
+(\i func\i0  \b do\b0 )\'b0\i num\i0 ,\i num\i0 ,\i num\i0 ,\par
+\i functional\i0  \b for\b0  \i num\i0 ,\i num\i0 ,\i num\i0 ,\par
 \i list\i0  \b map\b0  \i functional\i0\line Map operator\par
 (\i func\i0  \b aa\b0 ) \'b0 \i list\i0\line\lang1031 (\i func\i0  \lang7\b\f2\'e1\lang1031\b0\f0 ) \'b0 \i list\i0\line Apply-to-all combinator\lang7\par
 \i list\i0  \b insl\b0  \i functional\i0\line Insertl operator\par
@@ -241,6 +246,7 @@ ifprop\par
 \b object\b0  == .. \{ ( ) ... ... ... \}\line Object class\par
 \b list\b0  == .. \{ object ... ... ... \}\line List class\par
 \b dict\b0  == .. \{ object ... ... ... \}\line Dict class\par
+\b vector\b0  == .. \{ ... ... \}\line Vector class\par
 \par
 \cf1\b\fs28 Monads and Effects\cf0\b0\fs24\par
 \i monad\i0  = (\i int\i0  \b _act \b0\i dict\i0 )\tab\tab // absolute\line\i monad\i0  = (\i index\i0  \b _act \b0\i dict\i0 )\tab\tab // relative\par
@@ -293,6 +299,8 @@ etc\par
 \b det\b0  \'b0 \i matrix\i0\tab\tab --\tab real\par
 \b inv\b0  \'b0 \i matrix\i0\tab\tab --\tab matrix\par
 \b transpose\b0  \'b0 \i matrix\i0\tab --\tab matrix\par
+isvector \'b0 data\tab\tab\tab // position\par
+tovector \'b0 list\par
 \par
 \cf1\b\fs28 Turtle Graphics\cf0\b0\fs24\par
 \i turtle\i0  = ( \b turtle\b0  \b ::\b0  \i list\i0  \b stack\b0  \i real\i0  \b x\b0  \i real\i0  \b y\b0  \i real\i0  \b angle\b0  \line\tab    \i bool\i0  \b pen\b0  \i num\i0  \b color\b0  \i num\i0  \b size\b0  \i num\i0  \b brush \b0 )\par

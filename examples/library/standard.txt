@@ -6,7 +6,7 @@ para  == .. [1]
 true  == .. 'true  // ?
 false == .. 'false // ?
 
-iput==dictput // for test !!!
+// testiput==dictput // for test !!!
 // : == raise ° ' "provisorium für fapplic (deprecation)"
 
 mod == ([0]-[1]*int°[0]/[1])°ee
@@ -60,6 +60,24 @@ nil == (list ::) _q // richtig?
 ->* == ((top°term) app arg)->(term app (pop°term) app arg)|arg
 
 loopif == (((pop°[0]) app [1])->([0] app [1]) | [1])°term ee (top°term) app arg
+
+// (E do)°f,g,step,
+
+
+do == (top°term) for arg
+
+// 'E for f,g,step,
+
+
+for == reverse ° [4]
+
+       ° ( (ispos°[2])->(([0]<=[1])->*([0]+[2]),[1],[2],[3],(([3]app[0]),[4]),)
+
+         | (isneg°[2])->(([0]>=[1])->*([0]+[2]),[1],[2],[3],(([3]app[0]),[4]),)
+
+         | '[for] error "Endless for-loop";)
+
+       ° ((([0],[1],((iscons°tail°tail)->[2]|1),)°[1])++[0],(),)°ee
 
 iota  == [1]°((ispos°[0])->*(pred°[0]),([0],[1]),)°id,(),             // Backus
 iota0 == [1]°((ispos°succ°[0])->*(pred°[0]),([0],[1]),)°(pred°id),(), // J
