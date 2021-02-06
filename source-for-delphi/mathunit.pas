@@ -29,6 +29,7 @@ var idxadd: cardinal = xnil;
     idxint: cardinal = xnil;
     idxfrac: cardinal = xnil;
     idxfloat: cardinal = xnil;
+    idxroundto: cardinal = xnil;
     idxexp: cardinal = xnil;
     idxln: cardinal = xnil;
     idxlg: cardinal = xnil;
@@ -41,9 +42,13 @@ var idxadd: cardinal = xnil;
     idxarcsin: cardinal = xnil;
     idxarccos: cardinal = xnil;
     idxarctan: cardinal = xnil;
+    idxarctan2: cardinal = xnil;
     idxsinh: cardinal = xnil;
     idxcosh: cardinal = xnil;
     idxtanh: cardinal = xnil;
+    idxarsinh: cardinal = xnil;
+    idxarcosh: cardinal = xnil;
+    idxartanh: cardinal = xnil;
     idxdeg: cardinal = xnil;
     idxrad: cardinal = xnil;
     //
@@ -79,6 +84,8 @@ begin ee(idxadd);
          einf:=xnil
       end//else exit
 end;
+
+//procedure froundto;
 
 procedure fsub;//ifprefix?
 begin ee(idxsub);
@@ -156,7 +163,8 @@ begin ee(idxdiv);  if (infix[etop]=xerror) then exit;
              on ematherror  do etop:=newerror(idxdiv,eopmatherror)
              else raise
       end;
-      efun:=xnil//? ,einf:=xnil
+      efun:=xnil;//?
+      einf:=xnil
 end;
 
 procedure fpow;//ifprefix?
@@ -389,6 +397,34 @@ begin einf:=infix[etop];
       einf:=xnil
 end;
 
+procedure froundto;
+var num1,num2: extended; n: int64;
+begin ee(idxroundto);  if (infix[etop]=xerror) then exit;
+      einf:=infix[efun];
+      if (einf=xobject) then begin op(idxroundto); exit end;
+      if      (einf=xreal)    then num1:=cell[efun].fnum
+      else if (einf=xinteger) then num1:=cell[efun].inum
+      else begin etop:=newerror(idxroundto,eopnonum1); exit end;
+      einf:=infix[etop];
+      if      (einf=xreal)    then num2:=cell[etop].fnum
+      else if (einf=xinteger) then num2:=cell[etop].inum
+      else begin etop:=newerror(idxroundto,eopnonum2); exit end;
+      try n:=round(num2)
+      except etop:=newerror(idxroundto,eop2rounderror);//?
+             exit
+      end;
+      if ((n < -20) or (n > 20)) then begin
+         etop:=newerror(idxroundto,eop2notinrange);//?
+         exit
+      end;
+      try etop:=newreal(roundto(num1,n))//round extra?
+      except on ematherror do etop:=newerror(idxroundto,eopmatherror)
+             else raise
+      end;
+      efun:=xnil;//?
+      einf:=xnil
+end;
+
 // ------- [real] -------
 
 procedure fexp;//ifprefix?
@@ -608,11 +644,48 @@ begin einf:=infix[etop];
       einf:=xnil
 end;
 
-procedure farctan2;//?
-begin//
+procedure farctan2;
+var num1,num2: double;
+begin ee(idxarctan2);  if (infix[etop]=xerror) then exit;
+      einf:=infix[efun];
+      if (einf=xobject) then begin op(idxarctan2); exit end;// y als xobject ?
+      if      (einf=xreal)    then num1:=cell[efun].fnum
+      else if (einf=xinteger) then num1:=cell[efun].inum
+      else begin etop:=newerror(idxarctan2,eopnonum1); exit end;
+      einf:=infix[etop];
+      if      (einf=xreal)    then num2:=cell[etop].fnum
+      else if (einf=xinteger) then num2:=cell[etop].inum
+      else begin etop:=newerror(idxarctan2,eopnonum2); exit end;
+      try etop:=newreal(arctan2(num1,num2))
+      except on EZeroDivide do etop:=newerror(idxarctan2,efdivbyzero);//???nötig
+             on ematherror  do etop:=newerror(idxarctan2,eopmatherror)
+             else raise
+      end;
+      efun:=xnil;//? ,position?
+      einf:=xnil
 end;
-
-//arctan2?
+{
+procedure farctan2;
+begin ee(idxarctan2);
+      //einf2:=infix[etop];
+      if (infix[etop]<>xerror) then begin
+         einf:=infix[efun];
+         if      (einf=xreal)    then begin
+            if (infix[etop]<>xreal) then etop:=newerror(idxarctan2,eopnoreal2)
+            else try etop:=newreal(arctan2(cell[efun].fnum,cell[etop].fnum))
+                 except on ematherror do etop:=newerror(idxarctan2,eopmatherror)
+                        else raise
+                 end
+         end
+       //else if (einf=xinteger) then begin ... end// oder wie bei fdiv machen?
+         else if (einf=xobject)  then op(idxarctan2)
+         //else if typeclass
+         //ifxerror?
+         else etop:=newerror(idxarctan2,eopnoreal1);
+         einf:=xnil//
+      end//else exit
+end;
+}
 
 procedure fsinh;//ifprefix?
 begin einf:=infix[etop];
@@ -662,21 +735,53 @@ begin einf:=infix[etop];
       einf:=xnil
 end;
 
-procedure farcsinh;//?
-begin//
+procedure farsinh;//ifprefix?
+begin einf:=infix[etop];
+      if      (einf=xreal)    then
+         try etop:=newreal(arcsinh(cell[etop].fnum))
+         except on ematherror do etop:=newerror(idxarsinh,efnmatherror)
+                else raise
+         end
+      //else if (einf=xinteger) thenbeginend
+      else if (einf=xobject)  then fn(idxarsinh)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idxarsinh,efnnoreal);//? idxname
+      einf:=xnil
 end;
 
-procedure farccosh;//?
-begin//
+procedure farcosh;//ifprefix?
+begin einf:=infix[etop];
+      if      (einf=xreal)    then
+         try etop:=newreal(arccosh(cell[etop].fnum))
+         except on ematherror do etop:=newerror(idxarcosh,efnmatherror)
+                else raise
+         end
+      //else if (einf=xinteger) thenbeginend
+      else if (einf=xobject)  then fn(idxarcosh)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idxarcosh,efnnoreal);//? idxname
+      einf:=xnil
 end;
 
-procedure farctanh;//?
-begin//
+procedure fartanh;//ifprefix?
+begin einf:=infix[etop];
+      if      (einf=xreal)    then
+         try etop:=newreal(arctanh(cell[etop].fnum))
+         except on ematherror do etop:=newerror(idxartanh,efnmatherror)
+                else raise
+         end
+      //else if (einf=xinteger) thenbeginend
+      else if (einf=xobject)  then fn(idxartanh)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idxartanh,efnnoreal);//? idxname
+      einf:=xnil
 end;
-
-//arcsinh?
-//arccosh?
-//arctanh?
 
 procedure fdeg;//ifprefix?
 begin einf:=infix[etop];
@@ -743,6 +848,7 @@ begin //
       idxint:=newindex('int');
       idxfrac:=newindex('frac');
       idxfloat:=newindex('float');
+      idxroundto:=newindex('roundto');// --> float
       idxexp:=newindex('exp');
       idxln:=newindex('ln');
       idxlg:=newindex('lg');
@@ -755,9 +861,13 @@ begin //
       idxarcsin:=newindex('arcsin');
       idxarccos:=newindex('arccos');
       idxarctan:=newindex('arctan');
+      idxarctan2:=newindex('arctan2');
       idxsinh:=newindex('sinh');
       idxcosh:=newindex('cosh');
       idxtanh:=newindex('tanh');
+      idxarsinh:=newindex('arsinh');
+      idxarcosh:=newindex('arcosh');
+      idxartanh:=newindex('artanh');
       idxdeg:=newindex('deg');
       idxrad:=newindex('rad');
       //
@@ -786,6 +896,7 @@ begin //
       newidentproc('int',fint);
       newidentproc('frac',ffrac);
       newidentproc('float',ffloat);
+      newidentproc('roundto',froundto);//position?
       newidentproc('exp',fexp);
       newidentproc('ln',fln);
       newidentproc('lg',flg);
@@ -800,9 +911,13 @@ begin //
       newidentproc('arcsin',farcsin);
       newidentproc('arccos',farccos);
       newidentproc('arctan',farctan);
+      newidentproc('arctan2',farctan2);
       newidentproc('sinh',fsinh);
       newidentproc('cosh',fcosh);
       newidentproc('tanh',ftanh);
+      newidentproc('arsinh',farsinh);
+      newidentproc('arcosh',farcosh);
+      newidentproc('artanh',fartanh);
       newidentproc('deg',fdeg);
       newidentproc('rad',frad);
       //

@@ -2,7 +2,7 @@ object errorForm: TerrorForm
   Left = 0
   Top = 0
   BorderStyle = bsDialog
-  Caption = 'Exception...'
+  Caption = ' Exception...'
   ClientHeight = 347
   ClientWidth = 493
   Color = clBtnFace

@@ -135,6 +135,8 @@ const //
       //
       //
       efnrounderror: es = 'round error in function.';//???
+      eop2rounderror: es = 'round error in operand[1].';
+      eop2notinrange: es = 'operand[1] not in range.';// _20 .. 20
       //
       // ------- errors stringunit -------
       efnnostring1: es   = 'string as argument[0] expected.';

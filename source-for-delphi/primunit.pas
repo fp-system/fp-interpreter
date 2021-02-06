@@ -35,6 +35,7 @@ var idxundef: cardinal = xnil;
     idxop: cardinal = xnil;
     idxname: cardinal = xnil;
     idxbody: cardinal = xnil;
+    idxit: cardinal = xnil;
     //
     //ididy: cardinal = xnil;
     idterm: cardinal = xnil;
@@ -563,6 +564,10 @@ begin farg;
       fterm
 end;
 
+procedure fit;
+begin apiget(idxit,etop,xit)// if_undef?
+end;
+
 // ------- initialization of the runtime primitives -------
 
 var pcounter: int64;
@@ -592,6 +597,7 @@ begin //
       idxop:=newindex('op');
       idxname:=newindex('name');
       idxbody:=newindex('body');
+      idxit:=newindex('it');
       //
 end;
 
@@ -646,6 +652,7 @@ begin for i:=0 downto minproc do proc[i]:=fundef;// to -1 (?)
       newidentproc('raise',fraise);// name?
       newidentproc('gc',fgc);
       newidentproc('termoarg',ftermoarg);
+      newidentproc('it',fit);//system-result
       //
 end;
 

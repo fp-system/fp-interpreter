@@ -76,7 +76,9 @@ end;
 
 procedure mshowinfo;
 begin apiget(idxshowinfo,mdict,xit);
+      serveinput:=true;//test für wine
       messagedlg(AnsiDequotedStr(tovalue(etop),qot2),mtinformation,[mbok],0);
+      serveinput:=false;//test für wine
       etop:=mdict;
       //xbind?
 end;
@@ -118,7 +120,7 @@ begin apiget(idxloadtext,mdict,xit);
              txtlist.clear;
              apiput(mdict,xit,newstring(txt))
           end
-          else begin apiput(mdict,xit,newstring('error bei loadtext...filenotfound'));
+          else begin apiput(mdict,xit,newerror(idxloadtext,'file not found.'));
                      //fehler genauer behandeln
                end//
       finally txtlist.free

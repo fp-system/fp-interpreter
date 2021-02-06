@@ -1500,7 +1500,7 @@ object guiForm: TguiForm
       Caption = '-'
     end
     object openitem: TMenuItem
-      Caption = ' Open Script  ...'
+      Caption = ' Open Script ...'
       ImageIndex = 7
       ShortCut = 16463
       OnClick = openitemClick
@@ -1512,24 +1512,23 @@ object guiForm: TguiForm
       OnClick = reloaditemClick
     end
     object saveitem: TMenuItem
-      Caption = ' Save Memo  ...'
+      Caption = ' Save Memo ...'
       ImageIndex = 8
       ShortCut = 16467
       OnClick = saveitemClick
     end
     object inititem: TMenuItem
-      Caption = ' Initialization  ...'
-      Enabled = False
+      Caption = ' Initialization ...'
       OnClick = inititemClick
     end
     object finditem: TMenuItem
-      Caption = ' Finding  ...'
+      Caption = ' Finding ...'
       Enabled = False
       ShortCut = 16454
       OnClick = finditemClick
     end
     object fontitem: TMenuItem
-      Caption = ' Memo Font  ...'
+      Caption = ' Memo Font ...'
       OnClick = fontitemClick
     end
     object quickitem: TMenuItem
@@ -1543,13 +1542,13 @@ object guiForm: TguiForm
       OnClick = docuitemClick
     end
     object helpitem: TMenuItem
-      Caption = ' Help  "reference"'
+      Caption = ' Help "reference"'
       ImageIndex = 32
       ShortCut = 112
       OnClick = helpitemClick
     end
     object websiteitem: TMenuItem
-      Caption = ' Website  "FP-System"'
+      Caption = ' Website "FP-System"'
       OnClick = websiteitemClick
     end
     object favoritem: TMenuItem
@@ -1559,7 +1558,7 @@ object guiForm: TguiForm
       OnClick = favoritemClick
     end
     object testitem: TMenuItem
-      Caption = ' Testing  "test.txt"'
+      Caption = ' Testing "test.txt"'
       ImageIndex = 39
       OnClick = testitemClick
     end
@@ -1583,7 +1582,7 @@ object guiForm: TguiForm
     Left = 481
     Top = 600
     Bitmap = {
-      494C01012E000005E40210001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C01012E000005EC0210001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       000000000000360000002800000040000000C0000000010020000000000000C0
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

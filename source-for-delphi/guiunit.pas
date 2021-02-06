@@ -117,7 +117,8 @@ implementation
 uses serveunit, errorunit, initunit, typeunit;
 
 const pixelinpopupmenu = 12;//14;//in servunit;//0=linux?
-      documents: es = 'documents\';
+      documents  : es = 'documents\';
+      inifiledef : es = '\Software\FPtrivia';
       corefiledef: es = 'prelude.txt';
       memofiledef: es = 'Document.txt';
       infofiledef: es = 'quickinfo.rtf';//bitte .pdf
@@ -125,11 +126,13 @@ const pixelinpopupmenu = 12;//14;//in servunit;//0=linux?
       helpfiledef: es = 'reference.rtf';//bitte .pdf
       website_url: es = 'https://fp-system.github.io';//?
       testfiledef: es = 'test.txt';
-      redefine: es = 'redefine';
+      redefine   : es = 'redefine';
       filenotfound: es = 'File not found.';
       noparamfilename: es ='No parameter file.';//param?;
+      noinifilename: es = 'No inifile name.';//?;
 
-var formcaption,exefilename,corefilename,paramfilename,memofilename: ustring;
+var formcaption,
+    inifilename,exefilename,corefilename,paramfilename,memofilename: ustring;
     intxtfile: tstringlist = nil;//oder getmemo?;
 
 //errorquit (!?)
@@ -153,6 +156,7 @@ begin with guiForm do
           iomemo.selstart:=length(iomemo.text);
           iomemo.setfocus;
           formcaption:=caption;
+          inifilename:=inifiledef;
           exefilename:=paramstr(0);
           corefilename:=extractslashpath(exefilename)+corefiledef;
           paramfilename:=paramstr(1);
@@ -205,6 +209,18 @@ begin with guiForm do begin
            caption:=' '+redefine+' - '+formcaption// (?)
            //adpanel.caption:='';
       end
+end;
+
+procedure initmaxcell;
+begin if (inifilename='') then begin errordialog(noinifilename); exit end;
+      try //
+          initForm.celledit.text:='Auﬂer Betrieb!';
+          if (initForm.showmodal=mrok) then begin
+             //
+          end;
+          //
+      except //
+      end//
 end;
 
 // ----- Fundamental Loop -----
@@ -364,8 +380,9 @@ begin try savedialog.initialdir:=extractslashpath(memofilename);
 end;
 
 procedure TguiForm.inititemClick(Sender: TObject);
-begin//
+begin initmaxcell
 end;
+
 procedure TguiForm.finditemClick(Sender: TObject);
 begin//
 end;
