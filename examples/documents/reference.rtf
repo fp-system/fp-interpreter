@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset161 Calibri;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-01-08\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-02-01\par
 \par
 \cf1\b\fs28 Naming Conventions\cf0\b0\fs24\par
 \b name\b0\tab\tab the name itself\line\i name\i0\tab\tab the type / the class\line (?)\tab\tab Uncertainties\line *\tab\tab Footnote / Note\par
@@ -85,6 +85,7 @@ termoarg\tab --\tab term o arg\par
 \b int\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Integer part of the number as a real number.\par
 \b frac\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Fraction part of a real number.\par
 \b float\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Conversion to the real number.\par
+\i num\i0  \b roundto\b0  \i num\i0\tab --\tab real\par
 \b exp\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Exponential function\par
 \b ln\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Natural logarithm.\par
 \b lg\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Decadic logarithm.\par
@@ -99,10 +100,13 @@ termoarg\tab --\tab term o arg\par
 \b arcsin\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arcsine function\par
 \b arccos\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arccosine function\par
 \b arctan\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Arctangent function\par
+\i num\i0  \b arctan2\b0  \i num\i0\tab --\tab real\par
 \b sinh\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Hyperbolic sine function\par
 \b cosh\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Hyperbolic cosine function\par
 \b tanh\b0  \'b0 \i real\i0\tab --\tab\i real\i0\line Hyperbolic tangent function\par
-//area hyperbolic sine\line //area hyperbolic cosine\line //area hyperbolic tangent\par
+\b arsinh\b0  \'b0 \i real\i0\tab --\tab real\par
+\b arcosh\b0  \'b0 \i real\i0\tab --\tab real\par
+\b artanh\b0  \'b0 \i real\i0\tab --\tab real\par
 \b deg\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Radiant-to-Degree function\par
 \b rad\b0  \'b0 \i num\i0\tab --\tab\i real\i0\line Degree-to-Radiant function\par
 \i real\i0  \b mod\b0  \i real\i0\tab --\tab\i real\i0\line Modulo of real numbers.\par
@@ -153,7 +157,9 @@ ispreg (?)\par
 \b isbound\b0  \'b0 \i ident\i0\tab --\tab\i bool\i0\line\b isbound\b0  \'b0 \i prefix\i0\tab --\tab\i bool\i0\line Checks whether an identifier is bound.\par
 \b isundef\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line Testing for _undef\par
 \b iscomplex\b0  \'b0 \i complex\i0\tab --\tab\i bool\i0\line Checks whether it is a complex number. (?)\par
+\b isvector\b0  \'b0 \i data\tab\i0\tab --\tab bool\par
 \i object\i0  \b is\b0  \i ident\i0\tab\tab --\tab\i bool\i0\line Checks whether the \i ident\i0  is the same as the class identifier of the \i object\i0 . (?)\par
+(\i ident\i0  \b hastag\b0 ) \'b0 \i data\i0\tab --\tab bool\tab (?name)\par
 \par
 \cf1\b\fs28 Combinators for Program Execution (?)\cf0\b0\fs24\par
 \i combi\i0   =  (\i term\i0  \b _combine\b0  .. \i arg\i0 )\par
@@ -209,7 +215,8 @@ ifprop\par
 \i list\i0  \b join\b0  \i sepstr\i0\tab\tab --\tab string\par
 \i string\i0  \b split\b0  \i sepstr\i0\tab --\tab list\par
 \i string\i0  \b repeat\b0  \i num\i0\tab --\tab string\par
-\b delete\b0  \'b0 \i string\i0 ,\i num\i0 ,\i num\i0 ,\tab --\tab string\par
+\i string\i0  \b delete\b0  \i num\i0 ,\i num\i0 ,\tab --\tab string\par
+\i string\i0  \b insert\b0  \i num\i0 ,\i string\i0 ,\tab --\tab string\par
 \b length\b0  \'b0 \i string\i0\tab\tab --\tab\i real\i0\line Length of the string.\par
 \i string\i0  \b mid\b0  \i num\i0 ,\i num\i0 ,\tab --\tab string\par
 \i string\i0  \b left\b0  \i num\i0\tab --\tab string\par
@@ -299,8 +306,9 @@ etc\par
 \b det\b0  \'b0 \i matrix\i0\tab\tab --\tab real\par
 \b inv\b0  \'b0 \i matrix\i0\tab\tab --\tab matrix\par
 \b transpose\b0  \'b0 \i matrix\i0\tab --\tab matrix\par
-isvector \'b0 data\tab\tab\tab // position\par
-tovector \'b0 list\par
+\b tovector\b0  \'b0 \i list\i0\tab\tab --\tab vector\tab (?n\'f6tig)\par
+\i vector\i0  \b +\b0  \i vector\i0\tab --\tab vector\par
+\i vector\i0  \b -\b0  \i vector\tab\i0\tab --\tab vector\par
 \par
 \cf1\b\fs28 Turtle Graphics\cf0\b0\fs24\par
 \i turtle\i0  = ( \b turtle\b0  \b ::\b0  \i list\i0  \b stack\b0  \i real\i0  \b x\b0  \i real\i0  \b y\b0  \i real\i0  \b angle\b0  \line\tab    \i bool\i0  \b pen\b0  \i num\i0  \b color\b0  \i num\i0  \b size\b0  \i num\i0  \b brush \b0 )\par

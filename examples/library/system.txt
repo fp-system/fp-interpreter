@@ -52,7 +52,7 @@ quit      == '([12] _act () _it () _bind) // absolute/releatve? // ee
 var == ([0] put 'var ee [1])°ee // _var?
 eff == ([0] put '_eff ee [1])°ee
 >> == ((top°term) app arg) put '_bind ee pop°term
-it == .. #_it
+// it == .. #_it
 
 // act == (prop°[0],'_act,[1],)°ee //
 

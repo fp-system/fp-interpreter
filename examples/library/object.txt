@@ -57,23 +57,14 @@ list == .. { object
 //dict == .. { }
 
 isvector == id is 'vector
-
 tovector == 'vector obj id
 
-
-
 vector == .. {
-
      [add] == (isvector°[1])->((top°[0])obj(+ aa)°trans°(pop°[0])ee(pop°[1]))|fail
-
      [sub] == (isvector°[1])->((top°[0])obj(- aa)°trans°(pop°[0])ee(pop°[1]))|fail
-
-   }
-
-
+  }
 
 // is vervollkommnen
-
 // length für xobject
 
 // (CC-BY-3.0-DE) Fpstefan

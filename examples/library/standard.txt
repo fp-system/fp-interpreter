@@ -62,21 +62,13 @@ nil == (list ::) _q // richtig?
 loopif == (((pop°[0]) app [1])->([0] app [1]) | [1])°term ee (top°term) app arg
 
 // (E do)°f,g,step,
-
-
 do == (top°term) for arg
 
 // 'E for f,g,step,
-
-
 for == reverse ° [4]
-
        ° ( (ispos°[2])->(([0]<=[1])->*([0]+[2]),[1],[2],[3],(([3]app[0]),[4]),)
-
          | (isneg°[2])->(([0]>=[1])->*([0]+[2]),[1],[2],[3],(([3]app[0]),[4]),)
-
          | '[for] error "Endless for-loop";)
-
        ° ((([0],[1],((iscons°tail°tail)->[2]|1),)°[1])++[0],(),)°ee
 
 iota  == [1]°((ispos°[0])->*(pred°[0]),([0],[1]),)°id,(),             // Backus
@@ -174,7 +166,12 @@ split == reverse°[0]
 
 repeat == [0]°((ispos°[2])->*([0]&[1]),[1],(pred°[2]),) ° "",ee // round?
 
-delete == (substring°[0],1,(pred°[1]),)&(substring°[0],([1]+[2]),((length°[0])-pred°[1]+[2]),) // str,i,len, // name?
+// delete == (substring°[0],1,(pred°[1]),)&(substring°[0],([1]+[2]),((length°[0])-pred°[1]+[2]),) // str,i,len, // name?
+// str delete i,len,
+delete == ((substring°[0],1,(pred°[0]°[1]),)&(substring°[0],(+°[1]),((length°[0])-pred°+°[1]),))°ee
+
+// str insert i,s,
+insert == ((substring°[0],1,([0]°[1]),)&([1]°[1])&(substring°[0],(succ°[0]°[1]),((length°[0])-[0]°[1]),))°ee
 
 unpack == [2]°(([1]>'0)->*[0],(pred°[1]),((substring°[0],[1],'1,),[2]),)°id,length,(), // ispos?
 pack == isatom->' ""|(concat \)
@@ -198,5 +195,7 @@ swap == [1],[0],pop°pop
 // ((f0 eea f1 _s) _combine .. xx) ,eea?name
 eea == (tag='_combine)->(((top°term) app arg),((pop°term) app arg),arg,)|id // tag?
 
+// (t hastag):x
+hastag == (tag°arg)=top°term
 
 // (CC-BY-3.0-DE) Fpstefan
