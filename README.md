@@ -19,6 +19,6 @@ it also offers advantages, such as the "[Algebra of Programming](https://de.wiki
 which is made possible by the referential transparency of this implementation.
 
 
-Look at --> [infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf)
+Look at --> [infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf) \
 and look at --> [Variablen.pdf](https://github.com/fp-system/fp-interpreter/blob/master/Variablen.pdf)
 
