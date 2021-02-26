@@ -20,5 +20,5 @@ which is made possible by the referential transparency of this implementation.
 
 
 Look at --> [infix-meta-combination](https://github.com/fp-system/fp-interpreter/blob/master/infix-meta-combination.pdf) \
-and look at --> [Variablen.pdf](https://github.com/fp-system/fp-interpreter/blob/master/Variablen.pdf)
+and look at --> [Variablen.pdf](https://github.com/fp-system/fp-interpreter/blob/master/Variablen.pdf), german
 
