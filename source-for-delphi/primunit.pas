@@ -551,6 +551,11 @@ begin if (infix[etop]=xerror) then exit;
       etop:=indexdict//
 end;
 
+procedure fmaxcell;//provi(?)
+begin if (infix[etop]=xerror) then exit;
+      etop:=newinteger(maxcell)
+end;
+
 procedure fraise;
 begin raise exception.create(tovalue(etop))
 end;
@@ -649,6 +654,7 @@ begin for i:=0 downto minproc do proc[i]:=fundef;// to -1 (?)
       newidentproc('out',fout);//für debugging
       newidentproc('identlist',fidentlist);
       newidentproc('indexdict',findexdict);
+      newidentproc('maxcell',fmaxcell);
       newidentproc('raise',fraise);// name?
       newidentproc('gc',fgc);
       newidentproc('termoarg',ftermoarg);

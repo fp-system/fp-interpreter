@@ -5,6 +5,7 @@ interface
 uses Windows,Messages,SysUtils,Variants,Classes,Graphics,
      Controls,Forms,Dialogs,ImgList,Menus,ExtCtrls,
      StdCtrls,
+     Registry,
      clipbrd,
      Types, Vcl.Buttons;//dcc32 Hinweis;
 
@@ -130,15 +131,64 @@ const pixelinpopupmenu = 12;//14;//in servunit;//0=linux?
       filenotfound: es = 'File not found.';
       noparamfilename: es ='No parameter file.';//param?;
       noinifilename: es = 'No inifile name.';//?;
+      guisection = 'FP-Form';//?;
+      x0 = 'x0';
+      y0 = 'y0';
+      dx = 'dx';
+      dy = 'dy';
+      x0def = 80;
+      y0def = 9;
+      dxdef = 390;
+      dydef = 340;
+      tbdef = true;
+      toolbar = 'toolbar';
+      mcs = 'maxcell';
 
 var formcaption,
     inifilename,exefilename,corefilename,paramfilename,memofilename: ustring;
     intxtfile: tstringlist = nil;//oder getmemo?;
+    inifile: tregistryinifile;//tinifile;
 
 //errorquit (!?)
 procedure errordialog(s: ustring);
 begin beep;
       errorForm.re_showerror(s)
+end;
+
+procedure readinifile(var mc: int64);
+begin if (inifilename='') then exit;
+      try inifile:=tregistryinifile.create(inifilename);
+          with inifile,guiForm do begin
+               left:=readinteger(guisection,x0,x0def);
+               top:=readinteger(guisection,y0,y0def);
+               width:=readinteger(guisection,dx,dxdef);
+               height:=readinteger(guisection,dy,dydef);
+               //guiForm.iomemo.lines.append('ReadIniFile="'+inifilename+'"');//for test
+               toolpanel.visible:=readbool(guisection,toolbar,tbdef);
+               toolitem.checked:=toolpanel.visible;//tauschen?
+               mc:=readinteger(guisection,mcs,mc);
+          end;
+          inifile.free
+      except inifile.free;
+             inifilename:='';
+             //errordialog...
+      end//
+end;
+
+procedure writeinifile;
+begin if (inifilename='') then exit;
+      try inifile:=tregistryinifile.create(inifilename);
+          with inifile,guiForm do begin
+               writeinteger(guisection,x0,left);
+               writeinteger(guisection,y0,top);
+               writeinteger(guisection,dx,width);
+               writeinteger(guisection,dy,height);
+               writebool(guisection,toolbar,toolpanel.visible);
+               updatefile
+          end;
+          inifile.free
+      except inifile.free//errordialog?
+      end//
 end;
 
 // ------- FP scriptor -------
@@ -156,13 +206,16 @@ begin with guiForm do
           iomemo.selstart:=length(iomemo.text);
           iomemo.setfocus;
           formcaption:=caption;
-          inifilename:=inifiledef;
           exefilename:=paramstr(0);
           corefilename:=extractslashpath(exefilename)+corefiledef;
           paramfilename:=paramstr(1);
           memofilename:=extractslashpath(exefilename)+memofiledef;
+          inifilename:=inifiledef;
           mc:=servemaxcell;
+          readinifile(mc);
+          if (mc<servemincell) then mc:=servemincell;
           ms:=mc;//provi;
+          //guiForm.iomemo.lines.append('maxcell='+inttostr(mc));//for test
           initserve(mc,ms,iomemo,iopaintbox,toolpanel,guiForm);//mp?
           redef:=false;
           Application.OnIdle:=FormIdle;   //hier??? oder in onshow;
@@ -194,7 +247,8 @@ end;
 
 procedure finalgui;
 begin intxtfile.free;
-      finalserve
+      finalserve;
+      writeinifile
 end;
 
 //redefine in den titel setzen (?)
@@ -212,14 +266,21 @@ begin with guiForm do begin
 end;
 
 procedure initmaxcell;
+var max: int64;
 begin if (inifilename='') then begin errordialog(noinifilename); exit end;
-      try //
-          initForm.celledit.text:='Außer Betrieb!';
+      try inifile:=tregistryinifile.create(inifilename);
+          max:=inifile.readinteger(guisection,mcs,servemaxcell);
+          initForm.celledit.text:=inttostr(max);
           if (initForm.showmodal=mrok) then begin
-             //
+             inifile.writestring(guisection,mcs,initForm.celledit.text);
+             inifile.updatefile
           end;
-          //
-      except //
+          inifile.free
+      except on e: exception do begin
+                inifile.free;
+                inifilename:='';//???
+                errordialog(e.message)
+             end//
       end//
 end;
 

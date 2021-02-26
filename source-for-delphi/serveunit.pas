@@ -14,7 +14,8 @@ uses SysUtils,//exception;
      ShellAPI,//run...;
      typeunit;//ustring;
 
-const servemaxcell = 1200000;//(<-20MB/17MB->)//1000000;
+const servemincell =  100000;
+      servemaxcell = 1200000;//(<-20MB/17MB->)//1000000;
       prompt = '      ';
       splitterheight = 6;//=6
 
