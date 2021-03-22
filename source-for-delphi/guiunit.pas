@@ -5,6 +5,7 @@ interface
 uses Windows,Messages,SysUtils,Variants,Classes,Graphics,
      Controls,Forms,Dialogs,ImgList,Menus,ExtCtrls,
      StdCtrls,
+     //ComCtrls,//TTextAttributes
      Registry,
      clipbrd,
      Types, Vcl.Buttons;//dcc32 Hinweis;
@@ -143,6 +144,12 @@ const pixelinpopupmenu = 12;//14;//in servunit;//0=linux?
       tbdef = true;
       toolbar = 'toolbar';
       mcs = 'maxcell';
+      fontname    = 'fontname';
+      fontcharset = 'fontcharset';
+      fontcolor   = 'fontcolor';
+      fontheight  = 'fontheight';
+      fontpitch   = 'fontpitch';
+      fontsize    = 'fontsize';
 
 var formcaption,
     inifilename,exefilename,corefilename,paramfilename,memofilename: ustring;
@@ -156,6 +163,7 @@ begin beep;
 end;
 
 procedure readinifile(var mc: int64);
+var fname: ustring;
 begin if (inifilename='') then exit;
       try inifile:=tregistryinifile.create(inifilename);
           with inifile,guiForm do begin
@@ -167,11 +175,28 @@ begin if (inifilename='') then exit;
                toolpanel.visible:=readbool(guisection,toolbar,tbdef);
                toolitem.checked:=toolpanel.visible;//tauschen?
                mc:=readinteger(guisection,mcs,mc);
+               fname:=readstring(guisection,fontname,'');
+               if (fname<>'') then with iomemo.font do begin
+                  charset:=readinteger(guisection,fontcharset,charset);
+                  color:=readinteger(guisection,fontcolor,color);
+                  //fontadapter
+                  //handle
+                  height:=readinteger(guisection,fontheight,height);
+                  name:=readstring(guisection,fontname,name);
+                  //orientation
+                  //ownercriticalsection
+                  pitch:=tfontpitch(readinteger(guisection,fontpitch,ord(pitch)));
+                  //pixelsperinch
+                  //quality
+                  size:=readinteger(guisection,fontsize,size);
+                  //style;
+               end;
           end;
-          inifile.free
-      except inifile.free;
-             inifilename:='';
-             //errordialog...
+          inifile.free;
+      except on e: exception do begin inifile.free;
+                                      inifilename:='';
+                                      errordialog(e.message);
+                                end
       end//
 end;
 
@@ -184,10 +209,26 @@ begin if (inifilename='') then exit;
                writeinteger(guisection,dx,width);
                writeinteger(guisection,dy,height);
                writebool(guisection,toolbar,toolpanel.visible);
+               with iomemo.font do begin
+                    writeinteger(guisection,fontcharset,charset);
+                    writeinteger(guisection,fontcolor,color);
+                    //fontadapter
+                    //handle
+                    writeinteger(guisection,fontheight,height);
+                    writestring (guisection,fontname,name);
+                    //orientation
+                    //ownercriticalsection
+                    writeinteger(guisection,fontpitch,ord(pitch));
+                    //pixelsperinch
+                    //quality
+                    writeinteger(guisection,fontsize,size);
+                    //style;
+               end;
                updatefile
           end;
-          inifile.free
-      except inifile.free//errordialog?
+          inifile.free;
+      except inifile.free;
+             //errordialog?
       end//
 end;
 
