@@ -39,4 +39,4 @@ fact == (* \) ° '1,iota
 expp == [2]°((ispos°[0])->*(pred°[0]),[1],([2]+([1]poti[0])/(fact°[0]) cval 0),)°30,id,(1 cval 0),
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

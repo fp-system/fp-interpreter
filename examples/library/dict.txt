@@ -31,4 +31,4 @@ dictput == (([1]°[2])++prop°([1]°[1]),([0]°[1]),((isatom->()|tail)°[0]°[2]),) //
 //	°(tail°term),arg,(),),
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

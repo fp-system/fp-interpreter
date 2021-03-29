@@ -1,8 +1,8 @@
 (("Zwei Programme werden gestartet, 
-und dieses beendet." showinfo) eff 'io)
+und dieses beendet." showinfo)
 >>((userpath&"drache.fp") run)
 >>((userpath&"spirale.fp") run)
->>quit
+>>quit) eff 'io
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

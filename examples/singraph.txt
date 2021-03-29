@@ -6,4 +6,4 @@ coreimport == "library\turtlegraphics.txt";
 // exp=='2.718281828459045^id
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

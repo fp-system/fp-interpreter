@@ -16,4 +16,4 @@ rdragon == (([2]='0)->([1] move [0])|
 	°([1],[0])°ee
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

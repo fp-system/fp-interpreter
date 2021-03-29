@@ -6,4 +6,4 @@ spiro == [0]°(([1]<>'0)->*((2pi/'100) turn [1] quadrat [0]),([1]-'1),)°reverse°e
 quadrat == [0]°(([2]<>'0)->*((2pi*'0.25) turn [1] move [0]),[1],([2]-'1),)°reverse° '4,ee
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

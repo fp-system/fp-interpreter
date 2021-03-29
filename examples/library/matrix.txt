@@ -25,4 +25,4 @@ inv==(([1]='0)->('[inv] error "Division by Zero";)| //(prop°'einv,'_exc,("Divisi
      )°id,det,('0,iota°pred°length),
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan
