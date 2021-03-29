@@ -198,4 +198,4 @@ eea == (tag='_combine)->(((top°term) app arg),((pop°term) app arg),arg,)|id // t
 // (t hastag):x
 hastag == (tag°arg)=top°term
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan

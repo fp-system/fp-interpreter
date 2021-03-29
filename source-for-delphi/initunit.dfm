@@ -41,11 +41,11 @@ object initForm: TinitForm
     Left = 32
     Top = 49
     Width = 304
-    Height = 27
-    Font.Charset = DEFAULT_CHARSET
+    Height = 23
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
+    Font.Height = -12
+    Font.Name = 'Fixedsys'
     Font.Style = []
     ParentFont = False
     TabOrder = 0
@@ -77,7 +77,6 @@ object initForm: TinitForm
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitTop = 191
     object infoimage: TImage
       Left = 32
       Top = 24

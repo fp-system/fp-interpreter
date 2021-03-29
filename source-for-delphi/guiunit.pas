@@ -123,10 +123,10 @@ const pixelinpopupmenu = 12;//14;//in servunit;//0=linux?
       inifiledef : es = '\Software\FPtrivia';
       corefiledef: es = 'prelude.txt';
       memofiledef: es = 'Document.txt';
-      infofiledef: es = 'quickinfo.rtf';//bitte .pdf
-      docufiledef: es = 'documentation.rtf';//bitte .pdf
-      helpfiledef: es = 'reference.rtf';//bitte .pdf
-      website_url: es = 'https://fp-system.github.io';//?
+      infofiledef: es = 'quickinfo.pdf';//bitte .pdf
+      docufiledef: es = 'documentation.pdf';//bitte .pdf
+      helpfiledef: es = 'reference.pdf';//bitte .pdf
+      website_url: es = 'https://fpstefan.github.io/feedback/';//'https://fp-system.github.io';//?
       testfiledef: es = 'test.txt';
       redefine   : es = 'redefine';
       filenotfound: es = 'File not found.';
@@ -583,4 +583,4 @@ end;
 end.
 
 
-// (CC-BY-3.0-DE) Fpstefan
+// (CC-BY-3.0) Fpstefan
