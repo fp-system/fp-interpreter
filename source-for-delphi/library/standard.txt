@@ -146,8 +146,8 @@ find == ([0]->[1]|_1)°(((not°[0]) and isprop°[2])->*([3]=head°[2]),(succ°[1]),(t
 sum  == id insr '+  // insl? ,weil kommutativ ,und lazy
 prod == id insr '*  // insl? ,weil kommutativ ,und lazy
 
-min == (([0]<[1])->[0] | [1])°ee
-max == (([0]<[1])->[1] | [0])°ee
+min == (< -> [0] | [1])°ee
+max == (< -> [1] | [0])°ee
 
 // s mid i,k,   // ?
 mid   == (substring°[0],([0]°[1]),([1]°[1]),)°ee

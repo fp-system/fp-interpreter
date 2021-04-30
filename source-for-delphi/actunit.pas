@@ -17,6 +17,7 @@ implementation
 uses apiunit, serveunit, vmunit;
 
 var idxdefine: cardinal = xnil;
+    idxredefine: cardinal = xnil;
     idxshowgraph: cardinal = xnil;
     idxshowinfo: cardinal = xnil;
     idxprint: cardinal = xnil;
@@ -33,24 +34,38 @@ end;
 procedure mdefine;  // provi             ,def?
 begin apiget(idxdefine,mdict,xself);
       //ifxundef
+      //ifxerror
       epush(etop);
       apiget(idxdefine,mdict,xpara);
       //ifxundef,etc...dec()
+      //ifxerror...dec()
       efun:=estack[eptr];  dec(eptr);//pull
       einf:=infix[efun];
       if ((einf=xident) or (einf=xprefix)) then begin
          if (cell[efun].value=xreserve) then begin
             cell[efun].value:=etop;
-            etop:=mdict;//
+            apiput(mdict,xit,xnil)//etop:=mdict ,oder ok oder success ???
          end
-         else provisorium('define=reserved ... provisorium.')//
+         else apiput(mdict,xit,newerror(idxdefine,eopmutnoreserve))
       end
-      else provisorium('define<>ident/prefix, nur provisorium...');
-      //
+      else apiput(mdict,xit,newerror(idxdefine,eopnomutable))
 end;
 
 procedure mredefine;                   // ,redef?
-begin//
+begin apiget(idxredefine,mdict,xself);
+      //ifxundef
+      //ifxerror
+      epush(etop);
+      apiget(idxredefine,mdict,xpara);
+      //ifxundef...dec()
+      //ifxerror...dec()
+      efun:=estack[eptr];  dec(eptr);
+      einf:=infix[efun];
+      if ((einf=xident) or (einf=xprefix)) then begin
+         cell[efun].value:=etop;
+         apiput(mdict,xit,xnil)//etop:=mdict ,oder ok oder success ???
+      end
+      else apiput(mdict,xit,newerror(idxredefine,eopnomutable))
 end;
 
 // ------------------
@@ -154,9 +169,10 @@ end;
 
 procedure mrun;
 begin apiget(idxrun,mdict,xit);
-      serverun(AnsiDequotedStr(tovalue(etop),qot2));//try und _error...
-      etop:=mdict;
-      //
+      try serverun(AnsiDequotedStr(tovalue(etop),qot2));
+          apiput(mdict,xit,xnil)
+      except on e: exception do apiput(mdict,xit,newerror(idxrun,e.message))
+      end//try und _error...
 end;
 
 procedure mquit;
@@ -213,6 +229,9 @@ begin if (infix[etop]=xact) then begin
                mdict:=etop;
                apiget(idxreact,mdict,xbind);//wird mdict verändert? //ifxundef?
                //ifxundef...
+               if (etop=xundef) then begin etop:=newerror(idxreact,ereactnobind);
+                                           exit
+                                     end;
                //ifxerror...
                efun:=etop;
                etop:=mdict;
@@ -222,11 +241,11 @@ begin if (infix[etop]=xact) then begin
             else begin provisorium('int>maxproc in _act')end
          end
          else if (einf=xindex)   then begin
-            mstack:=prop(mdict,xcons,mstack);//(prop(,xact,))?
+            mstack:=prop(mdict,xcons,mstack);//(prop(,xact,))?  ,=continuation
             epush(etop);//besser anders...
             apiget(idxreact,mdict,xeff);//iferror? //ifxundef? ,idxreact?
             if (etop=xundef) then provisorium('keine effektgruppe gefunden in _act');//find effect
-            //ifxerror...
+            //ifxerror... ,dec(eptr)
             efun:=estack[eptr];  dec(eptr);
             apiget(idxreact,etop,efun);//ifxerrror ,ifxundef ,idxreact?
             if (etop=xundef) then provisorium('keinen einzeleffekt gefunden in _act');
@@ -239,7 +258,10 @@ begin if (infix[etop]=xact) then begin
             //serveprint('eval='+tovalue(etop));etop:=mdict;
             //nt();//endeget();//
          end
-         else if (einf=xact)     then begin provisorium('_act(box) in _act') end
+         else if (einf=xact)     then begin
+            mstack:=prop(mdict,xcons,mstack);//kommt da noch was? noch mal durchdenken
+            //etop...
+         end//provisorium('_act(box) in _act')
          else if (einf=xnull)    then begin provisorium('xnil in _act')end
          //elseif()thenbeginend//ifxerror? ,ifxident?wiexindex ,ifxnull?
          else if (einf=xerror)   then begin provisorium('_error im _act')end//oder in _bind umleiten?
@@ -273,7 +295,7 @@ var i: longint;
 begin for i:=0 to maxproc do proc[i]:=mundef;
       idxreact:=newindex('react');//position?
       idxdefine:=newindex('define');
-      //
+      idxredefine:=newindex('redefine');
       idxshowgraph:=newindex('showgraph');
       idxshowinfo:=newindex('showinfo');
       idxprint:=newindex('print');
@@ -284,7 +306,7 @@ begin for i:=0 to maxproc do proc[i]:=mundef;
       idxrun:=newindex('run');
       //
       proc[3] :=mdefine;
-      //proc[4] :=mredefine;
+      proc[4] :=mredefine;
       proc[5] :=mshowgraph;
       proc[6] :=mshowinfo;
       proc[7] :=mprint;

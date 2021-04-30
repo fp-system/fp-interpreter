@@ -247,7 +247,7 @@ end;
 
 // ------- strict-by-default primitives -------
 
-procedure fundef;
+procedure fundef;//ifxerror
 begin etop:=newerror(idxundef,efuncundef)
 end;
 

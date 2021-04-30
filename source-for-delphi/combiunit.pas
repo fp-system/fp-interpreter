@@ -16,6 +16,7 @@ var //
     idxapplic: cardinal = xnil;
     idxcompose: cardinal = xnil;
     idxassign: cardinal = xnil;
+    idxtry: cardinal = xnil;
     idxcond: cardinal = xnil;
     //
     idk: cardinal = xnil;
@@ -84,10 +85,37 @@ end;
 // applic für closed-Fall doch zu gebrauchen und für lift
 // femto project applic?
 
+//bitte noch testen!!!!!!!!!!!!!!!!!!!!!!
+//ungeprüft übernommen von FemtoProjekt // bitte noch mal neu machen!
+procedure fapplic;//application (( ) _combine ff : aa bb cc _s)alt
+begin einf:=infix[etop];
+      if      (einf=xcombine) then begin
+         efun:=cell[etop].arg;
+         if (infix[efun]=xerror) then begin etop:=efun; exit end;
+         etop:=cell[etop].term;
+         //ifxexc?
+         if (infix[etop]<xlimit) then begin etop:=newerror(idxapplic,einfnoprop);
+                                            exit
+                                      end;
+         efun:=cell[etop].first;
+         //ifxexc?
+         etop:=cell[etop].rest;
+         //ifxexc?
+         if (infix[etop]<xlimit) then begin etop:=newerror(idxapplic,einfnoprop);
+                                            exit
+                                      end;
+         etop:=cell[etop].first;
+         equit:=false//
+      end
+      else if (einf=xerror)   then //(exit)
+      else provisorium('provisorium bei fapplic');//xexc+etc
+      einf:=xnil
+end;
+
 // ----------------------
 // ------- legacy -------
 // ----------------------
-procedure fapplic;//application   // ifprefix?
+procedure fapplicpre;//application   // ifprefix?
 begin repeat einf:=infix[etop];
              if (einf=xcombine)    then begin
                 efun:=cell[etop].arg;
@@ -370,6 +398,61 @@ begin repeat einf:=infix[etop];
       until false//
 end;
 
+procedure ftry;
+begin einf:=infix[etop];
+      if      (einf=xcombine) then begin
+         einf:=cell[etop].arg;//eref?
+         if (infix[einf]=xerror) then begin etop:=einf; exit end;
+         epush(etop);
+         etop:=cell[etop].term;//ifxerror???... (inxlimit)
+         if (infix[etop]<xlimit) then begin dec(eptr);
+                                            etop:=newerror(idxtry,einfnoprop);
+                                            exit
+                                      end;
+         efun:=cell[etop].first;
+         etop:=einf;
+         //eval;
+         repeat eval;  if (ecall<>0) then proc[ecall]
+         until equit;
+         // (infix[etop]=xerror)-->
+         einf:=estack[eptr];
+         epush(etop);
+         etop:=cell[einf].arg;
+         estack[eptr-1]:=etop;//ist nur noch arg/xx
+         efun:=cell[cell[einf].term].rest;
+         //eval
+         repeat eval;  if (ecall<>0) then proc[ecall]
+         until equit;//einf:=infix[...]?
+         einf:=infix[etop];
+         if      (einf=xalter) then
+         else if (einf=xcons)  then
+         else if (einf=xerror) then begin dec(eptr,2); exit end
+         else begin dec(eptr,2);
+                    etop:=newerror(idxtry,eopaltexpect);//eopconsexpect2?
+                    exit
+              end;
+         //in etop das alternal
+         einf:=estack[eptr];  //dec(eptr)?
+         if (infix[einf]=xerror) then begin// hier noch mal umbauen?!
+            epush(etop);
+            apiget(idxtry,xerror,cell[einf].first);//besser wert von xerror
+            //ifxundef? ,etc?  ,auf Fehler reagieren...
+            etop:=prop(etop,xobject,cell[estack[eptr-1]].rest);//?cell[einf].rest
+            etop:=prop(etop,xcons,prop(estack[eptr-2],xcons,xnil));
+            efun:=cell[estack[eptr]].first;
+            dec(eptr,3)//
+         end
+         else begin efun:=cell[etop].rest;
+                    etop:=prop(einf,xcons,prop(estack[eptr-1],xcons,xnil));
+                    dec(eptr,2)
+              end;
+         equit:=false//
+      end
+      else if (einf=xerror) then //(exit)
+      else provisorium('provisorium bei ftry.');
+      einf:=xnil
+end;
+
 // bitte noch testen!!!!!!!!!!!!!!!!!!!!!!!!!
 //ungeprüft übernommen von femtoproject // noch mal neu machen!
 procedure fcond;//condition
@@ -510,13 +593,8 @@ procedure floopif;//?
 begin//
 end;
 
-procedure ftry;
-begin//
-end;
-
 //fwhile
 //floopif
-//ftry
 
 // ------- combinator initialization -------
 
@@ -527,6 +605,7 @@ begin //
       idxcompose:=newindex('compose');
       //
       idxassign:=newindex('assign');
+      idxtry:=newindex('try');
       idxcond:=newindex('cond');
       //
 end;
@@ -541,6 +620,7 @@ begin //
       ido:=newidentproc('o',fcompose);
       cell[xcompose].value:=cell[ido].value;
       newidentproc('<-',fassign);
+      newidentproc('try',ftry);
       newidentproc('->',fcond);
       //
 end;

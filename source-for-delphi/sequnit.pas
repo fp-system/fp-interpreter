@@ -9,10 +9,52 @@ implementation
 uses apiunit,
 primunit;//noch mal neu!
 
+{
+procedure f;//ifprefix?
+begin einf:=infix[etop];
+      if      (einf=xreal)    thenbeginend
+      else if (einf=xinteger) thenbeginend
+      else if (einf=xobject)  then fn(idx)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idx,efnnonum);//? idxname
+      einf:=xnil
+end;
+} //
+
+var idxlength: cardinal = xnil;
+
+procedure flength;//ifxnull? ,ifxprefix? komplett?
+label re;
+var n: cardinal;
+begin einf:=infix[etop];
+      if      (einf=xobject) then fn(idxlength)//position?
+      else if (einf>=xlimit) then begin
+          n:=1;
+          etop:=cell[etop].rest;
+      re: einf:=infix[etop];
+          if      (einf>=xlimit) then begin inc(n);
+                                            etop:=cell[etop].rest;
+                                            goto re
+                                      end
+        //else ifxnull?
+          else if (einf=xerror)  then //exit
+          else etop:=newreal(n) //exit // () ,atome
+      end
+    //else ifxnull? // =0
+      else if (einf=xstring) then etop:=newreal(length(cell[etop].pstr^))//ifnil?
+      else if (einf=xarray)  then etop:=newreal(length(cell[etop].aref^))//ifnil?
+    //else if () thenbeginend
+      else if (einf=xerror) then //(exit)
+      else etop:=newreal(0);//atom-länge=1 oder 0 oder error ???
+      einf:=xnil
+end;
+
 // ----------------------
 // ------- legacy -------
 // ----------------------
-procedure flength;//komplett? ,ifxprefix? ,ifxobject? ,etc
+procedure flengthpre;//komplett? ,ifxprefix? ,ifxobject? ,etc
 var n: cardinal;
 begin repeat einf:=infix[etop];
              //ifxobject? ,position
@@ -32,11 +74,11 @@ begin repeat einf:=infix[etop];
                 until false//
              end
              else if (einf=xstring) then begin
-                etop:=newreal(length(cell[etop].pstr^));
+                ;
                 exit
              end
              else if (einf=xarray)  then begin
-                etop:=newreal(length(cell[etop].aref^));
+                ;
                 exit
              end
              //elseifxobject?
@@ -49,14 +91,11 @@ begin repeat einf:=infix[etop];
       until false//
 end;
 
-// bitte length noch testen !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-//length
-
 // ------- initialization -------
 
 procedure initseqidents;
-begin//idxlength...
+begin idxlength:=newindex('length');
+//
 end;
 
 procedure initseqprims;

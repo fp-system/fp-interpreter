@@ -39,7 +39,9 @@ _real    == .. { [ispos] == ispos°unbox
                  [pred]  == box°pred°unbox
                  [succ]  == box°succ°unbox}
 
-object == .. {( ) [as] == [1] obj pop°[0]} // as richtig ?
+object == .. { ( )
+               [as]     == [1] obj pop°[0] // as richtig ?
+               [length] == length°pop }
 
 list == .. { object
              [head]  == head°pop
@@ -65,6 +67,6 @@ vector == .. {
   }
 
 // is vervollkommnen
-// length für xobject
+// length für xobject ,ist abgehakt
 
 // (CC-BY-3.0) Fpstefan

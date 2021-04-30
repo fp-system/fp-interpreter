@@ -153,6 +153,11 @@ const //
       //
       efnnostring: es    = 'for function string expected.';
       //
+      // ------- errors actunit -------
+      eopmutnoreserve: es = 'ident or prefix is not _reserve.';//??? name???
+      eopnomutable: es = 'ident or prefix as _self expected.';
+      //
+      //
       // ------- react -------
       //
       ereactnobind: es = '_bind not found.';//???
@@ -179,10 +184,10 @@ const //
       //xexc    = ;
       xcombine = 12;   //name?
       xalter   = 13;   // alternal
-      xobject  = 14;
+      xobject  = 14;   // >xlimit oder <xlimit ???
       xquote   = 15;
       xivar    = 16;   //name?
-      xcompose = 17;   // ermöglicht variablenfrei Programmierung (sequetiell)
+      xcompose = 17;   // ermöglicht variablenfreie Programmierung (sequetiell)
       xact     = 18;   //sensitiv
       xneg     = 19;
       xsingle  = 20;

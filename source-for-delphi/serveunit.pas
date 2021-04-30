@@ -288,6 +288,87 @@ begin mstack:=xnil;
       //
 end;
 
+procedure servereact;  // Fundamental-Loop (react onidle)
+begin //servidledone...
+      try if serveinput then //exit
+          else if (infix[etop]=xact) then begin
+             domonad;
+             serveidledone:=false
+          end
+          else if (mstack<>xnil) then begin//backtracking
+             with cell[mstack] do begin mdict:=first; mstack:=rest end;
+             apiput(mdict,xit,etop);//ifxerror?...
+             mdict:=etop;
+             apiget(idxreact,mdict,xbind);
+             if (etop=xundef) then begin//if nötig? (kompakter?, bessere Lösung?, im stackgefüge?)
+                etop:=newerror(idxreact,ereactnobind);//name?
+                serveidledone:=false;//?
+                exit
+             end;//ifxundef...
+             //ifxerror...
+             efun:=etop;
+             etop:=mdict;
+             repeat eval;  if (ecall<>0) then proc[ecall]
+             until equit;
+             serveidledone:=false//
+          end
+          else if not(serveidledone) then begin
+             serveprint(tovalue(etop)+#13#10+prompt);
+             etop:=xnil;//testen !!!
+             serveidledone:=true
+          end
+          else if (inqueue.count>0) then begin
+             txt:=inqueue.strings[0];//auf nils achten
+             inqueue.delete(0);
+             //
+             precom(txt);
+             postcom(redef,txt);
+             etop:=cstack;
+             if (cell[xcoreimport].value<>xreserve) then
+                serveimport(xcoreimport,xcorepath);
+             if (cell[xuserimport].value<>xreserve) then
+                serveimport(xuserimport,xuserpath);
+             txt:='';//:=''?
+             cstack:=etop;
+             run;//vielleicht über einen stack...
+             serveidledone:=false
+          end
+          else serveidledone:=true//
+      except if (txt<>'') then begin serveprint(txt+' ...');
+                                     serveprint(prompt)
+                               end;//if txt<>'' ?
+             servestopact;//?
+             etop:=xnil;cstack:=xnil;inqueue.clear;
+             raise//
+      end//gibt es noch den import(txt)fehler?
+end;
+
+procedure servereactfledder;
+//var txt: ustring;// oder ebene höher?
+begin
+      if serveinput then exit;
+      try if (infix[etop]=xact) then begin
+             ;
+             exit
+          end;
+          if (mstack<>xnil) then begin
+             //ifxundef:
+             ;//test
+             exit////ec();
+          end;
+          if not(serveidledone) then begin
+             ;
+             exit
+          end;
+          if (inqueue.count>0) then begin
+             ;
+             exit
+          end;
+          //
+      except
+      end
+end;
+
 // ------------------
 // ----- legacy -----
 // ------------------
@@ -297,7 +378,7 @@ end;
 // Monade auf algebraische Effekte umbauen (FP + OOP)
 //
 
-procedure servereact;   // Fundamental-Loop (react onidle)
+procedure servereactpre;   // Fundamental-Loop (react onidle)
 //var txt: ustring;// oder ebene höher?
 begin //servidledone...
       if serveinput then exit;
