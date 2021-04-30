@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset161 Calibri;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-03-29\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-04-30\par
 \par
 \cf1\b\fs28 Naming Conventions\cf0\b0\fs24\par
 \b name\b0\tab\tab the name itself\line\i name\i0\tab\tab the type / the class\line (?)\tab\tab Uncertainties\line *\tab\tab Footnote / Note\par
@@ -43,7 +43,7 @@ userpath?\par
 \b arg\b0  \'b0 \i combi\i0\tab --\tab arg value\par
 termoarg\tab --\tab term o arg\par
 \i first\i0  \b\fs28 ,\b0\fs24  \i rest\i0\tab --\tab list\line Appendleft\par
-\b length\b0  \'b0 \i dict\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 \i list\i0\tab\tab --\tab\i real\i0\line Number of list items.\line length \'b0 object\par
+\b length\b0  \'b0 \i dict\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 \i list\i0\tab\tab --\tab\i real\i0\line\b length\b0  \'b0 object\tab --\line Number of list items.\par
 \b reverse\b0  \'b0 \i dict\i0\tab\tab --\tab\i dict\i0\line\b reverse\b0  \'b0 \i list\i0\tab\tab --\tab\i list\i0\line\b reverse\b0  \'b0 \i object\i0\tab --\line Reverses the list items.\par
 \i data\i0  \b distl\b0  \i list\i0\tab\tab --\tab matrix\par
 \i list\i0  \b distr\b0  \i data\i0\tab\tab --\tab matrix\par
@@ -186,6 +186,7 @@ ispreg (?)\par
 \i func1\i0  \b swee\b0  \i func2\i0\line\b swee\b0  \'b0 \i data\i0 ,\i data\i0 ,\line Swap-Eval-Eval combinator\par
 (\i func1\i0  \b eea\b0  \i func2\i0 ) \'b0 \i argum\i0\tab --\tab (x ; y ; argum ;)\par
 (\i func\i0  \b dip\b0 ) \'b0 \i list\i0\line (\i func\i0  \b dip\b0 ) \'b0 \i object\i0\line Dip combinator (stolen from Joy)\par
+(\i test\i0  \b try\b0  \i then\i0  \b |\b0  \i else\i0 ) \'b0 \i argument\i0\line in then/else with (\i testresult\i0  ; \i argument\i0  ;)\par
 ifnull\par
 ifprop\par
 \i data1\i0  \b ??\b0  \i data2\i0\tab --\tab data\par
@@ -257,18 +258,19 @@ ifprop\par
 \b vector\b0  == .. \{ ... ... \}\line Vector class\par
 \par
 \cf1\b\fs28 Monads and Effects\cf0\b0\fs24\par
-\i monad\i0  = (\i int\i0  \b _act \b0\i dict\i0 )\tab\tab // absolute\line\i monad\i0  = (\i index\i0  \b _act \b0\i dict\i0 )\tab\tab // relative\par
-\b it\b0  \'b0 \i dict\tab\i0\tab --\tab #_it \'b0 dict\line Result of a monad action.\par
+\i monad\i0  = (\i int\i0  \b _act .. \b0\i dict\i0 )\tab\tab // absolute\line\i monad\i0  = (\i index\i0  \b _act .. \b0\i dict\i0 )\tab\tab // relative\par
+\b it\b0  \'b0 \i dict\tab\i0\tab --\tab #_it \'b0 dict\line Result of a monad action.\tab\tab // monad ... name (?)\par
 #_it\par
 #_self\par
 #_para\par
 _bind\line Continuation\par
 _eff\line Effects\par
 \i monad\i0  \b >>\b0  \i term\i0\tab --\tab monad\tab\tab // _bind := \i term\i0\par
-\i int\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line\i index\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line monad(?) \b act\b0  \i dict\i0\tab --\tab monad\par
+\i int\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line\i index\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line monad(?) \b act\b0  \i dict\i0\tab --\tab monad\line nun auch die M\'f6glichkeit gegeben eine actbox zu bauen\tab //bitte in engl!\line (verschachteltes Act)\par
 \i monad\i0  \b eff\b0  \i array\i0\tab --\tab monad\line\i monad\i0  \b eff\b0  \i ident\i0\tab --\tab monad\par
 \i monad\i0  \b var\b0  \i data\i0\tab --\tab monad\line\i monad\i0  \b var\b0  \i dict\i0\tab --\tab monad\par
-(\i ident\i0  \b define\b0  \i dict\i0 ) \'b0 \i dict\i0\tab\tab --\tab monad\line //(prefix define dict) \'b0 dict\par
+(\i ident\i0  \b define\b0  \i data\i0 ) \'b0 \i dict\i0\tab\tab --\tab monad\line //(prefix define data) \'b0 dict\par
+(\i ident\i0  \b redefine\b0  \i data\i0 ) \'b0 \i dict\i0\tab\tab --\tab monad\line //(prefix redefine data) \'b0 dict\par
 (\i data\i0  \b showgraph\b0 ) \'b0 \i dict\i0\tab\tab --\tab monad\tab\tab // *+ (\i x\i0  eff 'io)\par
 (\i data\i0  \b showinfo\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i data\i0  \b print\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par

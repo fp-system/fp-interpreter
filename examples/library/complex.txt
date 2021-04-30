@@ -10,19 +10,20 @@ re == .. [1] // #re
 im == .. [2] // #im
 
 // ------- class for complex numbers -------
+// ([0] is 'complex) and ...) nötig?
 
 complex  == .. { dict
-   [add] == (([0] is 'complex) and [1] is 'complex)->
+   [add] == ([1] is 'complex)->
               (((re°[0])+re°[1]) cval (im°[0])+im°[1])
             | '[add] error '"complex objects expected.",id,
-   [sub] == (([0] is 'complex) and [1] is 'complex)->
+   [sub] == ([1] is 'complex)->
               (((re°[0])-re°[1]) cval (im°[0])-im°[1])
             | '[sub] error '"complex objects expected.",id,
-   [mul] == (([0] is 'complex) and [1] is 'complex)->
+   [mul] == ([1] is 'complex)->
               ((((re°[0])*re°[1])-(im°[0])*im°[1])
               cval ((re°[0])*im°[1])+(im°[0])*re°[1])
             | '[mul] error '"complex objects expected.",id,
-   [div] == (([0] is 'complex) and [1] is 'complex)->
+   [div] == ([1] is 'complex)->
               (((iszero°[2])->('[div] error '"division by zero",([0],[1],),)
               | ((((re°[0])*re°[1])+(im°[0])*im°[1])/[2])
                 cval (((im°[0])*re°[1])-(im°[1])*re°[0])/[2] )

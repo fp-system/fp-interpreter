@@ -1,0 +1,8 @@
+(("Bitte geben Sie eine Liste von Namen ein." showinfo)>>inputlist>>(it print)>>'ok) ° () eff 'io
+
+// act(box) Anwendung
+inputlist == ((inputloop°(names:=())°(count:=0)) act id)>>it
+inputloop == ((("Name "&(string°#count)&":") input)°(count:=#count+1))>>(it="")->(reverse°#names)|inputloop°(names:=it,#names)
+
+
+// (cc-by-3.0) Fpstefan

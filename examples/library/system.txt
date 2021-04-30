@@ -1,9 +1,12 @@
 '("system.txt" loaded)
 
 // (ident define dict)辱ict
-define == '[3] act (arg put '_self ee (top配erm) app arg) put '_para ee (pop配erm) app arg
+define   == '[3] act (arg put '_self ee (top配erm) app arg) put '_para ee (pop配erm) app arg
 //define == (('[3] act arg) put 'self ee (top配erm) app arg) put 'para ee (pop配erm) app arg
 // define    == (('([3] _act () _bind) put 'self ee self) put 'para ee para)送e // absolute // () id?
+
+// (ident redefine table)辱ict
+redefine == '[4] act (arg put '_self ee (top配erm) app arg) put '_para ee (pop配erm) app arg // absolute
 
 // (data showgraph)辱ict // self und it vertauscht!
 showgraph == '[showgraph] act arg put '_it ee (top配erm) app arg // para?
@@ -66,11 +69,11 @@ io == .. { // [error] ==
     //'([3] _act () _super () _bind) put '_super ee id // #id im _super ? oder wie? ,[5] oder andere nummer ? ,actbox?name?
            [showinfo]  ==  '([6]  _act () _super () _bind) put '_super ee id // correkt?
            [print]     ==  '([7]  _act () _super () _bind) put '_super ee id // dr�ber schauen! ob correkt
-           [input]     == ('([8]  _act () _super () _bind) put '_super ee id)>>#_it // correct? ,mit den #id und _bind so richtig?
-           [loadtext]  == ('([9]  _act () _super () _bind) put '_super ee id)>>#_it // ?
-           [savetext]  == ('([10] _act () _super () _bind) put '_super ee id)>>#_it // ?
+           [input]     == ('([8]  _act () _super () _bind) put '_super ee id)>>it // correct? ,mit den #id und _bind so richtig?
+           [loadtext]  == ('([9]  _act () _super () _bind) put '_super ee id)>>it // ?
+           [savetext]  == ('([10] _act () _super () _bind) put '_super ee id)>>it // ?
         // [savetext]  == ('[10] act id)>>it // m鐷lich? ,verkettung von monaden in io m鐷lich?
-           [run]       ==  '([11] _act () _super () _bind) put '_super ee id // correct? ,_error?
+           [run]       == ('([11] _act () _super () _bind) put '_super ee id)>>it // correct? ,_error?
            // Fehler von _act durchgehen
          }
 
