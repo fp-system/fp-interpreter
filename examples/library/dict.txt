@@ -4,7 +4,7 @@ get == [get] op iget // for test
 put == [put] op iput // for test
 
 _v == arg get top配erm // top
-:= == arg put (top配erm) ee (pop配erm) app arg // top,pop // substitute
+:= == arg put (top配erm) ee (pop配erm) app arg // top,pop // substitute // ,auch f�r integer?
 
 dict == .. { object
              [get] == (pop豺0]) iget [1]
