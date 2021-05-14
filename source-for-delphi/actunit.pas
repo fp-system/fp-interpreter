@@ -108,6 +108,21 @@ end;
 // auf errors von apiget und apiput achten/reagieren !!!
 
 procedure minput;
+const title='input';
+var s0,s1,s: ustring;
+begin apiget(idxinput,mdict,xself);
+      s0:=AnsiDequotedStr(tovalue(etop),qot2);
+      apiget(idxinput,mdict,xpara);
+      if (infix[etop]=xnull) then s1:=''
+      else s1:=AnsiDequotedStr(tovalue(etop),qot2);
+      serveinput:=true;
+      s:=inputBox(title,s0,s1);
+      serveinput:=false;
+      apiput(mdict,xit,newstring(s))
+      // errors? ...
+end;
+
+procedure minputpre;
 var s: ustring;
 begin apiget(idxinput,mdict,xit);
       s:=AnsiDequotedStr(tovalue(etop),qot2);

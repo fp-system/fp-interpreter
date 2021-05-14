@@ -2,14 +2,14 @@
 
 IP==(+ \)°(* aa)°trans°ee				// Inner Product
 
-MM==(((IP aa) aa)°(distl aa)°distr°[0],(trans°[1]),)°ee	// Matrix Multiply
+MM == [mul] op (((IP aa) aa)°(distl aa)°distr°[0],(trans°[1]),)°ee	// Matrix Multiply nach John Backus
 
 droppos==((isnull°[0])->()|([1]='0)->((tail°[0]) droppos [1]-'1)|(head°[0]),(tail°[0]) droppos [1]-'1)°ee // row, i,
 
 droprow==(droppos aa)°distr
 
 // Laplacescher Entwicklungssatz
-det == ((isnull°[1])->(head°[0])|
+det == [det] fn ((isnull°[1])->(head°[0])|
 	[3]°(not°isnull°[0])->*(tail°[0]),[1],([2]+'1),([3]+[4]*(head°[0])*det°[1] droprow [2]),(neg°[4]),)
 	°head,tail,'0,'0,'1,
 //      erste Zeile,ohne erste Zeile,Position,Summe,+/- Faktor
@@ -20,9 +20,21 @@ Aij==(([0] droppos [1]°[1]) droprow [0]°[1])°ee // mat Aij i,j,
 //	([3]>='0)->*[0],[1],[2],([3]-'1),(
 //		()°[0],[1],[2],[3],(),),)°id,det,(length°head),length,(),
 
-inv==(([1]='0)->('[inv] error "Division by Zero";)| //(prop°'einv,'_exc,("Division by Zero";),)|                                                     //trans    
+inv == [inv] fn (([1]='0)->('[inv] error "Division by Zero";)| //(prop°'einv,'_exc,("Division by Zero";),)|                 //trans
                 (((([1]°[1])*('_1 ^ +°[0])*det°([0]°[1])Aij[0]) aa)aa)°(distr aa)°((distl aa)°[2]distr[2])distr[0]ee'1/[1]
-     )°id,det,('0,iota°pred°length),
+	)°id,det,('0,iota°pred°length),
+
+ismatrix == id is 'matrix
+tomatrix == 'matrix obj id
+
+matrix == .. { list
+	// [add] ==
+	// [sub] ==
+	[mul] == ([1] is 'matrix) -> ((top°[0]) obj (pop°[0]) MM (pop°[1]))|fail	// fail...
+	[det] == det°pop
+	[inv] == inv dip
+	[trans] == trans dip
+	}
 
 
 // (CC-BY-3.0) Fpstefan

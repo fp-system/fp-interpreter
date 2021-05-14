@@ -23,8 +23,9 @@ print == '[print] act arg put '_it ee (top配erm) app arg // para?
 //print == ('[print] act arg) put 'it ee (top配erm) app arg // para?
 // print     == '(     [print] _act () it () _bind) put 'it ee id // releative
 
-// (string input)辱ict // self und it vertauscht!
-input == '[input] act arg put '_it ee (top配erm) app arg // para?
+// (string input string)辱ict // self und it vertauscht!
+input == '[input] act (arg put '_self ee (top配erm) app arg) put '_para ee (pop配erm) app arg
+//         input == '[input] act arg put '_it ee (top配erm) app arg // para?
 //input == ('[input] act arg) put 'it ee (top配erm) app arg // para?
 // input     == '(     [input] _act () it () _bind) put 'it ee id // releative
 

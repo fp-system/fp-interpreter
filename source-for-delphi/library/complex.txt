@@ -6,8 +6,8 @@ cval == (prop°'complex,'::,(prop°[0],'re,(prop°[1],'im,(),),),)°ee // complex
 
 iscomplex == id is 'complex // vollständig?
 
-re == .. [1] // #re
-im == .. [2] // #im
+re == .. #re
+im == .. #im
 
 // ------- class for complex numbers -------
 // ([0] is 'complex) and ...) nötig?
@@ -29,6 +29,10 @@ complex  == .. { dict
                 cval (((im°[0])*re°[1])-(im°[1])*re°[0])/[2] )
               °[0],[1],((sq°re°[1])+sq°im°[1]),)
             | '[div] error '"complex objects expected.",id,
+   [zero] == .. '(complex :: 0 re 0 im)
+   [one]  == .. '(complex :: 1 re 0 im)
+   [iszero] == (iszero°re) and (iszero°im)
+   [eq] == ...
    [neg] == (neg°re) cval neg°im                   // iscomplex nötig?
    [exp] == (([0]*cos°[1]) cval [0]*sin°[1])°(exp°re) ee im
          // ((exp°re)*cos°im) cval (exp°re)*sin°im // correkt? ,exp doppelt

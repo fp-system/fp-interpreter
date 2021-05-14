@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset161 Calibri;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-04-30\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-05-11\par
 \par
 \cf1\b\fs28 Naming Conventions\cf0\b0\fs24\par
 \b name\b0\tab\tab the name itself\line\i name\i0\tab\tab the type / the class\line (?)\tab\tab Uncertainties\line *\tab\tab Footnote / Note\par
@@ -115,6 +115,8 @@ termoarg\tab --\tab term o arg\par
 \b avg\b0  \'b0 \i list\i0\tab --\tab\i real\i0\line Average value of the list items.\par
 integral\par
 dd\par
+\b zero\b0  \'b0 \i data\i0\tab --\par
+\b one\b0  \'b0 \i data\i0\tab --\par
 \par
 \cf1\b\fs28 Dictionary Operators and Combinators\cf0\b0\fs24\par
 \i dict is a table for pattern matching treatment\par
@@ -157,7 +159,6 @@ ispreg (?)\par
 \b isbound\b0  \'b0 \i ident\i0\tab --\tab\i bool\i0\line\b isbound\b0  \'b0 \i prefix\i0\tab --\tab\i bool\i0\line Checks whether an identifier is bound.\par
 \b isundef\b0  \'b0 \i data\i0\tab\tab --\tab\i bool\i0\line Testing for _undef\par
 \b iscomplex\b0  \'b0 \i complex\i0\tab --\tab\i bool\i0\line Checks whether it is a complex number. (?)\par
-\b isvector\b0  \'b0 \i data\tab\i0\tab --\tab bool\par
 \i object\i0  \b is\b0  \i ident\i0\tab\tab --\tab\i bool\i0\line Checks whether the \i ident\i0  is the same as the class identifier of the \i object\i0 . (?)\par
 (\i ident\i0  \b hastag\b0 ) \'b0 \i data\i0\tab --\tab bool\tab (?name)\par
 \par
@@ -193,6 +194,8 @@ ifprop\par
 (func Y)\line Y-Combinator...\par
 \b quote\b0  \'b0 \i data\i0\tab\tab --\tab func\line Quote functional\par
 \i func1\i0  \b comp\b0  \i func2\i0\tab --\tab func\line Compose functional\par
+(\i func\i0  \b any\b0 ) \'b0 \i list\i0\tab --\tab bool\par
+(\i func\i0  \b all\b0 ) \'b0 \i list\i0\tab\tab --\tab bool\par
 \par
 \cf1\b\fs28 Misc Functions and Operators\cf0\b0\fs24\par
 \b undef\b0\tab\tab\tab --\tab\i error\i0\line Function is defined as undefined.\par
@@ -255,7 +258,7 @@ ifprop\par
 \b object\b0  == .. \{ ( ) ... ... ... \}\line Object class\par
 \b list\b0  == .. \{ object ... ... ... \}\line List class\par
 \b dict\b0  == .. \{ object ... ... ... \}\line Dict class\par
-\b vector\b0  == .. \{ ... ... \}\line Vector class\par
+\b matrix\b0  == .. \{ ... ... \}\line Matrix class\par
 \par
 \cf1\b\fs28 Monads and Effects\cf0\b0\fs24\par
 \i monad\i0  = (\i int\i0  \b _act .. \b0\i dict\i0 )\tab\tab // absolute\line\i monad\i0  = (\i index\i0  \b _act .. \b0\i dict\i0 )\tab\tab // relative\par
@@ -266,7 +269,7 @@ ifprop\par
 _bind\line Continuation\par
 _eff\line Effects\par
 \i monad\i0  \b >>\b0  \i term\i0\tab --\tab monad\tab\tab // _bind := \i term\i0\par
-\i int\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line\i index\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line monad(?) \b act\b0  \i dict\i0\tab --\tab monad\line nun auch die M\'f6glichkeit gegeben eine actbox zu bauen\tab //bitte in engl!\line (verschachteltes Act)\par
+\i int\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line\i index\i0  \b act\b0  \i dict\i0\tab\tab --\tab monad\line monad \b act\b0  \i dict\i0\tab --\tab monad\line nun auch die M\'f6glichkeit gegeben eine actbox zu bauen\tab //bitte in engl!\line (verschachteltes Act)\par
 \i monad\i0  \b eff\b0  \i array\i0\tab --\tab monad\line\i monad\i0  \b eff\b0  \i ident\i0\tab --\tab monad\par
 \i monad\i0  \b var\b0  \i data\i0\tab --\tab monad\line\i monad\i0  \b var\b0  \i dict\i0\tab --\tab monad\par
 (\i ident\i0  \b define\b0  \i data\i0 ) \'b0 \i dict\i0\tab\tab --\tab monad\line //(prefix define data) \'b0 dict\par
@@ -274,7 +277,7 @@ _eff\line Effects\par
 (\i data\i0  \b showgraph\b0 ) \'b0 \i dict\i0\tab\tab --\tab monad\tab\tab // *+ (\i x\i0  eff 'io)\par
 (\i data\i0  \b showinfo\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i data\i0  \b print\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
-(\i string\i0  \b input\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
+(\i string\i0  \b input\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\line (\i string\i0  \b input\b0  \i string\i0 ) \'b0 \i dict\i0\par
 (\i fname\i0  \b loadtext\b0 ) \'b0 \i dict\i0\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i fname\i0  \b savetext\b0  \i string\i0 ) \'b0 \i dict\tab\i0\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i string\i0  \b run\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
@@ -288,6 +291,7 @@ _eff\line Effects\par
 \b stop\b0  \'b0 \i argument\i0\tab --\tab error\line Generally, e.g. Program termination, etc\par
 \b raise\b0  \'b0 \i string\i0\tab\tab --\tab exception\line An exception is thrown.\par
 \b _error\b0  == .. \{ ... ... ... \}\line Class for redirects...\par
+// try\par
 \par
 \cf1\b\fs28 Complex Numbers\cf0\b0\fs24\par
 \i complex\i0  = (\b complex\b0  \b ::\b0  \i real\i0  \b re\b0  \i real\i0  \b im\b0 )\par
@@ -299,19 +303,19 @@ _eff\line Effects\par
 \i complex\i0  \b -\b0  \i complex\i0\tab --\tab\i complex\i0\line Subtraction of complex numbers.\par
 \i complex\i0  \b *\b0  \i complex\i0\tab --\tab\i complex\i0\line\i complex\i0  \b\'d7\b0  \i complex\i0\tab --\tab\i complex\i0\line Multiplication of complex numbers.\par
 \i complex\i0  \b /\b0  \i complex\i0\tab --\tab\i complex\i0\line\i complex\i0  \b\'f7\b0  \i complex\i0\tab --\tab\i complex\i0\line Division of complex numbers.\par
-etc\par
+\b zero\b0 , \b one\b0 , \b iszero\b0 , etc\par
 \b complex\b0  == .. \{ dict ... ... ... \}\line Complex-class with the complex methods.\par
 \par
-\cf1\b\fs28 Matrices Functions and Operators\cf0\b0\fs24\par
-\i matrix\i0   =  (\i list\i0  ; \i list\i0  ; ... ;)\par
+\cf1\b\fs28 Matrix Functions and Operators\cf0\b0\fs24\par
+\i matrix\i0   =  (\i list\i0  ; \i list\i0  ; ... ;)\tab\ul oder\ulnone\line\i matrix\i0  = (\b matrix\b0  :: \i list\i0  ; \i list\i0  ; ... ;)\par
 \b IP\b0  \'b0 \i list\i0 ,\i list\i0 ,\tab\tab\tab // Backus Turing Lecture\line\i list\i0  \b IP\b0  \i list\i0\par
 \b MM\b0  \'b0 \i matrix\i0 ,\i matrix\i0 ,\tab\tab // Backus Turing Lecture\line\i matrix\i0  \b MM\b0  \i matrix\i0\par
 \b det\b0  \'b0 \i matrix\i0\tab\tab --\tab real\par
 \b inv\b0  \'b0 \i matrix\i0\tab\tab --\tab matrix\par
-\b transpose\b0  \'b0 \i matrix\i0\tab --\tab matrix\par
-\b tovector\b0  \'b0 \i list\i0\tab\tab --\tab vector\tab (?n\'f6tig)\par
-\i vector\i0  \b +\b0  \i vector\i0\tab --\tab vector\par
-\i vector\i0  \b -\b0  \i vector\tab\i0\tab --\tab vector\par
+\b trans\b0  \'b0 \i matrix\i0\tab --\tab matrix\tab\tab // transpose\par
+\b ismatrix\b0  \'b0 \i data\i0\tab --\tab bool\par
+\b tomatrix\b0  \'b0 \i list\i0\tab\tab --\tab matrix\par
+\b matrix\b0  == .. \{ list ... ... ... \}\line Matrix-class for MM (*), det, inv, trans\par
 \par
 \cf1\b\fs28 Turtle Graphics\cf0\b0\fs24\par
 \i turtle\i0  = ( \b turtle\b0  \b ::\b0  \i list\i0  \b stack\b0  \i real\i0  \b x\b0  \i real\i0  \b y\b0  \i real\i0  \b angle\b0  \line\tab    \i bool\i0  \b pen\b0  \i num\i0  \b color\b0  \i num\i0  \b size\b0  \i num\i0  \b brush \b0 )\par

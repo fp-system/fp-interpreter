@@ -123,8 +123,8 @@ take == reverse°[2]
 
 drop == [0]°(((not°isnull°[0]) and (ispos°[1]))->*(tail°[0]),(pred°[1]),)°ee
 
-trans == transpose // Backus FP
-transpose == (isatom°head)->()|(id map 'head),transpose°id map 'tail	// cap ,isatom?
+trans == [trans] fn transpose // Backus FP
+transpose == (isatom°head)->()|(id map 'head),transpose°id map 'tail	// cap ,isatom? ,fn?
 
 pick == ((round°[0]) app [1])°ee // at?
 sel == ((round°[0]) app [1])°ee // pick
@@ -145,6 +145,9 @@ find == ([0]->[1]|_1)°(((not°[0]) and isprop°[2])->*([3]=head°[2]),(succ°[1]),(t
 
 sum  == id insr '+  // insl? ,weil kommutativ ,und lazy
 prod == id insr '*  // insl? ,weil kommutativ ,und lazy
+
+any == (or \)  ° arg map top°term	// (isreal any)
+all == (and \) ° arg map top°term	// (isreal all)
 
 min == (< -> [0] | [1])°ee
 max == (< -> [1] | [0])°ee
@@ -197,5 +200,9 @@ eea == (tag='_combine)->(((top°term) app arg),((pop°term) app arg),arg,)|id // t
 
 // (t hastag):x
 hastag == (tag°arg)=top°term
+
+zero == [zero] fn isreal -> 0 | isint -> '[0] | isbool -> 'false | fail
+one  == [one]  fn isreal -> 1 | isint -> '[1] | isbool -> 'true  | fail
+
 
 // (CC-BY-3.0) Fpstefan
