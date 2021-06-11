@@ -1,6 +1,6 @@
 {\rtf1\ansi\ansicpg1252\deff0\deflang1031{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset0 Consolas;}{\f2\fnil\fcharset161 Calibri;}{\f3\fnil\fcharset0 Microsoft Sans Serif;}}
 {\colortbl ;\red247\green150\blue70;}
-{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-05-11\par
+{\*\generator Msftedit 5.41.21.2510;}\viewkind4\uc1\pard\sa200\sl276\slmult1\cf1\lang7\b\f0\fs28 FP trivia Language Reference\cf0\b0\fs22\line\fs24 2021-06-11\par
 \par
 \cf1\b\fs28 Naming Conventions\cf0\b0\fs24\par
 \b name\b0\tab\tab the name itself\line\i name\i0\tab\tab the type / the class\line (?)\tab\tab Uncertainties\line *\tab\tab Footnote / Note\par
@@ -239,6 +239,9 @@ ifprop\par
 \b string\b0  \'b0 \i data\i0\tab\tab --\tab\i string\i0\line Converts the \i data\i0  to its text representation.\par
 \b unpack\b0  \'b0 \i string\i0\tab --\tab\i list\i0\line Splits the \i string\i0  into a list of individual string characters.\par
 \b pack\b0  \'b0 \i list\i0\tab\tab --\tab\i string\i0\line Concatenates the strings in the \i list\i0 .\par
+\b timetostring\b0  \'b0 \i real\i0\tab --\tab string\par
+\b datetostring\b0  \'b0 \i num\i0\tab --\tab string\par
+\b weekday\b0  \'b0 \i num\i0\tab --\tab real\tab\tab (?)\par
 \par
 \cf1\b\fs28 OOP\cf0\b0\fs24\par
 \i object\i0  = (\i cap\i0  \b\fs28 ::\b0\fs24  \i inst\i0 )\tab\tab // Object classes\par
@@ -282,6 +285,8 @@ _eff\line Effects\par
 (\i fname\i0  \b savetext\b0  \i string\i0 ) \'b0 \i dict\tab\i0\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 (\i string\i0  \b run\b0 ) \'b0 \i dict\i0\tab\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 \b quit\b0\tab\tab\tab --\tab monad\par
+\b time\b0  \'b0 \i dict\i0\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
+\b date\b0  \'b0 \i dict\i0\tab\tab --\tab monad\tab\tab // *+  (\i x\i0  eff 'io)\par
 \b io\b0  == .. \{ ... ... ... \}\line System effects class\par
 \par
 \cf1\b\fs28 Runtime Errors(?)\cf0\b0\fs24\par
@@ -315,7 +320,7 @@ _eff\line Effects\par
 \b trans\b0  \'b0 \i matrix\i0\tab --\tab matrix\tab\tab // transpose\par
 \b ismatrix\b0  \'b0 \i data\i0\tab --\tab bool\par
 \b tomatrix\b0  \'b0 \i list\i0\tab\tab --\tab matrix\par
-\b matrix\b0  == .. \{ list ... ... ... \}\line Matrix-class for MM (*), det, inv, trans\par
+\b matrix\b0  == .. \{ list ... ... ... \}\line Matrix-class for MM (*), det, inv, trans, add, sub\par
 \par
 \cf1\b\fs28 Turtle Graphics\cf0\b0\fs24\par
 \i turtle\i0  = ( \b turtle\b0  \b ::\b0  \i list\i0  \b stack\b0  \i real\i0  \b x\b0  \i real\i0  \b y\b0  \i real\i0  \b angle\b0  \line\tab    \i bool\i0  \b pen\b0  \i num\i0  \b color\b0  \i num\i0  \b size\b0  \i num\i0  \b brush \b0 )\par

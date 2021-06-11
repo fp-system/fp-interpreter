@@ -32,7 +32,7 @@ complex  == .. { dict
    [zero] == .. '(complex :: 0 re 0 im)
    [one]  == .. '(complex :: 1 re 0 im)
    [iszero] == (iszero°re) and (iszero°im)
-   [eq] == ...
+   [eq]  == ([1] is 'complex) -> (((re°[0])=re°[1]) and ((im°[0])=im°[1])) | fail
    [neg] == (neg°re) cval neg°im                   // iscomplex nötig?
    [exp] == (([0]*cos°[1]) cval [0]*sin°[1])°(exp°re) ee im
          // ((exp°re)*cos°im) cval (exp°re)*sin°im // correkt? ,exp doppelt

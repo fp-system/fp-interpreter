@@ -46,6 +46,9 @@ run == '[run] act arg put '_it ee (top°term) app arg // para?
 
 quit      == '([12] _act () _it () _bind) // absolute/releatve? // ee
 
+time == '[time] act id // function ,relative
+date == '[date] act id // function ,relative
+
 // act   == (prop°[0],'_act,[1],)°ee //
 //
 // mit act auf relative namen(index) und für dict(variablen) auf die monaden-technik umstellen
@@ -76,6 +79,8 @@ io == .. { // [error] ==
         // [savetext]  == ('[10] act id)>>it // möglich? ,verkettung von monaden in io möglich?
            [run]       == ('([11] _act () _super () _bind) put '_super ee id)>>it // correct? ,_error?
            // Fehler von _act durchgehen
+           [time]      == ('([13] _act () _super () _bind) put '_super ee id)>>it // function nor op
+           [date]      == ('([14] _act () _super () _bind) put '_super ee id)>>it // function nor op
          }
 
 //alle auf _bind testen...
