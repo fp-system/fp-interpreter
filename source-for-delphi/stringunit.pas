@@ -25,6 +25,9 @@ var //
     idxlower: cardinal = xnil;
     idxparse: cardinal = xnil;
     idxvalue: cardinal = xnil;
+    idxtimetostring: cardinal = xnil;
+    idxdatetostring: cardinal = xnil;
+    idxweekday: cardinal = xnil;
     //
 
 procedure fsubstring;//ifprefix? ,ifxobject
@@ -220,6 +223,52 @@ begin einf:=infix[etop];
       einf:=xnil
 end;
 
+procedure ftimetostring;
+begin einf:=infix[etop];
+      if      (einf=xreal)    then begin
+         etop:=newstring(timetostr(cell[etop].fnum,fpformatsettings))
+      end
+      //else if (einf=xinteger) then beginend
+      else if (einf=xobject)  then fn(idxtimetostring)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idxtimetostring,efnnoreal);
+      einf:=xnil
+end;
+
+procedure fdatetostring;
+begin einf:=infix[etop];
+      if      (einf=xreal)    then begin
+         etop:=newstring(datetostr(cell[etop].fnum,fpformatsettings))
+      end
+      else if (einf=xinteger) then begin
+         etop:=newstring(datetostr(cell[etop].inum,fpformatsettings))
+      end
+      else if (einf=xobject)  then fn(idxdatetostring)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idxdatetostring,efnnonum);
+      einf:=xnil
+end;
+
+procedure fweekday;
+begin einf:=infix[etop];
+      if      (einf=xreal)    then begin
+         etop:=newreal(dayofweek(cell[etop].fnum))
+      end
+      else if (einf=xinteger) then begin
+         etop:=newinteger(dayofweek(cell[etop].inum))
+      end
+      else if (einf=xobject)  then fn(idxweekday)
+      else if (einf=xerror)   then //(exit)
+      //else if ((infix[einf]=xident) and (cell[einf].value<>xreserve)) then
+      //   ifn(idx)
+      else etop:=newerror(idxweekday,efnnonum);
+      einf:=xnil
+end;
+
 procedure fparse;//ifprefix?
 var txt: ustring;
 begin einf:=infix[etop];
@@ -296,6 +345,9 @@ begin //
       idxlower:=newindex('lower');
       idxparse:=newindex('parse');
       idxvalue:=newindex('value');
+      idxtimetostring:=newindex('timetostring');
+      idxdatetostring:=newindex('datetostring');
+      idxweekday:=newindex('weekday');// numerisch position?
       //
 end;
 
@@ -317,6 +369,9 @@ begin //
       newidentproc('parse',fparse);
       newidentproc('value',fvalue);
       newidentproc('string',fstring);
+      newidentproc('timetostring',ftimetostring);
+      newidentproc('datetostring',fdatetostring);
+      newidentproc('weekday',fweekday);
       //
       //concat
       //cc == &  (?)

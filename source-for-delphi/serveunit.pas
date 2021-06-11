@@ -35,6 +35,7 @@ procedure finalserve;
 procedure servereact;
 procedure servestopact;//position?
 procedure servedrawtrail;//position?
+procedure servetogglepaintbox;//position?
 procedure tellserve(txt: ustring);
 procedure serveprint(txt: ustring);
 procedure serveidentdump;
@@ -141,6 +142,19 @@ begin if (uipaintbox=nil) then raiseexc(eservedrawtrailexc);
          if (infix[i]<>xnull) then raiseexc(eservedrawunexpect);
          //
       end//
+end;
+
+procedure servetogglepaintbox;
+var delta: longint;
+begin if ((uipaintbox<>nil) and (uipanel<>nil) and (uiform<>nil)) then begin
+         if uipanel.visible then delta:=uipanel.height
+                            else delta:=0;
+         if (uipaintbox.height=0) then
+            uipaintbox.height:=uiform.clientheight-delta-splitterheight
+         else uipaintbox.height:=0;
+         //
+      end
+      else raise exception.create('device is not installed (favorite)...')// provi
 end;
 
 // ------- service functions -------

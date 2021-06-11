@@ -25,6 +25,9 @@ var idxdefine: cardinal = xnil;
     idxloadtext: cardinal = xnil;
     idxsavetext: cardinal = xnil;
     idxrun: cardinal = xnil;
+    idxquit: cardinal = xnil;
+    idxtime: cardinal = xnil;
+    idxdate: cardinal = xnil;
 
 // ------- legacy -------
 procedure mundef;
@@ -196,6 +199,18 @@ begin etop:=mdict;
       //
 end;
 
+procedure mtime;
+var f: extended;
+begin f:=gettime;
+      apiput(mdict,xit,newreal(f))
+end;
+
+procedure mdate;
+var f: extended;
+begin f:=date;
+      apiput(mdict,xit,newreal(f))
+end;
+
 var aindex: int64 = 0;
 
 // ------------------
@@ -319,6 +334,9 @@ begin for i:=0 to maxproc do proc[i]:=mundef;
       idxsavetext:=newindex('savetext');
       //
       idxrun:=newindex('run');
+      idxquit:=newindex('quit');
+      idxtime:=newindex('time');
+      idxdate:=newindex('date');
       //
       proc[3] :=mdefine;
       proc[4] :=mredefine;
@@ -330,6 +348,8 @@ begin for i:=0 to maxproc do proc[i]:=mundef;
       proc[10]:=msavetext;
       proc[11]:=mrun;
       proc[12]:=mquit;
+      proc[13]:=mtime;
+      proc[14]:=mdate;
       //
 end;
 

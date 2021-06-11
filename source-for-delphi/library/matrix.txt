@@ -28,12 +28,13 @@ ismatrix == id is 'matrix
 tomatrix == 'matrix obj id
 
 matrix == .. { list
-	// [add] ==
-	// [sub] ==
+	[add] == ([1] is 'matrix) -> ((top°[0]) obj (((+ aa)°trans) aa) ° trans ° (pop°[0]) ee (pop°[1])) | fail
+	[sub] == ([1] is 'matrix) -> ((top°[0]) obj (((- aa)°trans) aa) ° trans ° (pop°[0]) ee (pop°[1])) | fail
 	[mul] == ([1] is 'matrix) -> ((top°[0]) obj (pop°[0]) MM (pop°[1]))|fail	// fail...
 	[det] == det°pop
 	[inv] == inv dip
 	[trans] == trans dip
+        // scal
 	}
 
 

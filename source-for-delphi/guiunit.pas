@@ -519,7 +519,7 @@ begin try serverun(website_url)
 end;
 
 procedure TguiForm.favoritemClick(Sender: TObject);
-begin//
+begin servetogglepaintbox
 end;
 
 procedure TguiForm.testitemClick(Sender: TObject);
