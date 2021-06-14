@@ -1,4 +1,4 @@
-## fp-interpreter strict
+## fp-interpreter (FP trivia strict)
 --> Get It ... [(for Downloading Installer)](https://www.heise.de/download/product/fp-trivia), Licence: (CC-BY-3.0) Fpstefan
 
 
