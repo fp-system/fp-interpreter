@@ -1,6 +1,6 @@
 ## fp-interpreter (FP trivia strict)
 
-Summer Sale [click here](https://github.com/fp-system/fp-interpreter/blob/master/backup/fp-interpreter-master.zip)
+Summer Sale [click here](https://github.com/fp-system/fp-interpreter/blob/master/backup/fp-interpreter-master.zip) (die guten Sachen gibt's irgendwann nicht mehr)
 
 --> Get It ... [(for Downloading Installer)](https://www.heise.de/download/product/fp-trivia), Licence: (CC-BY-3.0) Fpstefan
 
